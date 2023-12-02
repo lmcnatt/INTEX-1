@@ -1,0 +1,17 @@
+{
+  "name": "intex-1",
+  "version": "1.0.0",
+  "description": "This is our Fall Intex Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Group 3-8",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "knex": "^3.0.1",
+    "pg": "^8.11.3"
+  }
+}
