@@ -19,6 +19,9 @@ const knex = require("knex")({
     }
 });
 
+/* 
+user routes 
+*/
 app.get("/", (req, res) => {
     res.render("home");
 });
