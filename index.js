@@ -39,7 +39,7 @@ app.post("/loginsubmit", (req, res) => {
     knex.select().from("users")
         .then(user => {
 
-            res.render("It works!")
+            res.render("home")
 
             // if (user.length > 0) {
             //     // User with the provided username exists in the database
