@@ -42,16 +42,27 @@ app.post("/loginsubmit", (req, res) => {
 
             let unlocked = false;
             for (i = 0; i < user.length; i++){
-                if(user[i].username != loginUsername){
+                if(user[i].username == loginUsername){
+                    if(user[i].password == loginPassword){
+                        unlocked = true;   
+                    }
+                else{
+                    console.log(user[i].password + " | " + loginUsername)
+                    console.log(user[i].password + " | " + loginUsername)
+                }
+                    
+                        // console.log("Please correct your username")
+                        // res.render("login")
+                    }
                     // console.log(user[i].username + " | " + loginUsername)
                     // console.log("Please correct your username")
                     // res.render("login")
-                }
-                else if(user[i].password != loginPassword){
-                    // console.log(user[i].password + " | " + loginUsername)
-                    // console.log("Please correct your username")
-                    // res.render("login")
-                }
+            }
+            if(unlocked == true){
+                res.render("home")
+            }
+            else{
+                res.render("login")
             }
             
             
