@@ -19,16 +19,11 @@ const knex = require("knex")({
     }
 });
 
+/* 
+user routes 
+*/
 app.get("/", (req, res) => {
     res.render("home");
 });
 
-app.get("/login", (req, res) => {
-    res.render("login")
-}
-
-)
-
 app.listen(port, () => console.log("Website is running"));
-
-

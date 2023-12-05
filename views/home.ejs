@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>Landing Page</title>
 </head>
+
 <body>
-    <h1>INTEX baby</h1>
+    <h1>Create a website that gathers information from Provo citizens about 
+        their social media usage and mental health. Currently the only data on 
+        this topic available to Provo is the data provided by Plainsville. 
+        For future analysis, Provo wants to gather data from their own citizens. 
+        The website should have a form that asks the same questions that are in 
+        the dataset shared by Plainsville .</h1>
+    <style>
+        .nav-item {
+        list-style: none;
+        }
+    </style>
+
+    <nav class="navbar sticky-top navbar-light bg-light navbar navbar-expand-lg navbar-light bg-light" >
+        <a class="navbar-brand">Provo City</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <!-- Home button -->
+                <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <!-- Survey button -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="/survey">Take Our Survey<span class="sr-only">(current)</span></a>
+                </li>
+
+                <!-- Dashboard button -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="/dashboard">See Statistics<span class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+            <!-- Login -->
+            <li class="nav-item ml-auto">
+            <a class="nav-link" href="/login">Login</a>
+            </li>
+        </div>
+    </nav>
 </body>
 </html>
