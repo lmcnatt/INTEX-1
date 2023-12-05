@@ -60,39 +60,6 @@ app.post("/loginsubmit", (req, res) => {
             else{
                 res.redirect("login")
             }
-            
-            
-            // else{
-            //     console.log("It worked!")
-            //     res.render("Home")
-            // }
-        
-            
-
-            
-
-            // if (user.length > 0) {
-            //     // User with the provided username exists in the database
-            //     const storedPassword = user[0].Password;
-
-            //     // Now you can compare storedPassword with req.body.login_password
-            //     // For security reasons, you should hash the passwords and compare the hashes
-
-            //     // Example: (you should use a proper password hashing library)
-            //     const bcrypt = require("bcrypt");
-            //     const isPasswordValid = bcrypt.compareSync(req.body.login_password, storedPassword);
-
-            //     if (isPasswordValid) {
-            //         // Password is valid, you can proceed with login
-            //         res.render("adminDashboard");
-            //     } else {
-            //         // Password is not valid
-            //         res.render("login");
-            //     }
-            // } else {
-            //     // User with the provided username doesn't exist
-            //     res.send("User not found");
-            // }
         })
         .catch((error) => {
             // Handle any database error
@@ -128,6 +95,17 @@ app.get("/entryDetails/:id", (req, res) => {
 
 app.get("/createAcc", (req, res) => {
     res.render("createAcc");
+});
+
+app.post("/createAccSubmission", (req, res) => {
+    knex.insert({username: req.body.login_username, password: req.body.login_password, first_name: req.body.login_firstname, last_name: req.body.login_lastname}).from("users")
+    .then(user => {
+        res.redirect("adminDashboard")
+    })
+    .catch(err => {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+    });
 });
 
 app.get("/modifyAcc", (req, res) => {
