@@ -51,32 +51,4 @@ app.get("/adminDashboard", (req, res) => {
 });
 
 
-app.get("/login", (req, res) => {
-    res.render("login");
-});
-
-app.get("/createAcc", (req, res) => {
-    res.render("createAcc");
-});
-
-app.get("/modifyAcc", (req, res) => {
-    res.render("modifyAcc");
-});
-
-app.get("/survey", (req, res) => {
-    res.render("survey");
-});
-
-app.get("/dashboard", (req, res) => {
-    res.render("dashboard");
-});
-
-app.get("/adminDashboard", (req, res) => {
-    res.render("adminDashboard");
-});
-
-
-app.get("/survey", (req, res) => {
-    res.render("survey");
-});
 app.listen(port, () => console.log("Website is running"));
