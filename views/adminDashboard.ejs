@@ -16,6 +16,37 @@
         <form action="/modifyAcc" method="get">
             <button type="submit">Edit Account</button>
         </form>
+        <div>
+            <h1>Entries</h1>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Entry Number</th>
+                        <th>Timestamp</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Relationship</th>
+                        <th>Occupation</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let i = 0; i < myEntries.length; i++) { %>
+                        <tr>
+                            <td><%= myEntries[i].entry_id %></td>
+                            <td><%= myEntries[i].timestamp %></td>
+                            <td><%= myEntries[i].age %></td>
+                            <td><%= myEntries[i].gender %></td>
+                            <td><%= myEntries[i].relationship %></td>
+                            <td><%= myEntries[i].occupation %></td>
+                            <td><%= myEntries[i].location %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
