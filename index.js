@@ -38,28 +38,31 @@ app.post("/loginsubmit", (req, res) => {
 
     knex.select("username", "password").from("users").where("Username", loginUsername)
         .then((user) => {
-            if (user.length > 0) {
-                // User with the provided username exists in the database
-                const storedPassword = user[0].Password;
 
-                // Now you can compare storedPassword with req.body.login_password
-                // For security reasons, you should hash the passwords and compare the hashes
+            res.render("It works!")
 
-                // Example: (you should use a proper password hashing library)
-                const bcrypt = require("bcrypt");
-                const isPasswordValid = bcrypt.compareSync(req.body.login_password, storedPassword);
+            // if (user.length > 0) {
+            //     // User with the provided username exists in the database
+            //     const storedPassword = user[0].Password;
 
-                if (isPasswordValid) {
-                    // Password is valid, you can proceed with login
-                    res.render("adminDashboard");
-                } else {
-                    // Password is not valid
-                    res.render("login");
-                }
-            } else {
-                // User with the provided username doesn't exist
-                res.send("User not found");
-            }
+            //     // Now you can compare storedPassword with req.body.login_password
+            //     // For security reasons, you should hash the passwords and compare the hashes
+
+            //     // Example: (you should use a proper password hashing library)
+            //     const bcrypt = require("bcrypt");
+            //     const isPasswordValid = bcrypt.compareSync(req.body.login_password, storedPassword);
+
+            //     if (isPasswordValid) {
+            //         // Password is valid, you can proceed with login
+            //         res.render("adminDashboard");
+            //     } else {
+            //         // Password is not valid
+            //         res.render("login");
+            //     }
+            // } else {
+            //     // User with the provided username doesn't exist
+            //     res.send("User not found");
+            // }
         })
         .catch((error) => {
             // Handle any database error
