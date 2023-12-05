@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Entry #<%= myEntries[0].entry_id %></title>
 </head>
 <body>
-    
+    <div>
+        <p>Entry Number: <%= myEntries[0].entry_id %></p>
+        <p>Timestamp: <%= myEntries[0].timestamp %></p>
+        <p>1. Age: <%= myEntries[0].age %></p>
+        <p>2. Gender: <%= myEntries[0].gender %></p>
+        <p>3. Relationship status: <%= myEntries[0].relationship %></p>
+        <p>4. Occupation status: <%= myEntries[0].occupation %></p>
+        <!--What type of organizations are you affiliated with?
+        <p>5. What type of organizations are you affiliated with? 
+            <% for (let i = 0; myEntries.length; i++) { %>
+                <%= myEntries[i].organization_name %>, 
+            <% } %>
+        </p>-->
+        <p>6. Do you use social media? <%= myEntries[0].use_sm %></p>
+        <!--What social media platforms do you commonly use?-->
+        <p>8. What is the average time you spend on social media every day? <%= myEntries[0].avg_daily_sm_use %></p>
+        <p>9. How often do you find yourself using social media without a specific purpose? <%= myEntries[0].no_purpose_use_score %></p>
+        <p>10. How often do you get distracted by social media when you are busy doing something? <%= myEntries[0].distracted_use_score %></p>
+        <p>11. Do you feel restless if you haven’t used social media in a while? <%= myEntries[0].restlessness_without_sm_score %></p>
+        <p>12. How easily distracted are you? <%= myEntries[0].general_distraction_score %></p>
+        <p>13. How much are you bothered by worries? <%= myEntries[0].bothered_by_worries_score %></p>
+        <p>14. Do you find it difficult to concentrate on things? <%= myEntries[0].concentration_difficulty_score %></p>
+        <p>15. How often do you compare yourself to other successful people through the use of social media? <%= myEntries[0].freq_comparison_to_successful_people_via_sm_score %></p>
+        <p>16. Following the previous question, how do you feel about these comparisons, generally speaking? <%= myEntries[0].feelings_about_comparison_score %></p>
+        <p>17. How often do you look to seek validation from features of social media? <%= myEntries[0].validation_seeking_from_sm_score %></p>
+        <p>18. How often do you feel depressed or down? <%= myEntries[0].freq_depressed_or_down_score %></p>
+        <p>19. How frequently does your interested in daily activities fluctuate? <%= myEntries[0].freq_fluctuation_of_interest_in_daily_activities_score %></p>
+        <p>20. How often do you face issues regarding sleep? <%= myEntries[0].freq_sleep_issues_score %></p>
+        <p>Location: <%= myEntries[0].location %></p>
+
+    </div>
 </body>
 </html>

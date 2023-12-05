@@ -113,12 +113,12 @@ app.get("/adminDashboard", (req, res) => {
     });
 });
 
-app.get("entryDetails/:id", (req, res) => {
+app.get("/entryDetails/:id", (req, res) => {
     knex('entries').select()
         .innerJoin('social_media_data', 'entries.entry_id', 'social_media_data.entry_id')
         .innerJoin('organizations', 'social_media_data.organization_id', 'organizations.organization_id')
         .innerJoin('platforms', 'social_media_data.platform_id', 'platforms.platform_id')
-    .where({entry_id: parseInt(req.params.id)}).then(entries => {
+    .where({'entries.entry_id': parseInt(req.params.id)}).then(entries => {
         res.render('entryDetails', {myEntries: entries});
     }).catch(err => {
         console.error(err);
