@@ -109,6 +109,14 @@ app.post("/createAcc", (req, res) => {
 });
 
 app.get("/modifyAcc", (req, res) => {
+
+    knex.select("username", "password").from("users")
+        .then(user => {
+            res.render("modifyAcc", {user: user});
+        });
+});
+
+app.post("/modifyAcc", (req, res) => {
     res.render("modifyAcc");
 });
 
