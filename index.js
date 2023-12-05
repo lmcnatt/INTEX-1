@@ -68,6 +68,17 @@ app.post("/loginsubmit", (req, res) => {
         });
 });
 
+app.get("/adminDashboard", (req, res) => {
+    knex("entries").select("entry_id",
+                           "timestamp",
+                           "age",
+                           "gender",
+                           "relationship",
+                           "occupation",
+                           "location").orderBy("entry_id").then(entries => {
+        res.render("adminDashboard", {myEntries: entries});
+    });
+});
 
 app.get("/createAcc", (req, res) => {
     res.render("createAcc");
