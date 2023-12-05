@@ -35,11 +35,26 @@ app.get("/login", (req, res) => {
 
 app.post("/loginsubmit", (req, res) => {
     const loginUsername = req.body.login_username;
+    const loginPassword = req.body.login_password;
 
     knex.select("username", "password").from("users")
         .then(user => {
 
-            res.render("home")
+            if(user.username != loginUsername){
+                console.log("Please correct your username")
+                res.render("login")
+            }
+            else if(user.password != loginPassword){
+                console.log("Please correct your username")
+                res.render("login")
+            }
+            else{
+                console.log("It worked!")
+                res.render("Home")
+            }
+            
+
+            
 
             // if (user.length > 0) {
             //     // User with the provided username exists in the database
