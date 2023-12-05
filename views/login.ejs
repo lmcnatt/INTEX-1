@@ -12,18 +12,17 @@
                 <h1>Log in</h1>
                 <br>
                 <p id="warning_id"></p>
-                <form action="/loginsubmit" method="post">
+                <form action="/loginsubmit" method="POST
                     <label for="username">Username</label>
-                    <Input></Input>
+                    <Input type="text" id="login_username" name="login_username"></Input>
                     <br>
                     <br>
                     <label for="password">Password</label>
+                    <Input type="text" id="login_password" name="login_password"></Input>
+                    <br>
+                    <br>
                     <Input type="submit" value="Log In"></Input>
                 </form>
-                <br>
-                <div class="container">
-                    <button type="submit" id="adminLogIn" name="adminLogIn" class="btn btn-outline-primary">Log In</button>
-                </div>
             </div>
         </div>
 </body>
