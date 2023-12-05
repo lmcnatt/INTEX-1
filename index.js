@@ -33,6 +33,12 @@ app.get("/login", (req, res) => {
     res.render("login");
 });
 
+app.post("/loginsubmit", (req, res) => {
+    knex.select().from("users").where("password", req.body.login_username).then()
+    res.render("login");
+
+});
+
 app.get("/createAcc", (req, res) => {
     res.render("createAcc");
 });
