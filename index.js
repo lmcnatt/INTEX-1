@@ -56,7 +56,7 @@ app.post("/loginsubmit", (req, res) => {
                     // res.render("login")
             }
             if(unlocked == true){
-                res.render("home")
+                res.render("adminDashboard")
             }
             else{
                 res.render("login")
