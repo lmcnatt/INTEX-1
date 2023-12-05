@@ -60,6 +60,7 @@ app.post("/loginsubmit", (req, res) => {
                 // console.log(user[i].username + " | " + loginUsername)
                 // console.log(user[i].password + " | " + loginPassword)
                 if(user[i].username == loginUsername && user[i].password == loginPassword){
+                    sessionStorage.setItem(i)
                     unlocked = true;   
                 }
             }
