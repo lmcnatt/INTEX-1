@@ -176,8 +176,4 @@ app.get("/dashboard", (req, res) => {
     res.render("dashboard");
 });
 
-app.get("/adminDashboard", (req, res) => {
-    res.render("adminDashboard");
-});
-
 app.listen(port, () => console.log("Website is running"));
