@@ -33,7 +33,7 @@
                     <br>
                     <label for="password">Password</label>
                     <input type="text" id="login_password" name="login_password" value="<%= user[0].password%>">
-                    <input type="checkbox" onclick="ShowPassword()">Show Password
+                    <input type="checkbox" onclick="ShowPassword(document.getElementById(login_password))">Show Password
                     <br>
                     <br>
                     <input type="submit" value="Log In"></Input>
@@ -41,17 +41,6 @@
                 
             </div>
         </div>
-        <script>
-
-        function ShowPassword() {
-            var x = document.getElementById("login_password");
-            if (x.type === "password") {
-                x.type = "text";
-            } else {
-                x.type = "password";
-            }
-        }
-
-        </script>
+        <script scr="/scripts/scripts.js"></script>
 </body>
 </html>
