@@ -13,14 +13,35 @@
         <p>2. Gender: <%= myEntries[0].gender %></p>
         <p>3. Relationship status: <%= myEntries[0].relationship %></p>
         <p>4. Occupation status: <%= myEntries[0].occupation %></p>
-        <!--What type of organizations are you affiliated with?
         <p>5. What type of organizations are you affiliated with? 
-            <% for (let i = 0; myEntries.length; i++) { %>
-                <%= myEntries[i].organization_name %>, 
-            <% } %>
-        </p>-->
+            <% 
+            for (let i = 0; i < myEntries.length; i++) {
+                if ((i + 1) == myEntries.length) { %>
+                    <%= myEntries[i].organization_name %>
+            <%  }
+                else {
+                    if (myEntries[i + 1].organization_name !== myEntries[i].organization_name) { %>
+                        <%= myEntries[i].organization_name %>, 
+                <%  }
+                }
+            }
+            %>
+        </p>
         <p>6. Do you use social media? <%= myEntries[0].use_sm %></p>
-        <!--What social media platforms do you commonly use?-->
+        <p>7. What social media platforms do you commonly use? 
+            <% 
+            for (let i = 0; i < myEntries.length; i++) {
+                if ((i + 1) == myEntries.length) { %>
+                    <%= myEntries[i].platform_name %>
+            <%  }
+                else {
+                    if (myEntries[i + 1].platform_name !== myEntries[i].platform_name) { %>
+                        <%= myEntries[i].platform_name %>, 
+                <%  }
+                }
+            }
+            %>
+        </p>
         <p>8. What is the average time you spend on social media every day? <%= myEntries[0].avg_daily_sm_use %></p>
         <p>9. How often do you find yourself using social media without a specific purpose? <%= myEntries[0].no_purpose_use_score %></p>
         <p>10. How often do you get distracted by social media when you are busy doing something? <%= myEntries[0].distracted_use_score %></p>
