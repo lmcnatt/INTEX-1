@@ -34,10 +34,40 @@ app.get("/login", (req, res) => {
 });
 
 app.post("/loginsubmit", (req, res) => {
-    knex.select().from("users").where("password", req.body.login_username).then()
-    res.render("login");
+    const loginUsername = req.body.login_username;
 
+    knex.select("Username", "Password").from("users").where("Username", loginUsername)
+        .then((user) => {
+            if (user.length > 0) {
+                // User with the provided username exists in the database
+                const storedPassword = user[0].Password;
+
+                // Now you can compare storedPassword with req.body.login_password
+                // For security reasons, you should hash the passwords and compare the hashes
+
+                // Example: (you should use a proper password hashing library)
+                const bcrypt = require("bcrypt");
+                const isPasswordValid = bcrypt.compareSync(req.body.login_password, storedPassword);
+
+                if (isPasswordValid) {
+                    // Password is valid, you can proceed with login
+                    res.send("Login successful");
+                } else {
+                    // Password is not valid
+                    res.send("Invalid password");
+                }
+            } else {
+                // User with the provided username doesn't exist
+                res.send("User not found");
+            }
+        })
+        .catch((error) => {
+            // Handle any database error
+            console.error(error);
+            res.status(500).send("Internal Server Error");
+        });
 });
+
 
 app.get("/createAcc", (req, res) => {
     res.render("createAcc");
