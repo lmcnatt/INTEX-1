@@ -36,7 +36,7 @@ app.get("/login", (req, res) => {
 app.post("/loginsubmit", (req, res) => {
     const loginUsername = req.body.login_username;
 
-    knex.select("Username", "Password").from("users").where("Username", loginUsername)
+    knex.select("username", "password").from("users").where("Username", loginUsername)
         .then((user) => {
             if (user.length > 0) {
                 // User with the provided username exists in the database
