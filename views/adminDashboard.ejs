@@ -42,6 +42,11 @@
                             <td><%= myEntries[i].relationship %></td>
                             <td><%= myEntries[i].occupation %></td>
                             <td><%= myEntries[i].location %></td>
+                            <td>
+                                <form action="/entryDetails/<%= myEntries[i].entry_id %>" method="get">
+                                    <button type="submit">Details</button>
+                                </form>
+                            </td>
                         </tr>
                     <% } %>
                 </tbody>
