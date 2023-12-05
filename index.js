@@ -45,7 +45,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-    res.render("login");
+    if (req.session.userID != null){
+        res.redirect("adminDashboard")
+    }
+    else{
+        res.render("login");
+    }
+
 });
 
 app.post("/loginsubmit", (req, res) => {
