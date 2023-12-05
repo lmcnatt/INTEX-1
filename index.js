@@ -137,7 +137,26 @@ app.get("/survey", (req, res) => {
 app.post("/submitSurvey", (req, res) => {
     knex("entries").insert({
         age: req.body.age,
-        gender: req.body.gender
+        gender: req.body.gender,
+        relationship: req.body.relationship,
+        occupation: req.body.occupation,
+        use_sm: req.body.use_sm,
+        avg_dail_sm_use: req.body.avg_dail_sm_use,
+        no_purpose_use_score: req.body.no_purpose_use_score,
+        distracted_use_score: req.body.distracted_use_score,
+        restlessness_without_sm_score: req.body.restlessness_without_sm_score,
+        general_distraction_score: req.body.general_distraction_score,
+        bothered_by_worries_score: req.body.bothered_by_worries_score,
+        concentration_difficulty_score: req.body.concentration_difficulty_score,
+        freq_comparison_to_successful_people_via_sm_score: req.body.freq_comparison_to_successful_people_via_sm_score,
+        feelings_about_comparison_score: req.body.feelings_about_comparison_score,
+        validation_seeking_from_sm_score: req.body.validation_seeking_from_sm_score,
+        freq_feeling_depressed_or_down_score: req.body.freq_feeling_depressed_or_down_score,
+        freq_fluctuation_of_interest_in_daily_activities_score: req.body.freq_fluctuation_of_interest_in_daily_activities_score,
+        freq_sleep_issues_score: req.body.freq_sleep_issues_score,
+        location: req.body.location
+    }).then(myEntries => {
+        res.redirect("/");
     }).catch(err => {
         console.error(err);
         res.status(500).send("Internal Server Error");
