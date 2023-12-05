@@ -5,47 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <style>
-        input[type="range"] {
-            width: 300px;
-        }
-
-        datalist {
-            display: flex;
-            justify-content: space-between;
-            padding: 0 10px;
-        }
-      </style>
 </head>
 <body>
     <form>
         <fieldset>
             <legend>Social Media Survey</legend>
             <label for="numAge">What is your age? </label>
-            <input type="number" id="numAge" name="age" min="1">
+            <input type="number" id="numAge" name="age">
             <br><br>
             <label for="txtGender">Gender</label>
             <select id="txtGender" name="gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other</option>
             </select>
             <br><br>
             <label for="rStatus">Relationship Status</label>
             <select id="rStatus" name="relationship">
-                <option value="In a relationship">In a relationship</option>
-                <option value="Single">Single</option>
-                <option value="Married">Married</option>
-                <option value="Divorced">Divorced</option>
+                <option value="R">In a relationship</option>
+                <option value="S">Single</option>
+                <option value="M">Married</option>
+                <option value="D">Divorced</option>
             </select>
             <br><br>
             <label for="oStatus">Occupation Status</label>
             <select id="oStatus" name="occupation">
-                <option value="University Student">University Student</option>
-                <option value="School Student">School Student</option>
-                <option value="Salaried Worker">Salaried Worker</option>
-                <option value="Retired">Retired</option>
+                <option value="UNI">University Student</option>
+                <option value="SCH">School Student</option>
+                <option value="SAL">Salaried Worker</option>
+                <option value="RET">Retired</option>
             </select>
             <br><br>
             <label>What type of organizations are you affiliated with? (select all that apply)</label>
@@ -79,70 +67,30 @@
             <label>What social media platforms do you commonly use?</label>
             <br><br>
             <label>What is the average time you spend on social media every day?</label>
-            <select id="avgTime" name="timespent">
-                <option value="Less than an Hour">Less than an Hour</option>
-                <option value="Between 1 and 2 hours">Between 1 and 2 hours</option>
-                <option value="Between 2 and 3 hours">Between 2 and 3 hours</option>
-                <option value="Between 3 and 4 hours">Between 3 and 4 hours</option>
-                <option value="Between 4 and 5 hours">Between 4 and 5 hours</option>
-                <option value="More than 5 hours">More than 5 hours</option>
-            </select>
             <br><br>
             <label>How often do you find yourself using social media without a specific purpose?</label>
-            <br>
-            <label for="useFreq">On a scale of 1-5, how often do you compare yourself to other successful people through the use of social media?</label><br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1" list="tickmarks">
-            <datalist id="tickmarks" style="display: flex; justify-content: space-evenly; padding: 0; margin: 0;">
-                <option  value="1" label="Not often">
-                <option  value="2" label="Sometimes">
-                <option value="3" label="Moderately">
-                <option value="4" label="Often">
-                <option value="5" label="Very often">
-            </datalist>
             <br><br>
             <label>How often do you get distracted by social media when you are busy doing something?</label>
-            <br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
             <br><br>
             <label>Do you feel restless if you haven't used social media in a while?</label>
-            <br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
             <br><br>
             <label>On a scale of 1 to 5, how easily distracted are you?</label>
-            <br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
             <br><br>
             <label>On a scale of 1 to 5, how much are you bothered by worries?</label>
-            <br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
             <br><br>
             <label>Do you find it difficult to concentrate on things?</label>
-            <br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
             <br><br>
             <label>On a scale of 1-5, how often do you compare yourself to other successful people through the use of social media?</label>
-            <br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
             <br><br>
             <label>Following the previous question, how do you feel about these comparisons, generally speaking?</label>
-            <br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
             <br><br>
             <label>How often do you look to seek validation from features of social media?</label>
-            <br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
             <br><br>
             <label>How often do you feel depressed or down?</label>
-            <br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
             <br><br>
             <label>On a scale of 1 to 5, how frequently does your interest in daily activities fluctuate?</label>
-            <br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
             <br><br>
             <label>On a scale of 1 to 5, how often do you face issues regarding sleep?</label>
-            <br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
 
         </fieldset>
     </form>
