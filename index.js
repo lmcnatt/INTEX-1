@@ -35,11 +35,34 @@ app.get("/login", (req, res) => {
 
 app.post("/loginsubmit", (req, res) => {
     const loginUsername = req.body.login_username;
+    const loginPassword = req.body.login_password;
 
-    knex.select().from("users")
-        .then((user) => {
+    knex.select("username", "password").from("users")
+        .then(user => {
 
-            res.render("It works!")
+            let unlocked = false;
+            for (i = 0; i < user.length; i++){
+                if(user[i].username != loginUsername){
+                    // console.log(user[i].username + " | " + loginUsername)
+                    // console.log("Please correct your username")
+                    // res.render("login")
+                }
+                else if(user[i].password != loginPassword){
+                    // console.log(user[i].password + " | " + loginUsername)
+                    // console.log("Please correct your username")
+                    // res.render("login")
+                }
+            }
+            
+            
+            // else{
+            //     console.log("It worked!")
+            //     res.render("Home")
+            // }
+        
+            
+
+            
 
             // if (user.length > 0) {
             //     // User with the provided username exists in the database
