@@ -28,7 +28,7 @@ app.use(session({
 
 const authenticate = (req, res, next) => {
     if (!req.session.loggedIn) {
-      return res.redirect('/login'); // Redirect to login if not logged in
+        return res.redirect('/login'); // Redirect to login if not logged in
     }
     next(); // Continue to the next middleware or route handler
   };
@@ -64,6 +64,7 @@ app.post("/loginsubmit", (req, res) => {
                 }
             }
             if(unlocked == true){
+                req.session.loggedIn = true;
                 res.redirect("adminDashboard")
             }
             else{
