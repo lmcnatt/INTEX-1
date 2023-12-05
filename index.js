@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const session = require("express-session");
 let app = express();
 const port = process.env.PORT || 3000;
 app.use(express.urlencoded({extended: true}));
@@ -18,6 +19,20 @@ const knex = require("knex")({
         ssl: process.env.DB_SSL ? {rejectUnauthorized: false} : false
     }
 });
+
+app.use(session({
+    secret: "social media secrets",
+    resave: false,
+    saveUninitialized: true
+}));
+
+const authenticate = (req, res, next) => {
+    if (!req.session.loggedIn) {
+      return res.redirect('/login'); // Redirect to login if not logged in
+    }
+    next(); // Continue to the next middleware or route handler
+  };
+  
 
 /* 
 user routes 
@@ -68,7 +83,7 @@ app.post("/loginsubmit", (req, res) => {
         });
 });
 
-app.get("/adminDashboard", (req, res) => {
+app.get("/adminDashboard", authenticate, (req, res) => {
     knex("entries").select("entry_id",
                            "timestamp",
                            "age",
