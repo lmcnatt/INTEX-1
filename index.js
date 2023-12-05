@@ -41,10 +41,12 @@ app.post("/loginsubmit", (req, res) => {
         .then(user => {
 
             if(user.username != loginUsername){
+                console.log(user.username + " | " + loginUsername)
                 console.log("Please correct your username")
                 res.render("login")
             }
             else if(user.password != loginPassword){
+                console.log(user.password + " | " + loginUsername)
                 console.log("Please correct your username")
                 res.render("login")
             }
