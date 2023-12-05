@@ -142,6 +142,24 @@ app.get("/survey", (req, res) => {
     res.render("survey");
 });
 
+app.post("/submitSurvey", (req, res) => {
+    knex("entries").insert({
+        age: req.body.age,
+        gender: req.body.gender
+    }).catch(err => {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+    });
+
+    /*
+    knex("social_media_data").insert({
+
+    }).catch(err => {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+    });*/
+});
+
 app.get("/dashboard", (req, res) => {
     res.render("dashboard");
 });
