@@ -40,7 +40,13 @@
             </div>
         </div>
         <script>
-            document.getElementById("login_firstname").value
+            i = sessionStorage.getItem()
+
+            document.getElementById("login_firstname").value = user[i].first_name
+            document.getElementById("login_lastname").value = user[i].last_name
+            document.getElementById("login_username").value = user[i].username
+            document.getElementById("login_password").value = user[i].password
+            
         </script>
 </body>
 </html>
