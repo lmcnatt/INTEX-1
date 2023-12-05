@@ -20,33 +20,38 @@
                 <p id="warning_id"></p>
                 <form action="/modifyAcc" method="POST">
                     <label for="FirstName">First Name</label>
-                    <Input type="text" id="login_firstname" name="login_firstname"></Input>
+                    <input type="text" id="login_firstname" name="login_firstname" value="<%= user[0].first_name%>">
                     <br>
                     <br>
                     <label for="LastName">Last Name</label>
-                    <Input type="text" id="login_lastname" name="login_lastname"></Input>
+                    <input type="text" id="login_lastname" name="login_lastname" value="<%= user[0].last_name%>">
                     <br>
                     <br>
                     <label for="username">Username</label>
-                    <Input type="text" id="login_username" name="login_username"></Input>
+                    <input type="text" id="login_username" name="login_username" value="<%= user[0].username%>">
                     <br>
                     <br>
                     <label for="password">Password</label>
-                    <Input type="text" id="login_password" name="login_password"></Input>
+                    <input type="text" id="login_password" name="login_password" value="<%= user[0].password%>">
+                    <input type="checkbox" onclick="ShowPassword()">Show Password
                     <br>
                     <br>
-                    <Input type="submit" value="Log In"></Input>
+                    <input type="submit" value="Log In"></Input>
                 </form>
+                
             </div>
         </div>
         <script>
-            i = sessionStorage.getItem()
 
-            document.getElementById("login_firstname").value = user[i].first_name
-            document.getElementById("login_lastname").value = user[i].last_name
-            document.getElementById("login_username").value = user[i].username
-            document.getElementById("login_password").value = user[i].password
-            
+        function ShowPassword() {
+        var x = document.getElementById("login_password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        }
+
         </script>
 </body>
 </html>
