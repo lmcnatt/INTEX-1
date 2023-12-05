@@ -37,7 +37,7 @@ app.post("/loginsubmit", (req, res) => {
     const loginUsername = req.body.login_username;
 
     knex.select().from("users")
-        .then((user) => {
+        .then(user => {
 
             res.render("It works!")
 
