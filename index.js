@@ -103,11 +103,11 @@ app.get("/entryDetails/:id", (req, res) => {
     });
 });
 
-app.get("/createAcc", (req, res) => {
+app.get("/createAcc", authenticate, (req, res) => {
     res.render("createAcc");
 });
 
-app.post("/createAcc", (req, res) => {
+app.post("/createAcc", authenticate, (req, res) => {
     knex.insert({username: req.body.login_username, password: req.body.login_password, first_name: req.body.login_firstname, last_name: req.body.login_lastname}).from("users")
     .then(user => {
         res.redirect("adminDashboard")
@@ -118,8 +118,8 @@ app.post("/createAcc", (req, res) => {
     });
 });
 
-app.get("/modifyAcc", (req, res) => {
-    
+app.get("/modifyAcc", authenticate, (req, res) => {
+
     knex.select("username", "password", "first_name", "last_name").from("users")
         .then(user => {
             res.render("modifyAcc", {user: user});
