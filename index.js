@@ -52,7 +52,7 @@ app.post("/loginsubmit", (req, res) => {
     const loginUsername = req.body.login_username;
     const loginPassword = req.body.login_password;
 
-    knex.select("username", "password").from("users")
+    knex.select("user_id", "username", "password").from("users")
         .then(user => {
 
             let unlocked = false;
@@ -60,7 +60,8 @@ app.post("/loginsubmit", (req, res) => {
                 // console.log(user[i].username + " | " + loginUsername)
                 // console.log(user[i].password + " | " + loginPassword)
                 if(user[i].username == loginUsername && user[i].password == loginPassword){
-                    unlocked = true;   
+                    unlocked = true;
+                    req.session.userID = user[i].user_id;
                 }
             }
             if (unlocked == true) {
@@ -120,7 +121,7 @@ app.post("/createAcc", authenticate, (req, res) => {
 
 app.get("/modifyAcc", authenticate, (req, res) => {
 
-    knex.select("username", "password", "first_name", "last_name").from("users")
+    knex.select("user_id", "username", "password", "first_name", "last_name").from("users").where({"user_id": req.session.userID})
         .then(user => {
             res.render("modifyAcc", {user: user});
         });
