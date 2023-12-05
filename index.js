@@ -42,15 +42,12 @@ app.post("/loginsubmit", (req, res) => {
 
             let unlocked = false;
             for (i = 0; i < user.length; i++){
+                console.log(user[i].username + " | " + loginUsername)
+                console.log(user[i].password + " | " + loginPassword)
                 if(user[i].username == loginUsername){
                     if(user[i].password == loginPassword){
                         unlocked = true;   
                     }
-                else{
-                    console.log(user[i].password + " | " + loginUsername)
-                    console.log(user[i].password + " | " + loginUsername)
-                }
-                    
                         // console.log("Please correct your username")
                         // res.render("login")
                     }
