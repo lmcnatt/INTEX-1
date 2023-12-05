@@ -40,12 +40,12 @@ app.post("/loginsubmit", (req, res) => {
     knex.select("username", "password").from("users")
         .then(user => {
 
-            if(user.username != loginUsername){
+            if(user[0].username != loginUsername){
                 console.log(user.username + " | " + loginUsername)
                 console.log("Please correct your username")
                 res.render("login")
             }
-            else if(user.password != loginPassword){
+            else if(user[0].password != loginPassword){
                 console.log(user.password + " | " + loginUsername)
                 console.log("Please correct your username")
                 res.render("login")
