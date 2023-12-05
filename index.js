@@ -103,11 +103,11 @@ app.get("/entryDetails/:id", authenticate, (req, res) => {
     });
 });
 
-app.get("/createAcc", (req, res) => {
+app.get("/createAcc", authenticate, (req, res) => {
     res.render("createAcc");
 });
 
-app.post("/createAcc", (req, res) => {
+app.post("/createAcc", authenticate, (req, res) => {
     knex.insert({username: req.body.login_username, password: req.body.login_password, first_name: req.body.login_firstname, last_name: req.body.login_lastname}).from("users")
     .then(user => {
         res.redirect("adminDashboard")
@@ -118,8 +118,8 @@ app.post("/createAcc", (req, res) => {
     });
 });
 
-app.get("/modifyAcc", (req, res) => {
-    
+app.get("/modifyAcc", authenticate, (req, res) => {
+
     knex.select("username", "password", "first_name", "last_name").from("users")
         .then(user => {
             res.render("modifyAcc", {user: user});
@@ -137,7 +137,26 @@ app.get("/survey", (req, res) => {
 app.post("/submitSurvey", (req, res) => {
     knex("entries").insert({
         age: req.body.age,
-        gender: req.body.gender
+        gender: req.body.gender,
+        relationship: req.body.relationship,
+        occupation: req.body.occupation,
+        use_sm: req.body.use_sm,
+        avg_dail_sm_use: req.body.avg_dail_sm_use,
+        no_purpose_use_score: req.body.no_purpose_use_score,
+        distracted_use_score: req.body.distracted_use_score,
+        restlessness_without_sm_score: req.body.restlessness_without_sm_score,
+        general_distraction_score: req.body.general_distraction_score,
+        bothered_by_worries_score: req.body.bothered_by_worries_score,
+        concentration_difficulty_score: req.body.concentration_difficulty_score,
+        freq_comparison_to_successful_people_via_sm_score: req.body.freq_comparison_to_successful_people_via_sm_score,
+        feelings_about_comparison_score: req.body.feelings_about_comparison_score,
+        validation_seeking_from_sm_score: req.body.validation_seeking_from_sm_score,
+        freq_feeling_depressed_or_down_score: req.body.freq_feeling_depressed_or_down_score,
+        freq_fluctuation_of_interest_in_daily_activities_score: req.body.freq_fluctuation_of_interest_in_daily_activities_score,
+        freq_sleep_issues_score: req.body.freq_sleep_issues_score,
+        location: req.body.location
+    }).then(myEntries => {
+        res.redirect("/");
     }).catch(err => {
         console.error(err);
         res.status(500).send("Internal Server Error");
