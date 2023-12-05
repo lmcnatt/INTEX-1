@@ -22,13 +22,35 @@ const knex = require("knex")({
 /* 
 user routes 
 */
+/* 
+user routes 
+*/
 app.get("/", (req, res) => {
     res.render("home");
 });
 
-app.get("/", (req, res) => {
-    res.render("login")
-}
-)
+app.get("/login", (req, res) => {
+    res.render("login");
+});
+
+app.get("/createAcc", (req, res) => {
+    res.render("createAcc");
+});
+
+app.get("/modifyAcc", (req, res) => {
+    res.render("modifyAcc");
+});
+
+app.get("/survey", (req, res) => {
+    res.render("survey");
+});
+
+app.get("/dashboard", (req, res) => {
+    res.render("dashboard");
+});
+
+app.get("/adminDashboard", (req, res) => {
+    res.render("adminDashboard");
+});
 
 app.listen(port, () => console.log("Website is running"));
