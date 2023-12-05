@@ -63,11 +63,11 @@ app.post("/loginsubmit", (req, res) => {
                     unlocked = true;   
                 }
             }
-            if(unlocked == true){
+            if (unlocked == true) {
                 req.session.loggedIn = true;
                 res.redirect("adminDashboard")
             }
-            else{
+            else {
                 res.redirect("login")
             }
         })
