@@ -119,7 +119,7 @@ app.post("/createAcc", (req, res) => {
 });
 
 app.get("/modifyAcc", (req, res) => {
-
+    
     knex.select("username", "password", "first_name", "last_name").from("users")
         .then(user => {
             res.render("modifyAcc", {user: user});
