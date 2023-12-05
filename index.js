@@ -44,22 +44,21 @@ app.post("/loginsubmit", (req, res) => {
             for (i = 0; i < user.length; i++){
                 console.log(user[i].username + " | " + loginUsername)
                 console.log(user[i].password + " | " + loginPassword)
-                if(user[i].username == loginUsername){
-                    if(user[i].password == loginPassword){
-                        unlocked = true;   
-                    }
+                if(user[i].username == loginUsername && user[i].password == loginPassword){
+                    unlocked = true;   
+                    
                         // console.log("Please correct your username")
                         // res.render("login")
-                    }
+                }
                     // console.log(user[i].username + " | " + loginUsername)
                     // console.log("Please correct your username")
                     // res.render("login")
             }
             if(unlocked == true){
-                res.render("adminDashboard")
+                res.redirect("adminDashboard")
             }
             else{
-                res.render("login")
+                res.redirect("login")
             }
             
             
