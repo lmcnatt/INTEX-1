@@ -142,7 +142,7 @@ app.post("/submitSurvey", (req, res) => {
         relationship: req.body.relationship,
         occupation: req.body.occupation,
         use_sm: req.body.use_sm,
-        avg_dail_sm_use: req.body.avg_dail_sm_use,
+        avg_daily_sm_use: req.body.avg_daily_sm_use,
         no_purpose_use_score: req.body.no_purpose_use_score,
         distracted_use_score: req.body.distracted_use_score,
         restlessness_without_sm_score: req.body.restlessness_without_sm_score,
