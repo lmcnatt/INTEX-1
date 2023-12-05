@@ -36,7 +36,7 @@ app.get("/login", (req, res) => {
 app.post("/loginsubmit", (req, res) => {
     const loginUsername = req.body.login_username;
 
-    knex.select().from("users")
+    knex.select("username", "password").from("users")
         .then(user => {
 
             res.render("home")
