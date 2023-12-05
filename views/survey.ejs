@@ -72,6 +72,7 @@
             <form>
                 <input type="radio" id="rbUseSM" name="SMUse" value="Yes">
                 <label for="rbUseSM">Yes</label>
+                <br>
                 <input type="radio" id="rbNotUse" name="SMUse" value="No">
                 <label for="rbNotUse">No</label>
             </form>
@@ -89,25 +90,108 @@
             </select>
             <br><br>
             <label>How often do you find yourself using social media without a specific purpose?</label>
-            <br>
-            <label for="useFreq">On a scale of 1-5, how often do you compare yourself to other successful people through the use of social media?</label><br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1" list="tickmarks">
-            <datalist id="tickmarks">
-                <option style="font-size: 9px; text-align: left;" value="1" label="Not often">
-                <option style="font-size: 9px; text-align: left;" value="2" label="Sometimes">
-                <option value="3" label="Moderately">
-                <option value="4" label="Often">
-                <option value="5" label="Very often">
-            </datalist>
             <br><br>
+            <div style="text-align:left ; max-width: 400px; margin: 10;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span>Not Often</span>
+                    <span>Very Often</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="purposeUse" id="purposeUse1" value="1">1
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="purposeUse" id="purposeUse2" value="2">2
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="purposeUse" id="purposeUse3" value="3">3
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="purposeUse" id="purposeUse4" value="4">4
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="purposeUse" id="purposeUse5" value="5">5
+                    </label>
+                </div>
+            </div>
+            
+            <br>
+            <label >On a scale of 1-5, how often do you compare yourself to other successful people through the use of social media?</label>
+            <br><br>
+            <div style="text-align:left ; max-width: 400px; margin: 10;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span>Not Often</span>
+                    <span>Very Often</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="compareScale" id="compareScale1" value="1">1
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="compareScale" id="compareScale2" value="2">2
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="compareScale" id="compareScale3" value="3">3
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="compareScale" id="compareScale4" value="4">4
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="compareScale" id="compareScale5" value="5">5
+                    </label>
+                </div>
+            </div>
+            <br>
             <label>How often do you get distracted by social media when you are busy doing something?</label>
-            <br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
             <br><br>
+            <div style="text-align:left ; max-width: 400px; margin: 10;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span>Not Often</span>
+                    <span>Very Often</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="distractScale" id="distractScale1" value="1">1
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="distractScale" id="distractScale2" value="2">2
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="distractScale" id="distractScale3" value="3">3
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="distractScale" id="distractScale4" value="4">4
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="distractScale" id="distractScale5" value="5">5
+                    </label>
+                </div>
+            </div>            <br><br>
             <label>Do you feel restless if you haven't used social media in a while?</label>
             <br>
-            <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
-            <br><br>
+            <div style="text-align:left ; max-width: 400px; margin: 10;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span>Not Often</span>
+                    <span>Very Often</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="compareScale" id="compareScale1" value="1">1
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="compareScale" id="compareScale2" value="2">2
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="compareScale" id="compareScale3" value="3">3
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="compareScale" id="compareScale4" value="4">4
+                    </label>
+                    <label style="flex: 1; text-align: center;">
+                        <input type="radio" name="compareScale" id="compareScale5" value="5">5
+                    </label>
+                </div>
+            </div>            <br><br>
             <label>On a scale of 1 to 5, how easily distracted are you?</label>
             <br>
             <input type="range" id="useFreq" name="useFreq" value="1" min="1" max="5" step="1">
