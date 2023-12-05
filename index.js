@@ -57,17 +57,11 @@ app.post("/loginsubmit", (req, res) => {
 
             let unlocked = false;
             for (i = 0; i < user.length; i++){
-                console.log(user[i].username + " | " + loginUsername)
-                console.log(user[i].password + " | " + loginPassword)
+                // console.log(user[i].username + " | " + loginUsername)
+                // console.log(user[i].password + " | " + loginPassword)
                 if(user[i].username == loginUsername && user[i].password == loginPassword){
                     unlocked = true;   
-                    
-                        // console.log("Please correct your username")
-                        // res.render("login")
                 }
-                    // console.log(user[i].username + " | " + loginUsername)
-                    // console.log("Please correct your username")
-                    // res.render("login")
             }
             if(unlocked == true){
                 res.redirect("adminDashboard")
@@ -112,7 +106,7 @@ app.get("/createAcc", (req, res) => {
     res.render("createAcc");
 });
 
-app.post("/createAccSubmission", (req, res) => {
+app.post("/createAcc", (req, res) => {
     knex.insert({username: req.body.login_username, password: req.body.login_password, first_name: req.body.login_firstname, last_name: req.body.login_lastname}).from("users")
     .then(user => {
         res.redirect("adminDashboard")
@@ -124,6 +118,14 @@ app.post("/createAccSubmission", (req, res) => {
 });
 
 app.get("/modifyAcc", (req, res) => {
+
+    knex.select("username", "password", "first_name", "last_name").from("users")
+        .then(user => {
+            res.render("modifyAcc", {user: user});
+        });
+});
+
+app.post("/modifyAcc", (req, res) => {
     res.render("modifyAcc");
 });
 
