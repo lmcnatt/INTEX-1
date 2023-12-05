@@ -97,7 +97,7 @@ app.get("/createAcc", (req, res) => {
     res.render("createAcc");
 });
 
-app.post("/createAccSubmission", (req, res) => {
+app.post("/createAcc", (req, res) => {
     knex.insert({username: req.body.login_username, password: req.body.login_password, first_name: req.body.login_firstname, last_name: req.body.login_lastname}).from("users")
     .then(user => {
         res.redirect("adminDashboard")
