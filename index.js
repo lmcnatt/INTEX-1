@@ -51,10 +51,10 @@ app.post("/loginsubmit", (req, res) => {
 
                 if (isPasswordValid) {
                     // Password is valid, you can proceed with login
-                    res.send("Login successful");
+                    res.render("adminDashboard");
                 } else {
                     // Password is not valid
-                    res.send("Invalid password");
+                    res.render("login");
                 }
             } else {
                 // User with the provided username doesn't exist
