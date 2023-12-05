@@ -90,7 +90,7 @@ app.get("/adminDashboard", authenticate, (req, res) => {
     });
 });
 
-app.get("/entryDetails/:id", (req, res) => {
+app.get("/entryDetails/:id", authenticate, (req, res) => {
     knex('entries').select()
         .innerJoin('social_media_data', 'entries.entry_id', 'social_media_data.entry_id')
         .innerJoin('organizations', 'social_media_data.organization_id', 'organizations.organization_id')
