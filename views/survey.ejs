@@ -17,7 +17,7 @@
 <body>
     <!-- onsubmit="getTimeStamp(); -->
     <form id="myForm"form action="/submitSurvey" method="POST">
-        <fieldset>
+        <section class="p-3 mb-2 bg-light text-dark">
             <div class="container">
             <h1 class="display-1 text-center">Social Media Survey</h1>
             <br><br>
@@ -51,7 +51,6 @@
                 <option value="Retired">Retired</option>
             </select>
             <br><br>
-            <fieldset>
                 <label>5. What type of organizations are you affiliated with? (select all that apply)</label>
                 <br>
                 <input type="checkbox" id="cbUni" name="organization_name" value="University">
@@ -71,8 +70,7 @@
                 <br>
                 <input type="checkbox" id="cbNone" name="organization_name" value="N/A">
                 <label>N/A</label>
-            </fieldset>
-            <br>
+            <br><br>
             <label>6. Do you use social media?</label>
             <select name="use_sm" id="smPlatform">
                 <option value="Yes">Yes</option>
@@ -81,6 +79,7 @@
             <br><br>
             
                 <label>7. What social media platforms do you commonly use? (select all that apply)</label>
+                <br>
                 <input type="checkbox" id="cbDiscord" name="platform_name" value="Discord">
                 <label>Discord</label>
                 <br>
@@ -432,21 +431,16 @@
                         <input type="radio" name="freq_sleep_issues_score" id="sleepScale5" value="5"> 5
                     </label>
                 </div>
-            </div> 
-
-            <button type="submit" >Submit</button>
+            </div>
+            <br>
+            <br>
+            <div class="jumbotron jumbotron-fluid jumbotron text-center">
+                <div class="d-grid gap-2 d-md-block justify-content-md-end">
+                    <button class="btn mx-auto btn btn-outline-secondary" type="submit">Submit</button>
+                </div>
+            </div>
         </div>
-        </fieldset>
+        </section>
     </form>
-    
-    <!-- <script>
-        function getTimeStamp()
-        {
-            // Set the timestamp value in the hidden input field
-            document.getElementById('timestamp').value = new Date().toISOString();
-        }
-       
-    </script> -->
-    
 </body>
 </html>
