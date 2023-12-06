@@ -141,7 +141,7 @@ app.get("/survey", (req, res) => {
     res.render("survey");
 });
 
-app.post("/submitSurvey", (req, res) => {
+app.post("/submitSurvey", async (req, res) => {
     knex("entries").insert({
         // timestamp: req.body.timestamp,
         timestamp: new Date(),
