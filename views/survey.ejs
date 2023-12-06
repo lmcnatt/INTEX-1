@@ -11,14 +11,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="icon" href="/resources/Screenshot 2023-12-05 at 8.56.01 PM.png" type="image/x-icon">
 
-    <title>Document</title>
+    <title>Mental Health Survey</title>
 
 </head>
 <body>
     <form id="myForm"form action="/submitSurvey" method="POST">
-        <fieldset>
-            <legend>Social Media Survey</legend>
+        <section class="p-3 mb-2 bg-light text-dark">
+            <div class="container">
+            <h1 class="display-1 text-center">Social Media Survey</h1>
             <br><br>
+            <br>
             <label for="numAge">1. What is your age? </label>
             <input type="number" id="numAge" name="age" min="1">
             <br><br>
@@ -45,8 +47,7 @@
                 <option value="Retired">Retired</option>
             </select>
             <br><br>
-            <fieldset>
-                <legend>5. What type of organizations are you affiliated with? (select all that apply)</legend>
+                <label>5. What type of organizations are you affiliated with? (select all that apply)</label>
                 <br>
                 <input type="checkbox" id="cbUni" name="organization_name" value="University">
                 <label>University</label>
@@ -65,7 +66,6 @@
                 <br>
                 <input type="checkbox" id="cbNone" name="organization_name" value="N/A">
                 <label>N/A</label>
-            </fieldset>
             <br><br>
             <label>6. Do you use social media?</label>
             <select name="use_sm" id="smPlatform">
@@ -73,8 +73,9 @@
                 <option value="No">No</option>
             </select>
             <br><br>
-            <fieldset>
-                <legend>7. What social media platforms do you commonly use? (select all that apply)</legend>
+            
+                <label>7. What social media platforms do you commonly use? (select all that apply)</label>
+                <br>
                 <input type="checkbox" id="cbDiscord" name="platform_name" value="Discord">
                 <label>Discord</label>
                 <br>
@@ -102,8 +103,8 @@
                 <input type="checkbox" id="cbYouTube" name="platform_name" value="YouTube">
                 <label>YouTube</label>
                 <br>
-            </fieldset>
-            <br><br>
+
+            <br>
             <label>8. What is the average time you spend on social media every day?</label>
             <select id="avgTime" name="avg_daily_sm_use">
                 <option value="Less than an Hour">Less than an Hour</option>
@@ -123,19 +124,19 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                     <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="no_purpose_use_score" id="purposeUse1" value="1">1
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="no_purpose_use_score" id="purposeUse2" value="2">2
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="no_purpose_use_score" id="purposeUse3" value="3">3
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="no_purpose_use_score" id="purposeUse4" value="4">4
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="no_purpose_use_score" id="purposeUse5" value="5">5
+                        <input type="radio" name="no_purpose_use_score" id="purposeUse1" value="1"> 1
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="no_purpose_use_score" id="purposeUse2" value="2"> 2
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="no_purpose_use_score" id="purposeUse3" value="3"> 3
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="no_purpose_use_score" id="purposeUse4" value="4"> 4
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="no_purpose_use_score" id="purposeUse5" value="5"> 5
                     </label>
                 </div>
             </div>
@@ -150,19 +151,19 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                     <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="distracted_use_score" id="distractScale1" value="1">1
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="distracted_use_score" id="distractScale2" value="2">2
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="distracted_use_score" id="distractScale3" value="3">3
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="distracted_use_score" id="distractScale4" value="4">4
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="distracted_use_score" id="distractScale5" value="5">5
+                        <input type="radio" name="distracted_use_score" id="distractScale1" value="1"> 1
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="distracted_use_score" id="distractScale2" value="2"> 2
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="distracted_use_score" id="distractScale3" value="3"> 3
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="distracted_use_score" id="distractScale4" value="4"> 4
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="distracted_use_score" id="distractScale5" value="5"> 5
                     </label>
                 </div>
             </div>            
@@ -176,19 +177,19 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                     <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="restlessness_without_sm_score" id="restlessScale1" value="1">1
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="restlessness_without_sm_score" id="restlessScale2" value="2">2
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="restlessness_without_sm_score" id="restlessScale3" value="3">3
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="restlessness_without_sm_score" id="restlessScale4" value="4">4
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="restlessness_without_sm_score" id="restlessScale5" value="5">5
+                        <input type="radio" name="restlessness_without_sm_score" id="restlessScale1" value="1"> 1
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="restlessness_without_sm_score" id="restlessScale2" value="2"> 2
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="restlessness_without_sm_score" id="restlessScale3" value="3"> 3
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="restlessness_without_sm_score" id="restlessScale4" value="4"> 4
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="restlessness_without_sm_score" id="restlessScale5" value="5"> 5
                     </label>
                 </div>
             </div>            
@@ -202,19 +203,19 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                     <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="general_distraction_score" id="ezdistScale1" value="1">1
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="general_distraction_score" id="ezdistScale2" value="2">2
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="general_distraction_score" id="ezdistScale3" value="3">3
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="general_distraction_score" id="ezdistScale4" value="4">4
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="general_distraction_score" id="ezdistScale5" value="5">5
+                        <input type="radio" name="general_distraction_score" id="ezdistScale1" value="1"> 1
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="general_distraction_score" id="ezdistScale2" value="2"> 2
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="general_distraction_score" id="ezdistScale3" value="3"> 3
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="general_distraction_score" id="ezdistScale4" value="4"> 4
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="general_distraction_score" id="ezdistScale5" value="5"> 5
                     </label>
                 </div>
             </div>             
@@ -228,19 +229,19 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                     <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="bothered_by_worries_score" id="botheredScale1" value="1">1
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="bothered_by_worries_score" id="botheredScale2" value="2">2
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="bothered_by_worries_score" id="botheredScale3" value="3">3
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="bothered_by_worries_score" id="botheredScale4" value="4">4
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="bothered_by_worries_score" id="botheredScale5" value="5">5
+                        <input type="radio" name="bothered_by_worries_score" id="botheredScale1" value="1"> 1
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="bothered_by_worries_score" id="botheredScale2" value="2"> 2
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="bothered_by_worries_score" id="botheredScale3" value="3"> 3
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="bothered_by_worries_score" id="botheredScale4" value="4"> 4
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="bothered_by_worries_score" id="botheredScale5" value="5"> 5
                     </label>
                 </div>
             </div>             
@@ -254,19 +255,19 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                     <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="concentration_difficulty_score" id="concentrateScale1" value="1">1
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="concentration_difficulty_score" id="concentrateScale2" value="2">2
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="concentration_difficulty_score" id="concentrateScale3" value="3">3
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="concentration_difficulty_score" id="concentrateScale4" value="4">4
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="concentration_difficulty_score" id="concentrateScale5" value="5">5
+                        <input type="radio" name="concentration_difficulty_score" id="concentrateScale1" value="1"> 1
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="concentration_difficulty_score" id="concentrateScale2" value="2"> 2
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="concentration_difficulty_score" id="concentrateScale3" value="3"> 3
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="concentration_difficulty_score" id="concentrateScale4" value="4"> 4
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="concentration_difficulty_score" id="concentrateScale5" value="5"> 5
                     </label>
                 </div>
             </div>            
@@ -280,19 +281,19 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                     <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_comparison_to_successful_people_via_sm_score" id="compareScale1" value="1">1
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_comparison_to_successful_people_via_sm_score" id="compareScale2" value="2">2
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_comparison_to_successful_people_via_sm_score" id="compareScale3" value="3">3
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_comparison_to_successful_people_via_sm_score" id="compareScale4" value="4">4
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_comparison_to_successful_people_via_sm_score" id="compareScale5" value="5">5
+                        <input type="radio" name="freq_comparison_to_successful_people_via_sm_score" id="compareScale1" value="1"> 1
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_comparison_to_successful_people_via_sm_score" id="compareScale2" value="2"> 2
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_comparison_to_successful_people_via_sm_score" id="compareScale3" value="3"> 3
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_comparison_to_successful_people_via_sm_score" id="compareScale4" value="4"> 4
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_comparison_to_successful_people_via_sm_score" id="compareScale5" value="5"> 5
                     </label>
                 </div>
             </div>
@@ -306,19 +307,19 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                     <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="feelings_about_comparison_score" id="feelcompScale1" value="1">1
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="feelings_about_comparison_score" id="feelcompScale2" value="2">2
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="feelings_about_comparison_score" id="feelcompScale3" value="3">3
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="feelings_about_comparison_score" id="feelcompScale4" value="4">4
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="feelings_about_comparison_score" id="feelcompScale5" value="5">5
+                        <input type="radio" name="feelings_about_comparison_score" id="feelcompScale1" value="1"> 1
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="feelings_about_comparison_score" id="feelcompScale2" value="2"> 2
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="feelings_about_comparison_score" id="feelcompScale3" value="3"> 3
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="feelings_about_comparison_score" id="feelcompScale4" value="4"> 4
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="feelings_about_comparison_score" id="feelcompScale5" value="5"> 5
                     </label>
                 </div>
             </div>
@@ -332,19 +333,19 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                     <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="validation_seeking_from_sm_score" id="validScale1" value="1">1
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="validation_seeking_from_sm_score" id="validScale2" value="2">2
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="validation_seeking_from_sm_score" id="validScale3" value="3">3
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="validation_seeking_from_sm_score" id="validScale4" value="4">4
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="validation_seeking_from_sm_score" id="validScale5" value="5">5
+                        <input type="radio" name="validation_seeking_from_sm_score" id="validScale1" value="1"> 1
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="validation_seeking_from_sm_score" id="validScale2" value="2"> 2
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="validation_seeking_from_sm_score" id="validScale3" value="3"> 3
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="validation_seeking_from_sm_score" id="validScale4" value="4"> 4
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="validation_seeking_from_sm_score" id="validScale5" value="5"> 5
                     </label>
                 </div>
             </div>            
@@ -358,19 +359,19 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                     <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_feeling_depressed_or_down_score" id="depressedScale1" value="1">1
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_feeling_depressed_or_down_score" id="depressedScale2" value="2">2
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_feeling_depressed_or_down_score" id="depressedScale3" value="3">3
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_feeling_depressed_or_down_score" id="depressedScale4" value="4">4
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_feeling_depressed_or_down_score" id="depressedScale5" value="5">5
+                        <input type="radio" name="freq_feeling_depressed_or_down_score" id="depressedScale1" value="1"> 1
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_feeling_depressed_or_down_score" id="depressedScale2" value="2"> 2
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_feeling_depressed_or_down_score" id="depressedScale3" value="3"> 3
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_feeling_depressed_or_down_score" id="depressedScale4" value="4"> 4
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_feeling_depressed_or_down_score" id="depressedScale5" value="5"> 5
                     </label>
                 </div>
             </div>                        
@@ -384,20 +385,20 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                     <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_fluctuation_of_interest_in_daily_activities_score" id="interestScale1" value="1">1
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_fluctuation_of_interest_in_daily_activities_score" id="interestScale2" value="2">2
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_fluctuation_of_interest_in_daily_activities_score" id="interestScale3" value="3">3
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_fluctuation_of_interest_in_daily_activities_score" id="interestScale4" value="4">4
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_fluctuation_of_interest_in_daily_activities_score" id="interestScale5" value="5">5
-                    </label>
+                        <input type="radio" name="freq_fluctuation_of_interest_in_daily_activities_score" id="interestScale1" value="1"> 1
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_fluctuation_of_interest_in_daily_activities_score" id="interestScale2" value="2"> 2
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_fluctuation_of_interest_in_daily_activities_score" id="interestScale3" value="3"> 3
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_fluctuation_of_interest_in_daily_activities_score" id="interestScale4" value="4"> 4
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_fluctuation_of_interest_in_daily_activities_score" id="interestScale5" value="5"> 5
+                    </label> 
                 </div>
             </div>            
             <br><br>
@@ -410,35 +411,31 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                     <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_sleep_issues_score" id="sleepScale1" value="1">1
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_sleep_issues_score" id="sleepScale2" value="2">2
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_sleep_issues_score" id="sleepScale3" value="3">3
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_sleep_issues_score" id="sleepScale4" value="4">4
-                    </label>
-                    <label style="flex: 1; text-align: center;">
-                        <input type="radio" name="freq_sleep_issues_score" id="sleepScale5" value="5">5
+                        <input type="radio" name="freq_sleep_issues_score" id="sleepScale1" value="1"> 1
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_sleep_issues_score" id="sleepScale2" value="2"> 2
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_sleep_issues_score" id="sleepScale3" value="3"> 3
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_sleep_issues_score" id="sleepScale4" value="4"> 4
+                    </label> 
+                    <label style="flex: 1; text-align: center;"> 
+                        <input type="radio" name="freq_sleep_issues_score" id="sleepScale5" value="5"> 5
                     </label>
                 </div>
-            </div> 
-
-            <button type="submit" >Submit</button>
-        </fieldset>
+            </div>
+            <br>
+            <br>
+            <div class="jumbotron jumbotron-fluid jumbotron text-center">
+                <div class="d-grid gap-2 d-md-block justify-content-md-end">
+                    <button class="btn mx-auto btn btn-outline-success" type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        </section>
     </form>
-    
-    <!-- <script>
-        function getTimeStamp()
-        {
-            // Set the timestamp value in the hidden input field
-            document.getElementById('timestamp').value = new Date().toISOString();
-        }
-       
-    </script> -->
-    
 </body>
 </html>

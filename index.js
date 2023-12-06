@@ -251,7 +251,7 @@ app.get("/dashboard", (req, res) => {
 });
 
 app.get("/customizedAssessment", (req,res) => {
-    knex.select("entry_id", "age", "use_sm").from('entries').orderBy("entry_id", "desc")
+    knex.select("entry_id", "age", "avg_daily_sm_use").from('entries').orderBy("entry_id", "desc")
     .then(entry => {
         res.render("customizedAssessment", {myInfo: entry})
     })
@@ -263,6 +263,18 @@ app.get("/customizedAssessment", (req,res) => {
 
 app.get("/helpGenZ", (req, res) => {
     res.render("helpGenZ")
+})
+
+app.get("/helpMillenials", (req, res) => {
+    res.render("helpMillenials")
+})
+
+app.get("/helpGenX", (req, res) => {
+    res.render("helpGenX")
+})
+
+app.get("/helpBoomers", (req, res) => {
+    res.render("helpBoomers")
 })
 
 app.listen(port, () => console.log("Website is running"));

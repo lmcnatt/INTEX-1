@@ -11,8 +11,8 @@ const observer = new IntersectionObserver(entries => {
     });
 },
 {
-    threshold: 0.9,
-    rootMargin: "-100px"
+    threshold: 0,
+    rootMargin: "0px"
 });
 
 hiddenElements.forEach((el) => observer.observe(el));
