@@ -8,6 +8,8 @@ body{
 
 .container{
     background: burlywood;
+    color: white;
+    padding: 40px;
 }
 
 section{
@@ -15,7 +17,7 @@ section{
     place-items: center;
     align-content: center;
     min-height: 100vh;
-    font-size: xx-large;
+    font-size: 50px;
 }
 
 .bigtext{
@@ -32,6 +34,7 @@ section{
 .show{
     transform: translateX(0);
     opacity: 1;
+    font-style: italic;
 }
 
 
