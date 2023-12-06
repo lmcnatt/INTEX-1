@@ -234,11 +234,14 @@ app.get("/dashboard", (req, res) => {
 });
 
 app.get("/customizedAssessment", (req,res) => {
-    knex("entries").select("age", "user_sm").orderBy("entry_id", "desc").first()
+    knex.select("age", "use_sm").from('entries').orderBy("entry_id", "desc").first()
     .then(entry => {
         res.render("customizedAssessment", {myInfo: entry})
     })
-
+    .catch(err => {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+    });
 });
 
 app.get("/helpGenZ", (req, res) => {
