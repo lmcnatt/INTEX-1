@@ -8,10 +8,13 @@
 
 </head>
 <body>
+    <!-- onsubmit="getTimeStamp(); -->
     <form id="myForm"form action="/submitSurvey" method="POST">
         <fieldset>
             <legend>Social Media Survey</legend>
             <br>
+<!-- Add this hidden input field to capture the timestamp -->
+            <!-- <input type="hidden" name="timestamp" id="timestamp" value=""> -->
             <label for="location">Location</label>
             <select id="location" name="location">
                 <option value="Provo" selected>Provo</option>
@@ -429,57 +432,18 @@
                 </div>
             </div> 
 
-            <div>
-                <h1 id="GenAs"></h1>
-                <h1 id="UsageAs"></h1>
-                <h1 id="Recs"></h1>
-            </div>
-            <!-- <button type="submit" onclick="">Submit</button> -->
+            <button type="submit" >Submit</button>
         </fieldset>
     </form>
     
-    <button onclick="evaluationForYou()">s</button>
-
-    <script>
-        // function getTimeStamp()
-        // {
-        //     // Set the timestamp value in the hidden input field
-        //     document.getElementById('timestamp').value = new Date().toISOString();
-        // }
-       
-        function evaluationForYou(){
-            let userAge = document.getElementById("numAge").value
-            let userUsage = document.getElementById("avgTime").value
-
-            if (userAge >= 59){
-                userAge = "Baby Boomers"
-            }
-            else if (userAge >= 43){
-                userAge = "Gen X"
-            }
-            else if (userAge >= 27){
-                userAge = "Millennials"
-            }
-            else{
-                userAge = "Gen Z"
-            }
-
-            let sGenerationalAssessment = "With your associated generation, " + userAge + ",<br>"
-
-            let sUsageAssessmnet = "and with your usage being " + userUsage + ",<br>"
-
-            let sReccomendationAssessment = "So here are the following things you may be more succeptable to: "
-
-            document.getElementById("GenAs").innerHTML = sGenerationalAssessment
-            document.getElementById("UsageAs").innerHTML = sUsageAssessmnet
-            document.getElementById("Recs").innerHTML = sReccomendationAssessment
+    <!-- <script>
+        function getTimeStamp()
+        {
+            // Set the timestamp value in the hidden input field
+            document.getElementById('timestamp').value = new Date().toISOString();
         }
-
-    
-
-
-
-    </script>
+       
+    </script> -->
     
 </body>
 </html>

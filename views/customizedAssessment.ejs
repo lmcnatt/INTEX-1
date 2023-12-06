@@ -6,6 +6,38 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>TESTING</h1>
+
+    <script>
+        function evaluationForYou(){
+            let userAge = document.getElementById("numAge").value
+            let userUsage = document.getElementById("avgTime").value
+
+            if (userAge >= 59){
+                userAge = "Baby Boomers"
+            }
+            else if (userAge >= 43){
+                userAge = "Gen X"
+            }
+            else if (userAge >= 27){
+                userAge = "Millennials"
+            }
+            else{
+                userAge = "Gen Z"
+            }
+
+            let sGenerationalAssessment = "With your associated generation, " + userAge + ",<br>"
+
+            let sUsageAssessmnet = "and with your usage being " + userUsage + ",<br>"
+
+            let sReccomendationAssessment = "So here are the following things you may be more succeptable to: "
+
+            document.getElementById("GenAs").innerHTML = sGenerationalAssessment
+            document.getElementById("UsageAs").innerHTML = sUsageAssessmnet
+            document.getElementById("Recs").innerHTML = sReccomendationAssessment
+        }
+    </script>
+    
     
 </body>
 </html>

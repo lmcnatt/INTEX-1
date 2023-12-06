@@ -216,7 +216,7 @@ app.post("/submitSurvey", async (req, res) => {
         }
     }
 
-    res.redirect("/");
+    res.redirect("/customizedAssessment");
 });
 
 app.get("/dashboard", (req, res) => {
