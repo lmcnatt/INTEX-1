@@ -127,7 +127,15 @@ app.get("/createAcc", authenticate, (req, res) => {
     res.render("createAcc");
 });
 
-app.post("/createAcc", authenticate, (req, res) => {
+app.post("/createAcc", authenticate, async (req, res) => {
+    async function doesUsernameExist() {
+        return knex("users").select("username").where({username: req.body.login_username})
+    }
+    let usernameExistsData = await doesUsernameExist();
+    let usernameExistsResult = usernameExistsData[0].username;
+    
+    console.log(usernameExistsResult);
+
     knex("users").insert({
         username: req.body.login_username,
         password: req.body.login_password,
