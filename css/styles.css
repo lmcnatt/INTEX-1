@@ -1,10 +1,13 @@
 body{
 /* 
     background-color: purple; */
-    background: linear-gradient(180deg, rgb(122, 59, 112)(255, 0, 212), rgb(94, 43, 65)5, 0, 111);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 0;
     margin: 0;
+}
+
+.container{
+    background: burlywood;
 }
 
 section{
@@ -12,6 +15,7 @@ section{
     place-items: center;
     align-content: center;
     min-height: 100vh;
+    font-size: xx-large;
 }
 
 .bigtext{
