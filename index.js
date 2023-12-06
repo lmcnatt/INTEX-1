@@ -164,8 +164,6 @@ app.post("/submitSurvey", async (req, res) => {
         freq_fluctuation_of_interest_in_daily_activities_score: req.body.freq_fluctuation_of_interest_in_daily_activities_score,
         freq_sleep_issues_score: req.body.freq_sleep_issues_score,
         location: req.body.location
-    }).then(myEntries => {
-        res.redirect("/");
     }).catch(err => {
         console.error(err);
         res.status(500).send("Internal Server Error");
