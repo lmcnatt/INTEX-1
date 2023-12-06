@@ -23,7 +23,8 @@
         <br>
         <section>
             <div class="container">
-                <h1>You're from:</h1>
+                <h1><%=myInfo[0].use_sm%></h1>
+                <h1>You're from the following generation: </h1>
                 <h1 id="GenerationAssessment" class="hidden" value=<%=myInfo[0].age%>></h1>
                 <h1>Who uses social media for</h1>    
                 <h1 id="HourlyAssessment" class="hidden" value=<%=myInfo[0].use_sm%>></h1>
@@ -49,7 +50,7 @@
 
     <script>
         let userAge = document.getElementById("GenerationAssessment").value
-        let userUsage = document.getElementById("HourlyAssessment").value
+        let userUsage = String(document.getElementById("HourlyAssessment").value)
 
         if (userAge >= 59){
             userAge = "Baby Boomers"
@@ -64,11 +65,9 @@
             userAge = "Gen Z"
         }
 
-        let sGenerationalAssessment = "With your associated generation, " + userAge + ",<br>"
+        let sGenerationalAssessment = userAge + ",<br>"
 
-        let sUsageAssessmnet = "and with your usage being " + userUsage + ",<br>"
-
-        let sReccomendationAssessment = "So here are the following things you may be more succeptable to: "
+        let sUsageAssessmnet = userUsage + ",<br>"
 
         document.getElementById("GenerationAssessment").innerHTML = sGenerationalAssessment
         document.getElementById("HourlyAssessment").innerHTML = sUsageAssessmnet

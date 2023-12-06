@@ -8,6 +8,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" href="/resources/Screenshot 2023-12-05 at 8.56.01 PM.png" type="image/x-icon">
     <title>Admin Dashboard</title>
 </head>
 <body>
@@ -33,9 +34,14 @@
                 <a class="nav-link active" aria-current="page" href="/">Home <span class="sr-only"></span></a>
                 </li>
 
+                <!-- Survey -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="/survey">Survey<span class="sr-only"></span></a>
+                </li>
+
                 <!-- Tableau Dashboard -->
                 <li class="nav-item">
-                    <a class="nav-link active" href="/dashboard">Why Mental Health?<span class="sr-only"></span></a>
+                    <a class="nav-link active" href="/dashboard">Stats<span class="sr-only"></span></a>
                 </li>
 
                 <!-- Admin Dashboard: survey results, etc -->
@@ -50,39 +56,41 @@
         </div>
     </nav>
     <div>
-        
-        <form action="/createAcc" method="get">
-            <button type="submit">Create Account</button>
-        </form>
-        <form action="/modifyAcc" method="get">
-            <button type="submit">Edit Account</button>
-        </form>
+        <br>
+        <div class="btn mx-auto">
+            <a href="/createAcc" class="btn btn-outline-secondary" role="button" data-bs-toggle="button">Create Account</a>
+        </div>
+        <div class="btn mx-auto">
+            <a href="/modifyAcc" class="btn btn-outline-secondary" role="button" data-bs-toggle="button">Edit Account</a>
+        </div>
+        <br>
+
         <div>
-            <h1>Entries</h1>
+            <h1 class="text-center fw-bold display-2">Entries</h1>
         </div>
         <div>
             <form action="/adminDashboard" method="get">
-                <label for="filterID">Select ID</label>
+                <label for="filterID"> Select ID</label>
                 <select name="filterID" id="filterID">
                     <option value="all" selected>All</option>
                     <% for (let i = 0; i < myEntries.length; i++) { %>
                         <option value="<%= myEntries[i].entry_id %>"><%= myEntries[i].entry_id %></option>
                     <% } %>
                 </select>
-                <button type="submit">Search</button>
+                <button class="btn mx-auto btn btn-outline-secondary" type="submit">Search</button>
             </form>
         </div>
-        <div>
-            <table>
+        <div class="table-responsive">
+            <table class="table">
                 <thead>
                     <tr>
-                        <th>Entry Number</th>
-                        <th>Timestamp</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Relationship</th>
-                        <th>Occupation</th>
-                        <th>Location</th>
+                        <th>Entry #</th>
+                        <th class="text-center">Timestamp</th>
+                        <th class="text-center">Age</th>
+                        <th class="text-center">Gender</th>
+                        <th class="text-center">Relationship</th>
+                        <th class="text-center">Occupation</th>
+                        <th class="text-center">Location</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -97,7 +105,7 @@
                             <td><%= myEntries[i].location %></td>
                             <td>
                                 <form action="/entryDetails/<%= myEntries[i].entry_id %>" method="get">
-                                    <button type="submit">Details</button>
+                                    <button class="btn mx-auto btn btn-outline-secondary" type="submit">Details</button>
                                 </form>
                             </td>
                         </tr>
@@ -106,5 +114,14 @@
             </table>
         </div>
     </div>
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="/survey" class="nav-link px-2 text-muted">Survey</a></li>
+          <li class="nav-item"><a href="/dashboard" class="nav-link px-2 text-muted">Stats</a></li>
+          <li class="nav-item"><a href="/login" class="nav-link px-2 text-muted">Login</a></li>
+        </ul>
+        <p class="text-center text-muted">© 2023 SMU MH</p>
+      </footer>
 </body>
 </html>
