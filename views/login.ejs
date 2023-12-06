@@ -11,7 +11,7 @@
     <link rel="icon" href="/resources/Screenshot 2023-12-05 at 8.56.01 PM.png" type="image/x-icon">
     <title>Document</title>
 </head>
-<body>
+<body onload="validateLogin()">
     <style>
         .nav-item {
         list-style: none;
@@ -31,7 +31,7 @@
             <ul class="navbar-nav mr-auto text-white">
                 <!-- Home button -->
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home <span class="sr-only"></span></a>
+                    <a class="nav-link active" aria-current="page" href="/">Home <span class="sr-only"></span></a>
                 </li>
                 
                 <!-- Survey -->
@@ -73,21 +73,11 @@
                     <input type="checkbox" onclick="ShowPassword()"> Show Password
                     <br>
                     <br>
-                    <Input type="submit" value="Log In"></Input>
+                    <button type="submit">Log In</button>
                 </form>
             </div>
         </div>
-        <script>
-            function ShowPassword() {
-                var x = document.getElementById("login_password");
-                if (x.type === "password") {
-                    x.type = "text";
-                } else {
-                    x.type = "password";
-                }
-            }
-        </script>
-
+    </div>
     <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
@@ -97,5 +87,22 @@
         </ul>
         <p class="text-center text-muted">© 2023 SMU MH</p>
     </footer>
+    <script>
+        function validateLogin() {
+            if ('<%= loginChecker %>' == 'failed') {
+                alert('Username or Password invalid. Please verify and try again.');
+                document.getElementById('login_username').focus();
+            }
+        }
+
+        function ShowPassword() {
+                var x = document.getElementById("login_password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+    </script>
 </body>
 </html>

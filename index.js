@@ -47,18 +47,22 @@ app.get("/", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
+    let loginChecker = '';
+
+    //If the user has logged in previously in this session, send to Admin Dashboard
     if (req.session.userID != null){
         res.redirect("adminDashboard")
     }
+    //If they haven't logged in in this session, send to login.
     else{
-        res.render("login");
+        res.render("login", { loginChecker });
     }
-
 });
 
 app.post("/loginSubmit", (req, res) => {
     const loginUsername = req.body.login_username;
     const loginPassword = req.body.login_password;
+    let loginChecker = '';
 
     knex("users").select("user_id",
                          "username",
@@ -75,11 +79,11 @@ app.post("/loginSubmit", (req, res) => {
             res.redirect("adminDashboard")
         }
         else {
-            res.redirect("login")
+            loginChecker = 'failed';
+            res.render("login", { loginChecker });
         }
     })
     .catch((error) => {
-        // Handle any database error
         console.error(error);
         res.status(500).send("Internal Server Error");
     });
@@ -87,7 +91,6 @@ app.post("/loginSubmit", (req, res) => {
 
 app.get("/adminDashboard", authenticate, (req, res) => {
     const filterID = req.query.filterID;
-    const filterDate = req.query.filterDate;
 
     let query = knex("entries")
         .select("entry_id",
@@ -124,7 +127,8 @@ app.get("/entryDetails/:id", authenticate, (req, res) => {
 });
 
 app.get("/createAcc", authenticate, (req, res) => {
-    res.render("createAcc");
+    let usernameExistsResult = '';
+    res.render("createAcc", { usernameExistsResult });
 });
 
 app.post("/createAcc", authenticate, async (req, res) => {
@@ -133,8 +137,17 @@ app.post("/createAcc", authenticate, async (req, res) => {
         return knex("users").select("username").where({username: req.body.login_username})
     }
     let usernameExistsData = await doesUsernameExist();
-    //let usernameExistsResult = usernameExistsData[0].username;
-    if (usernameExistsData.length == 0) {
+
+    let usernameExistsResult = '';
+
+    // Username exist
+    if (usernameExistsData.length !== 0) {
+        usernameExistsResult = usernameExistsData[0].username;
+        console.log(usernameExistsResult);
+        res.render("createAcc", { usernameExistsResult });        
+    }
+    // Username doesn't exists
+    else {
         console.log(usernameExistsData);
         knex("users").insert({
             username: req.body.login_username,
@@ -148,10 +161,6 @@ app.post("/createAcc", authenticate, async (req, res) => {
             console.error(err);
             res.status(500).send("Internal Server Error");
         });
-    }
-    else {
-        let usernameExistsResult = usernameExistsData[0].username;
-        console.log(usernameExistsResult);
     }
 });
 
