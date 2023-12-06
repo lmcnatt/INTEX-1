@@ -19,10 +19,11 @@
       </style>
 </head>
 <body>
-    <form form action="/submitSurvey" method="POST">
+    <form id="myForm"form action="/submitSurvey" method="POST">
         <fieldset>
             <legend>Social Media Survey</legend>
             <br>
+            <input type="hidden" id="timestamp" name="timestamp" value="<%= new Date().toISOString() %>">
             <label for="location">Location</label>
             <select id="location" name="location">
                 <option value="Provo" selected>Provo</option>
@@ -33,7 +34,7 @@
             <br><br>
             <label for="txtGender">Gender</label>
             <select id="txtGender" name="gender">
-                <option value="" disabled selected style="color:grey;">select gender</option>
+                <!-- <option value="" disabled selected style="color:grey;">SELECT</option> -->
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
@@ -41,7 +42,7 @@
             <br><br>
             <label for="rStatus">Relationship Status</label>
             <select id="rStatus" name="relationship">
-                <option value="" disabled selected>select relationship status</option>
+                <!-- <option value="" disabled selected>Select</option> -->
                 <option value="In a relationship">In a relationship</option>
                 <option value="Single">Single</option>
                 <option value="Married">Married</option>
@@ -50,7 +51,7 @@
             <br><br>
             <label for="oStatus">Occupation Status</label>
             <select id="oStatus" name="occupation">
-                <option value="" disabled selected>select occupation</option>
+                <!-- <option value="" disabled selected>Select</option> -->
                 <option value="University Student">University Student</option>
                 <option value="School Student">School Student</option>
                 <option value="Salaried Worker">Salaried Worker</option>
@@ -79,50 +80,46 @@
                     <label>N/A</label>
                 </form>
             <br><br>
-            <label name="platform_name">Do you use social media?</label>
-            <form>
-                <input type="radio" id="rbUseSM" name="use_sm" value="Yes">
-                <label for="rbUseSM">Yes</label>
-                <br>
-                <input type="radio" id="rbNotUse" name="use_sm" value="No">
-                <label for="rbNotUse">No</label>
-            </form>
+            <label >Do you use social media?</label>
+            <select name="use_sm" id="smPlatform">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
             <br><br>
-            <label>What social media platforms do you commonly use?</label>
+            <label>What social media platforms do you commonly use? (select all that apply)</label>
                 <form>
-                    <br>
-                    <input type="checkbox" id="cbUni" name="organization_name" value="University">
+                    <input type="checkbox" id="cbDiscord" name="platform_name" value="Discord">
                     <label>Discord</label>
                     <br>
-                    <input type="checkbox" id="cbPrivate" name="organization_name" value="Private">
+                    <input type="checkbox" id="cbFacebook" name="platform_name" value="Facebook">
                     <label>Facebook</label>
                     <br>
-                    <input type="checkbox" id="cbSchool" name="organization_name" value="School">
+                    <input type="checkbox" id="cbInstagram" name="platform_name" value="Instagram">
                     <label>Instagram</label>
                     <br>
-                    <input type="checkbox" id="cbCompany" name="organization_name" value="Company">
+                    <input type="checkbox" id="cbPinterest" name="platform_name" value="Pinterest">
                     <label>Pinterest</label>
                     <br>
-                    <input type="checkbox" id="cbGovernment" name="organization_name" value="Government">
+                    <input type="checkbox" id="cbReddit" name="platform_name" value="Reddit">
                     <label>Reddit</label>
                     <br>
-                    <input type="checkbox" id="cbNone" name="organization_name" value="N/A">
+                    <input type="checkbox" id="cbSnapchat" name="platform_name" value="Snapchat">
                     <label>Snapchat</label>
                     <br>
-                    <input type="checkbox" id="cbGovernment" name="organization_name" value="Government">
+                    <input type="checkbox" id="cbTikTok" name="platform_name" value="TikTok">
                     <label>TikTok</label>
                     <br>
-                    <input type="checkbox" id="cbGovernment" name="organization_name" value="Government">
+                    <input type="checkbox" id="cbTwitter" name="platform_name" value="Twitter">
                     <label>Twitter</label>
                     <br>
-                    <input type="checkbox" id="cbGovernment" name="organization_name" value="Government">
+                    <input type="checkbox" id="cbYoutube" name="platform_name" value="Youtube">
                     <label>Youtube</label>
                     <br>
                 </form>
             <br><br>
             <label>What is the average time you spend on social media every day?</label>
             <select id="avgTime" name="avg_daily_sm_use">
-                <option value="" disabled selected>select time spent</option>
+                <!-- <option value="" disabled selected>select time spent</option> -->
                 <option value="Less than an Hour">Less than an Hour</option>
                 <option value="Between 1 and 2 hours">Between 1 and 2 hours</option>
                 <option value="Between 2 and 3 hours">Between 2 and 3 hours</option>
