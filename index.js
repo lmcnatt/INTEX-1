@@ -237,7 +237,7 @@ app.get("/dashboard", (req, res) => {
 });
 
 app.get("/customizedAssessment", (req,res) => {
-    knex.select("entry_id", "age", "use_sm").from('entries').orderBy("entry_id", "desc")
+    knex.select("entry_id", "age", "avg_daily_sm_use").from('entries').orderBy("entry_id", "desc")
     .then(entry => {
         res.render("customizedAssessment", {myInfo: entry})
     })
