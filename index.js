@@ -256,4 +256,16 @@ app.get("/helpGenZ", (req, res) => {
     res.render("helpGenZ")
 })
 
+app.get("/helpMillenials", (req, res) => {
+    res.render("helpMillenials")
+})
+
+app.get("/helpGenX", (req, res) => {
+    res.render("helpGenX")
+})
+
+app.get("/helpBoomers", (req, res) => {
+    res.render("helpBoomers")
+})
+
 app.listen(port, () => console.log("Website is running"));

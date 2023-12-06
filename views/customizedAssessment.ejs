@@ -130,6 +130,19 @@
             userAge = "Gen Z"
         }
 
+        if (userAge == "Baby Boomers"){
+            document.getElementById("getHelpButton").action = ("/helpBoomers")
+        }
+        else if (userAge == "Gen X"){
+            document.getElementById("getHelpButton").action = ("/helpGenX")
+        }
+        else if (userAge == "Millenials"){
+            document.getElementById("getHelpButton").action = ("/helpMillenials")
+        }
+        else{
+            document.getElementById("getHelpButton").action = ("/helpGenZ")
+        }
+
         let sGenerationalAssessment = userAge + ",<br>"
         document.getElementById("GenerationAssessment").innerHTML = sGenerationalAssessment
     </script>
