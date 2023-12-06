@@ -13,9 +13,282 @@
     <title>Entry #<%= myEntries[0].entry_id %></title>
 </head>
 <body>
+
     <section class="p-3 mb-2 bg-light text-dark">
     <div class="container">  
         <h1 class="text-center fw-bold display-2">Entry Number: <%= myEntries[0].entry_id %></h1>
+        <br>
+        <div class="container">
+            <div class="row">
+          
+              <div class="col-md-6">
+                <div class="question">
+                  <p>Timestamp:</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="answer">
+                  <p class="fw-bold"><%= myEntries[0].timestamp %></p>
+                </div>
+              </div>
+          
+              <div class="col-md-6">
+                  <div class="question">
+                    <p>1. Age:</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="answer">
+                    <p class="fw-bold"><%= myEntries[0].age %></p>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="question">
+                    <p>2. Gender:</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="answer">
+                    <p class="fw-bold"><%= myEntries[0].gender %></p>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>3. Relationship status:</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].relationship %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>4. Occupation status:</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].occupation %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>5. What type of organizations are you affiliated with?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold">
+                        <% 
+                        for (let i = 0; i < myEntries.length; i++) {
+                            if ((i + 1) == myEntries.length) { %>
+                                <%= myEntries[i].organization_name %>
+                        <%  }
+                            else {
+                                if (myEntries[i + 1].organization_name !== myEntries[i].organization_name) { %>
+                                    <%= myEntries[i].organization_name %>, 
+                            <%  }
+                            }
+                        }
+                        %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>6. Do you use social media?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].use_sm %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>7. What social media platforms do you commonly use?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold">
+                        <% 
+                        for (let i = 0; i < myEntries.length; i++) {
+                            if ((i + 1) == myEntries.length) { %>
+                                <%= myEntries[i].platform_name %>
+                        <%  }
+                            else {
+                                if (myEntries[i + 1].platform_name !== myEntries[i].platform_name) { %>
+                                    <%= myEntries[i].platform_name %>, 
+                            <%  }
+                            }
+                        }
+                        %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>8. What is the average time you spend on social media every day?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].avg_daily_sm_use %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>9. How often do you find yourself using social media without a specific purpose?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].no_purpose_use_score %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>10. How often do you get distracted by social media when you are busy doing something?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].distracted_use_score %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>11. Do you feel restless if you haven’t used social media in a while?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].restlessness_without_sm_score %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>12. How easily distracted are you?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].general_distraction_score %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>13. How much are you bothered by worries?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].bothered_by_worries_score %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>14. Do you find it difficult to concentrate on things?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].concentration_difficulty_score %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>15. How often do you compare yourself to other successful people through the use of social media?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].freq_comparison_to_successful_people_via_sm_score %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>16. Following the previous question, how do you feel about these comparisons, generally speaking?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].feelings_about_comparison_score %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>17. How often do you look to seek validation from features of social media?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].validation_seeking_from_sm_score %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>18. How often do you feel depressed or down?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].freq_depressed_or_down_score %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>19. How frequently does your interested in daily activities fluctuate?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].freq_fluctuation_of_interest_in_daily_activities_score %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>20. How often do you face issues regarding sleep?</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].freq_sleep_issues_score %></p>
+                    </div>
+                  </div>
+
+                <div class="col-md-6">
+                    <div class="question">
+                      <p>Location:</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="answer">
+                      <p class="fw-bold"><%= myEntries[0].location %></p>
+                    </div>
+                  </div> 
+            </div>
+          </div>
+
         <p>Timestamp: <%= myEntries[0].timestamp %></p>
         <p>1. Age: <%= myEntries[0].age %></p>
         <p>2. Gender: <%= myEntries[0].gender %></p>
