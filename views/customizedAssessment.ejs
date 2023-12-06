@@ -7,45 +7,72 @@
 </head>
 <body>
 
-    <button onclick="evaluationForYou()">Click for Your Personal Evaluation</button>
-    <h1 id="GenAs"></h1>
-    <h1 id="UsageAs"></h1>
-    <h1 id="Recs"></h1>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/styles.css">
+        <script defer src="/scripts/scripts.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <br>
+        <br>
+        <br>
+        <br>
+        <section>
+            <div class="container">
+                <h1>You're from:</h1>
+                <h1 id="GenerationAssessment" class="hidden" value=<%=myInfo[0].age%>></h1>
+                <h1>Who uses social media for</h1>    
+                <h1 id="HourlyAssessment" class="hidden" value=<%=myInfo[0].use_sm%>></h1>
+                <br>
+    
+                <h2>Your generation may suffer more from</h2>
+                <h3 class="hidden">&bull; Depression</h2>
+                <h3 class="hidden">&bull; Worriedness</h2>
+                <h3 class="hidden">&bull; Distractions</h2>
+                <h2>when compared with other generation.</h2>
+                <br>
+                <br>
+    
+                <h2>What can I do to reduce my suffering:</h2>
+                <h6 class="hidden">&bull; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa odio labore ducimus quisquam atque recusandae quod itaque nihil eveniet dignissimos veniam excepturi, blanditiis perspiciatis nobis corrupti similique beatae culpa quia?</h6>
+                <h6 class="hidden">&bull; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa odio labore ducimus quisquam atque recusandae quod itaque nihil eveniet dignissimos veniam excepturi, blanditiis perspiciatis nobis corrupti similique beatae culpa quia?</h6>
+                <h6 class="hidden">&bull; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa odio labore ducimus quisquam atque recusandae quod itaque nihil eveniet dignissimos veniam excepturi, blanditiis perspiciatis nobis corrupti similique beatae culpa quia?</h6>
+            </div>
+        </section>
+    </body>
+    </html>
 
 
     <script>
-        function checkData{
-            console.log(myInfo[0].age)
-            console.log(myInfo[0].use_sm)
+        let userAge = document.getElementById("GenerationAssessment").value
+        let userUsage = document.getElementById("HourlyAssessment").value
+
+        if (userAge >= 59){
+            userAge = "Baby Boomers"
+        }
+        else if (userAge >= 43){
+            userAge = "Gen X"
+        }
+        else if (userAge >= 27){
+            userAge = "Millennials"
+        }
+        else{
+            userAge = "Gen Z"
         }
 
-        function evaluationForYou(){
-            let userAge = myInfo[0].age
-            let userUsage = myInfo[0].use_sm
+        let sGenerationalAssessment = "With your associated generation, " + userAge + ",<br>"
 
-            if (userAge >= 59){
-                userAge = "Baby Boomers"
-            }
-            else if (userAge >= 43){
-                userAge = "Gen X"
-            }
-            else if (userAge >= 27){
-                userAge = "Millennials"
-            }
-            else{
-                userAge = "Gen Z"
-            }
+        let sUsageAssessmnet = "and with your usage being " + userUsage + ",<br>"
 
-            let sGenerationalAssessment = "With your associated generation, " + userAge + ",<br>"
+        let sReccomendationAssessment = "So here are the following things you may be more succeptable to: "
 
-            let sUsageAssessmnet = "and with your usage being " + userUsage + ",<br>"
-
-            let sReccomendationAssessment = "So here are the following things you may be more succeptable to: "
-
-            document.getElementById("GenAs").innerHTML = sGenerationalAssessment
-            document.getElementById("UsageAs").innerHTML = sUsageAssessmnet
-            document.getElementById("Recs").innerHTML = sReccomendationAssessment
-        }
+        document.getElementById("GenerationAssessment").innerHTML = sGenerationalAssessment
+        document.getElementById("HourlyAssessment").innerHTML = sUsageAssessmnet
+        document.getElementById("Recs").innerHTML = sReccomendationAssessment
     </script>
     
     
