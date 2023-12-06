@@ -41,6 +41,8 @@ user routes
 admin routes 
 */
 app.get("/", (req, res) => {
+    req.session.Generation = "None";
+    req.session.smUsage = "None";
     res.render("home");
 });
 
@@ -175,6 +177,9 @@ app.get("/survey", (req, res) => {
 });
 
 app.post("/submitSurvey", async (req, res) => {
+    req.session.Generation = req.body.age;
+    req.session.smUsage = req.body.avg_daily_sm_use;
+
     knex("entries").insert({
         timestamp: new Date(),
         age: req.body.age,
@@ -221,11 +226,15 @@ app.post("/submitSurvey", async (req, res) => {
         }
     }
 
-    res.redirect("/");
+    res.redirect("/customizedAssessment");
 });
 
 app.get("/dashboard", (req, res) => {
     res.render("dashboard");
+});
+
+app.get("/customizedAssessment", (req,res) => {
+    res.render("customizedAssessment", {myInfo: [req.session.Generation, req.session.smUsage]})
 });
 
 app.get("/helpGenZ", (req, res) => {
