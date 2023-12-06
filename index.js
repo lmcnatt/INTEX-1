@@ -128,26 +128,31 @@ app.get("/createAcc", authenticate, (req, res) => {
 });
 
 app.post("/createAcc", authenticate, async (req, res) => {
+
     async function doesUsernameExist() {
         return knex("users").select("username").where({username: req.body.login_username})
     }
     let usernameExistsData = await doesUsernameExist();
-    let usernameExistsResult = usernameExistsData[0].username;
-    
-    console.log(usernameExistsResult);
-
-    knex("users").insert({
-        username: req.body.login_username,
-        password: req.body.login_password,
-        first_name: req.body.login_firstname,
-        last_name: req.body.login_lastname})
-    .then(user => {
-        res.redirect("adminDashboard")
-    })
-    .catch(err => {
-        console.error(err);
-        res.status(500).send("Internal Server Error");
-    });
+    //let usernameExistsResult = usernameExistsData[0].username;
+    if (usernameExistsData.length == 0) {
+        console.log(usernameExistsData);
+        knex("users").insert({
+            username: req.body.login_username,
+            password: req.body.login_password,
+            first_name: req.body.login_firstname,
+            last_name: req.body.login_lastname})
+        .then(user => {
+            res.redirect("adminDashboard");
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).send("Internal Server Error");
+        });
+    }
+    else {
+        let usernameExistsResult = usernameExistsData[0].username;
+        console.log(usernameExistsResult);
+    }
 });
 
 app.get("/modifyAcc", authenticate, (req, res) => {
