@@ -12,8 +12,9 @@
 
     <title>Entry #<%= myEntries[0].entry_id %></title>
 </head>
-<body>  
-    <div>
+<body>
+    <section class="p-3 mb-2 bg-light text-dark">
+    <div class="container">  
         <h1 class="text-center fw-bold display-2">Entry Number: <%= myEntries[0].entry_id %></h1>
         <p>Timestamp: <%= myEntries[0].timestamp %></p>
         <p>1. Age: <%= myEntries[0].age %></p>
@@ -65,5 +66,6 @@
         <p>Location: <%= myEntries[0].location %></p>
 
     </div>
+    </section>
 </body>
 </html>
