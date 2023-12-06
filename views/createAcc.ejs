@@ -11,7 +11,7 @@
     <link rel="icon" href="/resources/Screenshot 2023-12-05 at 8.56.01 PM.png" type="image/x-icon">
     <title>Create Account</title>
 </head>
-<body>
+<body onload="validateUsername()">
     <style>
         .nav-item {
         list-style: none;
@@ -78,7 +78,7 @@
                     <input type="text" id="login_password" name="login_password">
                     <br>
                     <br>
-                    <button class="btn mx-auto btn btn-outline-secondary" type="submit">Log In</button>
+                    <button type="submit" class="btn mx-auto btn btn-outline-secondary">Create</button>
                 </form>
             </div>
         </div>
@@ -91,5 +91,13 @@
             </ul>
             <p class="text-center text-muted">© 2023 SMU MH</p>
           </footer>
+    <script>
+        function validateUsername() {
+            if ('<%= usernameExistsResult %>' !== '') {
+                alert("'<%= usernameExistsResult %>' already exists. Choose another username");
+                document.getElementById('login_firstname').focus();
+            }
+        }
+    </script>
 </body>
 </html>
