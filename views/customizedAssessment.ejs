@@ -8,15 +8,20 @@
 <body>
 
     <button onclick="evaluationForYou()">Click for Your Personal Evaluation</button>
-    <h1 id="GenAs"><%= myInfo[0].age%></h1>
-    <h1 id="UsageAs"></h1>
-    <h1 id="Recs"></h1>
-
+    
+    <% if (myInfo && myInfo[0]) { %>
+        <h1 id="GenAs"><%= myInfo[0].age %></h1>
+        <h1 id="UsageAs"></h1>
+        <h1 id="Recs"></h1>
+    <% } else { %>
+        <p>No information available</p>
+    <% } %>
 
     <script>
         function evaluationForYou(){
-            let userAge = myInfo[0].age
-            let userUsage = myInfo[0].use_sm
+            if (myInfo && myInfo[0]) { 
+                let userAge = '<%= myInfo[0].age %>';
+                let userUsage = '<%= myInfo[0].use_sm %>';
 
             if (userAge >= 59){
                 userAge = "Baby Boomers"
