@@ -7,9 +7,14 @@ body{
 }
 
 .container{
-    background: burlywood;
-    color: white;
-    padding: 20px;
+    background: gainsboro;
+    color: black;
+    padding: 5%;
+    border: 10%;
+    width: 900px;
+    height: 100%;
+    border-color: black;
+    opacity: 0.8;
 }
 
 section{
@@ -17,7 +22,7 @@ section{
     place-items: center;
     align-content: center;
     min-height: 100vh;
-    font-size: 50px;
+    font-size: 300%;
 }
 
 .bigtext{
