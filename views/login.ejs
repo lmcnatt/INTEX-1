@@ -63,14 +63,15 @@
                 <p id="warning_id"></p>
                 <form action="/loginSubmit" method="POST">
                     <label for="username">Username</label>
-                    <Input type="text" id="login_username" name="login_username"></Input>
+                    <input type="text" id="login_username" name="login_username" required>
                     <br>
                     <br>
                     <label for="password">Password</label>
-                    <Input type="password" id="login_password" name="login_password"></Input>
+                    <input type="password" id="login_password" name="login_password" required>
                     <br>
                     <br>
-                    <input type="checkbox" onclick="ShowPassword()"> Show Password
+                    <input type="checkbox" id="show_pass" onclick="ShowPassword()">
+                    <label for="show_pass">Show Password</label>
                     <br>
                     <br>
                     <button type="submit">Log In</button>
