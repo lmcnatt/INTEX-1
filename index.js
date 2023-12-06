@@ -45,7 +45,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-    res.render("login");
+    if (req.session.userID != null){
+        res.redirect("adminDashboard")
+    }
+    else{
+        res.render("login");
+    }
+
 });
 
 app.post("/loginsubmit", (req, res) => {
@@ -143,7 +149,7 @@ app.post("/submitSurvey", async (req, res) => {
         relationship: req.body.relationship,
         occupation: req.body.occupation,
         use_sm: req.body.use_sm,
-        avg_dail_sm_use: req.body.avg_dail_sm_use,
+        avg_daily_sm_use: req.body.avg_daily_sm_use,
         no_purpose_use_score: req.body.no_purpose_use_score,
         distracted_use_score: req.body.distracted_use_score,
         restlessness_without_sm_score: req.body.restlessness_without_sm_score,
@@ -192,3 +198,7 @@ app.get("/dashboard", (req, res) => {
 });
 
 app.listen(port, () => console.log("Website is running"));
+
+app.get("/helpGenZ", (req, res) => {
+    res.render("helpGenz");
+});

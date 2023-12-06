@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="script" href="/scripts/scripts.js">
     <title>Document</title>
 </head>
 <body>
@@ -33,7 +34,7 @@
                     <br>
                     <label for="password">Password</label>
                     <input type="text" id="login_password" name="login_password" value="<%= user[0].password%>">
-                    <input type="checkbox" onclick="ShowPassword(document.getElementById(login_password))">Show Password
+                    <input type="checkbox" onclick="ShowPassword()">Show Password
                     <br>
                     <br>
                     <input type="submit" value="Log In"></Input>
@@ -41,6 +42,15 @@
                 
             </div>
         </div>
-        <script scr="/scripts/scripts.js"></script>
+        <script>
+            function ShowPassword() {
+                var x = document.getElementById("login_password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
 </body>
 </html>

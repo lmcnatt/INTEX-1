@@ -19,11 +19,22 @@
                     <br>
                     <label for="password">Password</label>
                     <Input type="password" id="login_password" name="login_password"></Input>
+                    <input type="checkbox" onclick="ShowPassword()">Show Password
                     <br>
                     <br>
                     <Input type="submit" value="Log In"></Input>
                 </form>
             </div>
         </div>
+        <script>
+            function ShowPassword() {
+                var x = document.getElementById("login_password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+body{
+    background-color: linear-gradient(180deg, rgb(122, 59, 112)(255, 0, 212), rgb(94, 43, 65)5, 0, 111);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+section{
+    display: grid;
+    place-items: center;
+    align-content: center;
+    min-height: 100vh;
+}
+
+.hidden {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateX(-50%);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0%);
+}
+
+
+
