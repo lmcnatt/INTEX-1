@@ -6,15 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 id="GenAs">TESTING 1 </h1>
-    <h1 id="UsageAs">TESTING 2</h1>
-    <h1 id="Recs">TESTING 3</h1>
+
+    <button onclick="evaluationForYou()">Click for Your Personal Evaluation</button>
+    <h1 id="GenAs"><%= myInfo[0].age%></h1>
+    <h1 id="UsageAs"></h1>
+    <h1 id="Recs"></h1>
 
 
     <script>
         function evaluationForYou(){
             let userAge = myInfo[0].age
-            let userUsage = myInfo[1].use_sm
+            let userUsage = myInfo[0].use_sm
 
             if (userAge >= 59){
                 userAge = "Baby Boomers"
