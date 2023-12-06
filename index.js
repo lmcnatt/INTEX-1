@@ -135,7 +135,8 @@ app.get("/survey", (req, res) => {
     res.render("survey");
 });
 
-app.post("/submitSurvey", (req, res) => {
+app.post("/submitSurvey", async (req, res) => {
+
     knex("entries").insert({
         age: req.body.age,
         gender: req.body.gender,
@@ -156,20 +157,34 @@ app.post("/submitSurvey", (req, res) => {
         freq_fluctuation_of_interest_in_daily_activities_score: req.body.freq_fluctuation_of_interest_in_daily_activities_score,
         freq_sleep_issues_score: req.body.freq_sleep_issues_score,
         location: req.body.location
-    }).then(myEntries => {
-        res.redirect("/");
     }).catch(err => {
         console.error(err);
         res.status(500).send("Internal Server Error");
     });
 
-    /*
-    knex("social_media_data").insert({
+    async function getEntryID() {
+        return knex("entries").select("entry_id").orderBy("entry_id", "desc").first();
+    }
 
-    }).catch(err => {
-        console.error(err);
-        res.status(500).send("Internal Server Error");
-    });*/
+    let entryID = await getEntryID();
+    console.log(entryID);
+
+    const organizations = req.body.organization_name;    
+    console.log(organizations);
+
+    const platforms = req.body.platform_name;
+    console.log(platforms);
+
+    // organizations.forEach(async () => {
+    //     await knex('social_media_data').insert({
+            
+    //     })
+    // }).then(myEntries => {
+    //     res.redirect("/")
+    // }).catch(err => {
+    //     console.error(err);
+    //     res.status(500).send("Internal Server Error");
+    // });
 });
 
 app.get("/dashboard", (req, res) => {
