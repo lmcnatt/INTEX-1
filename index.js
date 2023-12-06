@@ -144,6 +144,7 @@ app.get("/survey", (req, res) => {
 app.post("/submitSurvey", async (req, res) => {
 
     knex("entries").insert({
+        timestamp: new Date(),
         age: req.body.age,
         gender: req.body.gender,
         relationship: req.body.relationship,
@@ -181,16 +182,20 @@ app.post("/submitSurvey", async (req, res) => {
     const platforms = req.body.platform_name;
     console.log(platforms);
 
-    // organizations.forEach(async () => {
-    //     await knex('social_media_data').insert({
-            
-    //     })
-    // }).then(myEntries => {
-    //     res.redirect("/")
-    // }).catch(err => {
-    //     console.error(err);
-    //     res.status(500).send("Internal Server Error");
-    // });
+    organizations.forEach(async (organizationName) => {
+        platforms.forEach(async (platformName) => {
+            await knex('social_media_data').insert({
+                entry_id: entryID,
+                organization_name: organizationName,
+                platform_name: platformName
+            });
+        });
+    }).then( () => {
+        res.redirect("/")
+    }).catch(err => {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+    });
 });
 
 app.get("/dashboard", (req, res) => {
