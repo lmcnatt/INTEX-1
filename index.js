@@ -141,9 +141,9 @@ app.get("/survey", (req, res) => {
     res.render("survey");
 });
 
-app.post("/submitSurvey", async (req, res) => {
-
+app.post("/submitSurvey", (req, res) => {
     knex("entries").insert({
+        // timestamp: req.body.timestamp,
         timestamp: new Date(),
         age: req.body.age,
         gender: req.body.gender,
@@ -164,6 +164,8 @@ app.post("/submitSurvey", async (req, res) => {
         freq_fluctuation_of_interest_in_daily_activities_score: req.body.freq_fluctuation_of_interest_in_daily_activities_score,
         freq_sleep_issues_score: req.body.freq_sleep_issues_score,
         location: req.body.location
+    }).then(myEntries => {
+        res.redirect("/");
     }).catch(err => {
         console.error(err);
         res.status(500).send("Internal Server Error");
@@ -203,7 +205,3 @@ app.get("/dashboard", (req, res) => {
 });
 
 app.listen(port, () => console.log("Website is running"));
-
-app.get("/helpGenZ", (req, res) => {
-    res.render("helpGenz");
-});
