@@ -177,20 +177,13 @@ app.post("/submitSurvey", async (req, res) => {
     }
 
     let entryID = await getEntryID();
-    console.log(entryID);
-
-    const organizations = req.body.organization_name;    
-    console.log(organizations);
-
+    const organizations = req.body.organization_name;
     const platforms = req.body.platform_name;
-    console.log(platforms);
 
     for (const organizationName of organizations) {
         for (const platformName of platforms) {
             const organizationID = await knex('organizations').select('organization_id').where({ organization_name: organizationName }).first();
             const platformID = await knex('platforms').select('platform_id').where({ platform_name: platformName }).first();
-            console.log(organizationID);
-            console.log(platformID);
             await knex('social_media_data').insert({
                 entry_id: entryID.entry_id,
                 organization_id: organizationID.organization_id,
