@@ -54,35 +54,33 @@ app.get("/login", (req, res) => {
 
 });
 
-app.post("/loginsubmit", (req, res) => {
+app.post("/loginSubmit", (req, res) => {
     const loginUsername = req.body.login_username;
     const loginPassword = req.body.login_password;
 
-    knex.select("user_id", "username", "password").from("users")
-        .then(user => {
-
-            let unlocked = false;
-            for (i = 0; i < user.length; i++){
-                // console.log(user[i].username + " | " + loginUsername)
-                // console.log(user[i].password + " | " + loginPassword)
-                if(user[i].username == loginUsername && user[i].password == loginPassword){
-                    unlocked = true;
-                    req.session.userID = user[i].user_id;
-                }
+    knex("users").select("user_id",
+                         "username",
+                         "password").then(user => {
+        let unlocked = false;
+        for (i = 0; i < user.length; i++){
+            if(user[i].username == loginUsername && user[i].password == loginPassword){
+                unlocked = true;
+                req.session.userID = user[i].user_id;
             }
-            if (unlocked == true) {
-                req.session.loggedIn = true;
-                res.redirect("adminDashboard")
-            }
-            else {
-                res.redirect("login")
-            }
-        })
-        .catch((error) => {
-            // Handle any database error
-            console.error(error);
-            res.status(500).send("Internal Server Error");
-        });
+        }
+        if (unlocked == true) {
+            req.session.loggedIn = true;
+            res.redirect("adminDashboard")
+        }
+        else {
+            res.redirect("login")
+        }
+    })
+    .catch((error) => {
+        // Handle any database error
+        console.error(error);
+        res.status(500).send("Internal Server Error");
+    });
 });
 
 app.get("/adminDashboard", authenticate, (req, res) => {
@@ -130,11 +128,11 @@ app.post("/createAcc", authenticate, (req, res) => {
 });
 
 app.get("/modifyAcc", authenticate, (req, res) => {
-
-    knex.select("user_id", "username", "password", "first_name", "last_name").from("users").where({"user_id": req.session.userID})
-        .then(user => {
-            res.render("modifyAcc", {user: user});
-        });
+    knex("users").select()
+    .where({"user_id": req.session.userID})
+    .then(user => {
+        res.render("modifyAcc", {myUsers: user});
+    });
 });
 
 app.post("/modifyAcc", (req, res) => {
