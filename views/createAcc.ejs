@@ -33,9 +33,14 @@
                 <a class="nav-link active" aria-current="page" href="/">Home <span class="sr-only"></span></a>
                 </li>
 
+                <!-- Survey -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="/survey">Survey<span class="sr-only"></span></a>
+                </li>
+
                 <!-- Tableau Dashboard -->
                 <li class="nav-item">
-                    <a class="nav-link active" href="/dashboard">Why Mental Health?<span class="sr-only"></span></a>
+                    <a class="nav-link active" href="/dashboard">Stats<span class="sr-only"></span></a>
                 </li>
 
                 <!-- Admin Dashboard: survey results, etc -->
@@ -49,7 +54,7 @@
             </li>
         </div>
     </nav>
-    <div class="jumbotron jumbotron-fluid" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.6) 100%), url(/resources/laladancedesign_logo.png)">
+    <div class="jumbotron jumbotron-fluid jumbotron text-center" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.6) 100%), url(/resources/laladancedesign_logo.png)">
         <div class="row mt-5 justify-content-center" style="opacity: 0.7;">
             <div class="contact-form section-sm p-5 cta bg-light">
                 <h1>Create an Account</h1>
@@ -72,9 +77,18 @@
                     <Input type="text" id="login_password" name="login_password"></Input>
                     <br>
                     <br>
-                    <Input type="submit" value="Log In"></Input>
+                    <Input class="btn mx-auto btn btn-outline-secondary" type="submit" value="Log In"></Input>
                 </form>
             </div>
         </div>
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+              <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+              <li class="nav-item"><a href="/survey" class="nav-link px-2 text-muted">Survey</a></li>
+              <li class="nav-item"><a href="/dashboard" class="nav-link px-2 text-muted">Stats</a></li>
+              <li class="nav-item"><a href="/login" class="nav-link px-2 text-muted">Login</a></li>
+            </ul>
+            <p class="text-center text-muted">© 2023 SMU MH</p>
+          </footer>
 </body>
 </html>

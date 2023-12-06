@@ -211,8 +211,8 @@ app.post("/submitSurvey", async (req, res) => {
     }
 
     let entryID = await getEntryID();
-    const organizations = req.body.organization_name;
-    const platforms = req.body.platform_name;
+    const organizations = Array.isArray(req.body.organization_name) ? req.body.organization_name : [req.body.organization_name];
+    const platforms = Array.isArray(req.body.platform_name) ? req.body.platform_name : [req.body.platform_name];
 
     console.log(organizations);
     console.log(platforms);
