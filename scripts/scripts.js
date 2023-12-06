@@ -1,5 +1,5 @@
 
-//Anitmation Observer
+//Animation Observer
 const hiddenElements = document.querySelectorAll('.hidden');
 
 
@@ -16,4 +16,4 @@ const observer = new IntersectionObserver(entries => {
     rootMargin: "-100px"
 });
 
-hiddenElements.forEach((el) => observer.observe(el))
+hiddenElements.forEach((el) => observer.observe(el));

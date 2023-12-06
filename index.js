@@ -38,7 +38,7 @@ const authenticate = (req, res, next) => {
 user routes 
 */
 /* 
-user routes 
+admin routes 
 */
 app.get("/", (req, res) => {
     res.render("home");
@@ -84,14 +84,27 @@ app.post("/loginSubmit", (req, res) => {
 });
 
 app.get("/adminDashboard", authenticate, (req, res) => {
-    knex("entries").select("entry_id",
-                           "timestamp",
-                           "age",
-                           "gender",
-                           "relationship",
-                           "occupation",
-                           "location").orderBy("entry_id").then(entries => {
+    const filterID = req.query.filterID;
+    const filterDate = req.query.filterDate;
+
+    let query = knex("entries")
+        .select("entry_id",
+                "timestamp",
+                "age",
+                "gender",
+                "relationship",
+                "occupation",
+                "location").orderBy("entry_id");
+    
+    if (filterID && filterID !== 'all') {
+        query = query.where({'entry_id': parseInt(filterID)});
+    }
+
+    query.then(entries => {
         res.render("adminDashboard", {myEntries: entries});
+    }).catch(err => {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
     });
 });
 
@@ -129,14 +142,24 @@ app.post("/createAcc", authenticate, (req, res) => {
 
 app.get("/modifyAcc", authenticate, (req, res) => {
     knex("users").select()
-    .where({"user_id": req.session.userID})
+    .where({user_id: req.session.userID})
     .then(user => {
         res.render("modifyAcc", {myUsers: user});
     });
 });
 
 app.post("/modifyAcc", (req, res) => {
-    res.render("modifyAcc");
+    knex("users").select().where({user_id: req.session.userID}).update({
+        username: req.body.login_username,
+        password: req.body.login_password,
+        first_name: req.body.login_firstname,
+        last_name: req.body.login_lastname
+    }).then(myProducts => {
+        res.redirect("/adminDashboard");
+    }).catch(err => {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+    });
 });
 
 app.get("/survey", (req, res) => {

@@ -61,6 +61,18 @@
             <h1>Entries</h1>
         </div>
         <div>
+            <form action="/adminDashboard" method="get">
+                <label for="filterID">Select ID</label>
+                <select name="filterID" id="filterID">
+                    <option value="all" selected>All</option>
+                    <% for (let i = 0; i < myEntries.length; i++) { %>
+                        <option value="<%= myEntries[i].entry_id %>"><%= myEntries[i].entry_id %></option>
+                    <% } %>
+                </select>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div>
             <table>
                 <thead>
                     <tr>
