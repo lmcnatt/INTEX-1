@@ -187,29 +187,19 @@ app.post("/submitSurvey", async (req, res) => {
 
     for (const organizationName of organizations) {
         for (const platformName of platforms) {
+            const organizationID = await knex('organizations').select('organization_id').where({ organization_name: organizationName }).first();
+            const platformID = await knex('platforms').select('platform_id').where({ platform_name: platformName }).first();
+            console.log(organizationID);
+            console.log(platformID);
             await knex('social_media_data').insert({
                 entry_id: entryID.entry_id,
-                organization_id: knex('organizations').select('organization_id').where({organization_name: organizationName}),
-                platform_id: knex('platforms').select('platform_id').where({platform_name: platformName})
+                organization_id: organizationID.organization_id,
+                platform_id: platformID.platform_id
             });
         }
     }
 
     res.redirect("/");
-    // organizations.forEach(async (organizationName) => {
-    //     platforms.forEach(async (platformName) => {
-    //         await knex('social_media_data').insert({
-    //             entry_id: entryID,
-    //             organization_name: organizationName,
-    //             platform_name: platformName
-    //         });
-    //     });
-    // }).then( () => {
-    //     res.redirect("/")
-    // }).catch(err => {
-    //     console.error(err);
-    //     res.status(500).send("Internal Server Error");
-    // });
 });
 
 app.get("/dashboard", (req, res) => {
