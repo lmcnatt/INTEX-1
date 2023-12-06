@@ -35,9 +35,14 @@
                 <a class="nav-link active" aria-current="page" href="/">Home <span class="sr-only"></span></a>
                 </li>
 
+                <!-- Survey -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="/survey">Survey<span class="sr-only"></span></a>
+                </li>
+
                 <!-- Tableau Dashboard -->
                 <li class="nav-item">
-                    <a class="nav-link active" href="/dashboard">Why Mental Health?<span class="sr-only"></span></a>
+                    <a class="nav-link active" href="/dashboard">Stats<span class="sr-only"></span></a>
                 </li>
 
                 <!-- Admin Dashboard: survey results, etc -->
@@ -51,7 +56,7 @@
             </li>
         </div>
     </nav>
-    <div class="jumbotron jumbotron-fluid" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.6) 100%), url(/resources/laladancedesign_logo.png)">
+    <div class="jumbotron jumbotron-fluid jumbotron text-center" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%,rgba(255,255,255,0.6) 100%), url(/resources/laladancedesign_logo.png)">
         <div class="row mt-5 justify-content-center" style="opacity: 0.7;">
             <div class="contact-form section-sm p-5 cta bg-light">
                 <h1>Edit Your Account</h1>
@@ -68,9 +73,11 @@
                     <br><br>
                     <label for="password">Password</label>
                     <input type="password" id="login_password" name="login_password" value="<%= myUsers[0].password%>">
+                    <br>
+                    <br>
                     <input type="checkbox" onclick="ShowPassword()">Show Password
                     <br><br>
-                    <button type="submit">Edit</button>
+                    <button class="btn mx-auto btn btn-outline-secondary" type="submit">Edit</button>
                 </form>
             </div>
         </div>
