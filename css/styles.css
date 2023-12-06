@@ -1,15 +1,13 @@
 body{
-/* 
-    background-color: purple; */
+
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 0;
     margin: 0;
 }
 
 .container{
-    background: gainsboro;
     color: black;
-    padding: 5%;
+    padding: 3%;
     border: 10%;
     width: 900px;
     height: 100%;
@@ -22,7 +20,7 @@ section{
     place-items: center;
     align-content: center;
     min-height: 100vh;
-    font-size: 300%;
+    font-size: 350%;
 }
 
 .bigtext{
@@ -31,7 +29,7 @@ section{
 }
 
 .hidden{
-    transform: translateX(-100px);
+    transform: translateX(-10px);
     opacity: 0;
     transition: 2s;
 }
@@ -40,6 +38,7 @@ section{
     transform: translateX(0);
     opacity: 1;
     font-style: italic;
+    color: rgb(0, 98, 177);
 }
 
 
