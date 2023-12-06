@@ -41,6 +41,8 @@ user routes
 admin routes 
 */
 app.get("/", (req, res) => {
+    req.session.Generation = "None";
+    req.session.smUsage = "None";
     res.render("home");
 });
 
@@ -224,7 +226,7 @@ app.get("/dashboard", (req, res) => {
 });
 
 app.get("/customizedAssessment", (req,res) => {
-    res.render("customizedAssessment")
+    res.render("customizedAssessment", {myInfo: [req.session.Generation, req.session.smUsage]})
 });
 
 app.get("/helpGenZ", (req, res) => {
