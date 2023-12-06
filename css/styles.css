@@ -1,5 +1,7 @@
 body{
-    background-color: linear-gradient(180deg, rgb(122, 59, 112)(255, 0, 212), rgb(94, 43, 65)5, 0, 111);
+/* 
+    background-color: purple; */
+    background: linear-gradient(180deg, rgb(122, 59, 112)(255, 0, 212), rgb(94, 43, 65)5, 0, 111);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 0;
     margin: 0;
@@ -12,18 +14,41 @@ section{
     min-height: 100vh;
 }
 
-.hidden {
-    opacity: 0;
-    filter: blur(10px);
-    transform: translateX(-50%);
-    transition: all 1s;
+.bigtext{
+    font-size: x-large;
+    text-align: left;
 }
 
-.show {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translateX(0%);
+.hidden{
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: 2s;
 }
+
+.show{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+/* @keyframes slideInFadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animated-element {
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    animation: slideInFadeIn 1s ease-out;
+  } */
 
 
 
