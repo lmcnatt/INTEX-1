@@ -115,7 +115,11 @@ app.get("/createAcc", authenticate, (req, res) => {
 });
 
 app.post("/createAcc", authenticate, (req, res) => {
-    knex.insert({username: req.body.login_username, password: req.body.login_password, first_name: req.body.login_firstname, last_name: req.body.login_lastname}).from("users")
+    knex("users").insert({
+        username: req.body.login_username,
+        password: req.body.login_password,
+        first_name: req.body.login_firstname,
+        last_name: req.body.login_lastname})
     .then(user => {
         res.redirect("adminDashboard")
     })
@@ -143,7 +147,6 @@ app.get("/survey", (req, res) => {
 
 app.post("/submitSurvey", async (req, res) => {
     knex("entries").insert({
-        // timestamp: req.body.timestamp,
         timestamp: new Date(),
         age: req.body.age,
         gender: req.body.gender,
@@ -186,8 +189,8 @@ app.post("/submitSurvey", async (req, res) => {
         for (const platformName of platforms) {
             await knex('social_media_data').insert({
                 entry_id: entryID.entry_id,
-                organization_name: organizationName,
-                platform_name: platformName
+                organization_id: knex('organizations').select('organization_id').where({organization_name: organizationName}),
+                platform_id: knex('platforms').select('platform_id').where({platform_name: platformName})
             });
         }
     }
