@@ -193,11 +193,6 @@ app.post("/submitSurvey", async (req, res) => {
     }
 
     res.redirect("/");
-} catch (err) {
-    console.error(err);
-    res.status(500).send("Internal Server Error");
-}
-
     // organizations.forEach(async (organizationName) => {
     //     platforms.forEach(async (platformName) => {
     //         await knex('social_media_data').insert({
