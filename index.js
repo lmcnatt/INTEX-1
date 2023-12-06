@@ -213,4 +213,8 @@ app.get("/dashboard", (req, res) => {
     res.render("dashboard");
 });
 
+app.get("/helpGenZ", (req, res) => {
+    res.render("helpGenZ")
+})
+
 app.listen(port, () => console.log("Website is running"));
