@@ -226,7 +226,10 @@ app.get("/dashboard", (req, res) => {
 });
 
 app.get("/customizedAssessment", (req,res) => {
-    res.render("customizedAssessment", {myInfo: [req.session.Generation, req.session.smUsage]})
+    knex("entries").select("age", "use_sm").orderBy("entry_id", desc).first().then(entry => {
+        res.render("customizedAssessment", {myInfo: entry})
+    })
+
 });
 
 app.get("/helpGenZ", (req, res) => {
