@@ -102,9 +102,24 @@
                 <br>
     
                 <h1>Here are recommendations to improve your health: </h1>
-                <h3 id="recstat1" class="hidden">&bull; Depression</h3>
-                <h3 id="recstat2" class="hidden">&bull; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa odio labore ducimus quisquam atque recusandae quod itaque nihil eveniet dignissimos veniam excepturi, blanditiis perspiciatis nobis corrupti similique beatae culpa quia?</h3>
-                <h3 id="recstat3" class="hidden">&bull; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa odio labore ducimus quisquam atque recusandae quod itaque nihil eveniet dignissimos veniam excepturi, blanditiis perspiciatis nobis corrupti similique beatae culpa quia?</h3>
+                <h3 id="worry" class="hidden">&bull; Worry</h3>
+                    <h6 id="worryA" class="hidden">Hey</h6>
+                    <h6 id="worryB" class="hidden">Hey</h6>
+                <h3 id="diffConsc" class="hidden">&bull; Difficulty Conscentrating</h3>
+                    <h6 id="diffConscA" class="hidden">Hey</h6>
+                    <h6 id="diffConscB" class="hidden">Hey</h6>
+                <h3 id="distracted" class="hidden">&bull; Being Highly Distracted</h3>
+                    <h6 id="distractedA" class="hidden">Hey</h6>
+                    <h6 id="distractedB" class="hidden">Hey</h6>
+                <h3 id="depression" class="hidden">&bull; Depression</h3>
+                    <h6 id="depressionA" class="hidden">Hey</h6>
+                    <h6 id="depressionB" class="hidden">Hey</h6>
+                <h3 id="apathy" class="hidden">&bull; Apathy</h3>
+                    <h6 id="apathyA" class="hidden">Hey</h6>
+                    <h6 id="apathyB" class="hidden">Hey</h6>
+                <h3 id="sleepIssues" class="hidden">&bull; Sleep Issues</h3>
+                    <h6 id="sleepIssuesA" class="hidden">Hey</h6>
+                    <h6 id="sleepIssuesB" class="hidden">Hey</h6>
             </div>
             <form id="getHelpButton" action="/helpGenZ">
                 <button class="btn mx-auto btn btn-outline-success">Find Out More</button>
@@ -131,12 +146,23 @@
 <script>
     let userAge = parseInt(document.getElementById("ageTag").innerHTML)
 
+    let worriesBool = ["worry", "worryA", "worryB", false];
+    let concentrateBool = ["diffConsc", "diffConscA", "diffConscB", false];
+    let distractionBool = ["distracted", "distractedA", "distractedB", false];
+    let depresssionBool = ["depression", "depressionA", "depressionB", false];
+    let apathyBool = ["apathy", "apathyA", "apathyB", false];
+    let sleepBool = ["sleepIssues", "sleepIssuesA", "sleepIssuesB", false];
+
     if (userAge >= 59){
         userAge = "Baby Boomers"
         document.getElementById("getHelpButton").action = ("/helpBoomers")
         document.getElementById("stat1").innerHTML = "&bull; Apathy"
         document.getElementById("stat2").innerHTML = "&bull; Sleep Issues"
         document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
+
+        apathyBool[3] = true;
+        sleepBool[3] = true;
+        distractionBool[3] = true;
 
     }
     else if (userAge >= 43){
@@ -145,6 +171,11 @@
         document.getElementById("stat1").innerHTML = "&bull; Being Highly Distracted"
         document.getElementById("stat2").innerHTML = "&bull; Worry"
         document.getElementById("stat3").innerHTML = "&bull; Sleep Issues"
+
+        distractionBool[3] = true;
+        worriesBool[3] = true;
+        sleepBool[3] = true;
+
     }
     else if (userAge >= 27){
         userAge = "Millennials"
@@ -152,6 +183,11 @@
         document.getElementById("stat1").innerHTML = "&bull; Worry"
         document.getElementById("stat2").innerHTML = "&bull; Being Highly Distracted"
         document.getElementById("stat3").innerHTML = "&bull; Difficulty Conscentrating"
+
+        worriesBool[3] = true;
+        distractionBool[3] = true;
+        concentrateBool[3] = true;
+
     }
     else{
         userAge = "Gen Z"
@@ -159,12 +195,32 @@
         document.getElementById("stat1").innerHTML = "&bull; Worry"
         document.getElementById("stat2").innerHTML = "&bull; Depression"
         document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
+
+        worriesBool[3] = true;
+        depresssionBool[3] = true;
+        distractionBool[3] = true;
+
     }
 
-    let sGenerationalAssessment = userAge + ",<br>"
+    let loopArray = [worriesBool, concentrateBool, distractionBool, depresssionBool, apathyBool, sleepBool]
+
+    for (i = 0; i < loopArray.length; i++){
+        if (loopArray[i][3] == false){
+            for (j = 0; j <= 2; j++) {
+                document.getElementById(loopArray[i][j]).classList.remove('hidden');
+                document.getElementById(loopArray[i][j]).classList.remove('truehidden');
+            }
+        } else {
+            continue;
+        }
+    }
+
+
+    let sGenerationalAssessment = userAge + "<br>"
     document.getElementById("GenerationAssessment").innerHTML = sGenerationalAssessment
 </script>
 
 
 </body>
 </html>
+
