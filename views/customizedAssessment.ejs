@@ -11,7 +11,7 @@
         <link rel="icon" href="/resources/Screenshot 2023-12-05 at 8.56.01 PM.png" type="image/x-icon">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script defer src="/scripts/scripts.js"></script>
-        <title>Document</title>
+        <title>Result Information</title>
     </head>
     <body class="">
         <style>
@@ -94,14 +94,14 @@
                     <h1 id="HourlyAssessment" class="hidden" >&emsp;<%=myInfo[0].avg_daily_sm_use%></h1>
                     <br>
         
-                    <h1>Your may suffer more from:</h1>
+                    <h1>You may suffer more from:</h1>
                     <h2 id="stat1" class="hidden">&bull; Depression</h2>
-                    <h2 id="stat2" class="hidden">&bull; Worriedness</h2>
-                    <h2 id="stat3" class="hidden">&bull; Distractions</h2>
-                    <h1>when compared with other of your generation.</h1>
+                    <h2 id="stat2" class="hidden">&bull; Worry</h2>
+                    <h2 id="stat3" class="hidden">&bull; Distraction</h2>
+                    <h1>when compared with others of your generation.</h1>
                     <br>
         
-                    <h1>Here are reccommendations to avoid or improve your health: </h1>
+                    <h1>Here are recommendations to improve your health: </h1>
                     <h3 id="recstat1" class="hidden">&bull; Depression</h3>
                         <ul class="hidden">
                             <h5 id="substat1a">Hey you should do this</h5>
@@ -118,15 +118,9 @@
                             <h5>Hey you should do this</h5>
                         </ul>
                 </div>
-                <!-- <form id="getHelpButton" action="/helpGenZ">
+                <form id="getHelpButton" action="/helpGenZ">
                     <button>Find Out More</button>
-                </form> -->
-                <div>
-                    <h6>Cited sources and External Links</h6>
-                    <ul>
-                        <a href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/anxiety-disorders/anxiety-and-stress-in-teens#:~:text=Encourage%20healthy%20diet%2C%20physical%20activities,psychologist%2Fcounselor%20for%20additional%20support">John Hoppkins</a>
-                    </ul>
-                </div>
+                </form>
             </section>  
         </div>
 
@@ -157,31 +151,25 @@
 
         }
         else if (userAge >= 43){
-            userAge = "&emsp;Gen X"
-            // document.getElementById("getHelpButton").action = ("/helpGenX")
-            document.getElementById("stat1").innerHTML = "&emsp;&bull; Being Highly Distracted"
-            document.getElementById("stat2").innerHTML = "&emsp;&bull; Worriedness"
-            document.getElementById("stat3").innerHTML = "&emsp;&bull; Sleep Issues"
+            userAge = "Gen X"
+            document.getElementById("getHelpButton").action = ("/helpGenX")
+            document.getElementById("stat1").innerHTML = "&bull; Being Highly Distracted"
+            document.getElementById("stat2").innerHTML = "&bull; Worriedness"
+            document.getElementById("stat3").innerHTML = "&bull; Sleep Issues"
         }
         else if (userAge >= 27){
-            userAge = "&emsp;Millennials"
-            // document.getElementById("getHelpButton").action = ("/helpMillenials")
-            document.getElementById("stat1").innerHTML = "&emsp;&bull; Worriedness"
-            document.getElementById("stat2").innerHTML = "&emsp;&bull; Being Highly Distracted"
-            document.getElementById("stat3").innerHTML = "&emsp;&bull; Difficulty Conscentrating"
+            userAge = "Millennials"
+            document.getElementById("getHelpButton").action = ("/helpMillenials")
+            document.getElementById("stat1").innerHTML = "&bull; Worriedness"
+            document.getElementById("stat2").innerHTML = "&bull; Being Highly Distracted"
+            document.getElementById("stat3").innerHTML = "&bull; Difficulty Conscentrating"
         }
         else{
-            userAge = "&emsp;Gen Z"
-            // document.getElementById("getHelpButton").action = ("/helpGenZ")
-            document.getElementById("stat1").innerHTML = "&emsp;&bull; Worriedness"
-            document.getElementById("recstat1").innerHTML = "&emsp;&bull; Worriedness"
-                document.getElementById("substat1a").innerHTML = "&emsp;&bull; Maintain a healthy diet, physical activities and good sleep habits."
-                document.getElementById("substat1b").innerHTML = "&emsp;&bull; If you need to seek help for extreme cases, reach out to your pediatrician or trusted psychologist/counselor for additional support. School or College counselors can also be helpful."
-            document.getElementById("stat2").innerHTML = "&emsp;&bull; Depression"
-                document.getElementById("substat2a").innerHTML = "&emsp;&bull; Maintain a healthy diet, physical activities and good sleep habits."
-                document.getElementById("substat2b").innerHTML = "&emsp;&bull; If you need to seek help for extreme cases, reach out to your pediatrician or trusted psychologist/counselor for additional support. School or College counselors can also be helpful."
-            document.getElementById("stat3").innerHTML = "&emsp;&bull; Being Highly Distracted"
-            document.getElementById("recstat3").innerHTML = "&emsp;&bull; Being Highly Distracted"
+            userAge = "Gen Z"
+            document.getElementById("getHelpButton").action = ("/helpGenZ")
+            document.getElementById("stat1").innerHTML = "&bull; Worriedness"
+            document.getElementById("stat2").innerHTML = "&bull; Depression"
+            document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
         }
 
         let sGenerationalAssessment = userAge + ",<br>"

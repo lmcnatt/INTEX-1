@@ -277,4 +277,25 @@ app.get("/helpBoomers", (req, res) => {
     res.render("helpBoomers")
 })
 
+//EVENTBRITE API 
+app.get('/events', async (req, res) => {
+    try {
+      const response = await axios.get('https://www.eventbriteapi.com/v3/events/search/', {
+        headers: {
+          'Authorization': 'Bearer BJ23RP7LXVHPFMENRG6Y'
+        },
+        params: {
+          'location.address': 'Provo',
+          'q': 'Mental Health',
+          'sort_by': 'date'
+        }
+      });
+      // Render the EJS template with the events data
+      res.render('events', { events: response.data.events });
+    } catch (error) {
+      console.error(error);
+      res.status(500).render('error', { message: 'An error occurred' });
+    }
+  });
+  
 app.listen(port, () => console.log("Website is running"));

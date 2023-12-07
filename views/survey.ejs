@@ -7,6 +7,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/additional-methods.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="icon" href="/resources/Screenshot 2023-12-05 at 8.56.01 PM.png" type="image/x-icon">
@@ -15,24 +18,24 @@
 
 </head>
 <body>
-    <form id="myForm"form action="/submitSurvey" method="POST">
+    <form id="surveyForm" action="/submitSurvey" method="POST">
         <section class="p-3 mb-2 bg-light text-dark">
             <div class="container">
             <h1 class="display-1 text-center">Social Media Survey</h1>
             <br><br>
             <br>
             <label for="numAge">1. What is your age? </label>
-            <input type="number" id="numAge" name="age" min="1">
+            <input type="number" id="numAge" name="age" min="1" required>
             <br><br>
             <label for="txtGender">2. Gender</label>
-            <select id="txtGender" name="gender">
+            <select id="txtGender" name="gender" required>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
             </select>
             <br><br>
             <label for="rStatus">3. Relationship Status</label>
-            <select id="rStatus" name="relationship">
+            <select id="rStatus" name="relationship" required>
                 <option value="In a relationship">In a relationship</option>
                 <option value="Single">Single</option>
                 <option value="Married">Married</option>
@@ -40,7 +43,7 @@
             </select>
             <br><br>
             <label for="oStatus">4. Occupation Status</label>
-            <select id="oStatus" name="occupation">
+            <select id="oStatus" name="occupation" required>
                 <option value="University Student">University Student</option>
                 <option value="School Student">School Student</option>
                 <option value="Salaried Worker">Salaried Worker</option>
@@ -50,25 +53,25 @@
                 <label>5. What type of organizations are you affiliated with? (select all that apply)</label>
                 <br>
                 <input type="checkbox" id="cbUni" name="organization_name" value="University">
-                <label>University</label>
+                <label for="cbUni">University</label>
                 <br>
                 <input type="checkbox" id="cbPrivate" name="organization_name" value="Private">
-                <label>Private</label>
+                <label for="cbPrivate">Private</label>
                 <br>
                 <input type="checkbox" id="cbSchool" name="organization_name" value="School">
-                <label>School</label>
+                <label for="cbSchool">School</label>
                 <br>
                 <input type="checkbox" id="cbCompany" name="organization_name" value="Company">
-                <label>Company</label>
+                <label for="cbCompany">Company</label>
                 <br>
                 <input type="checkbox" id="cbGovernment" name="organization_name" value="Government">
-                <label>Government</label>
+                <label for="cbGovernment">Government</label>
                 <br>
                 <input type="checkbox" id="cbNone" name="organization_name" value="N/A">
-                <label>N/A</label>
+                <label for="cbNone">N/A</label>
             <br><br>
             <label>6. Do you use social media?</label>
-            <select name="use_sm" id="smPlatform">
+            <select name="use_sm" id="smPlatform" required>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
             </select>
@@ -106,7 +109,7 @@
 
             <br>
             <label>8. What is the average time you spend on social media every day?</label>
-            <select id="avgTime" name="avg_daily_sm_use">
+            <select id="avgTime" name="avg_daily_sm_use" required>
                 <option value="Less than an Hour">Less than an Hour</option>
                 <option value="Between 1 and 2 hours">Between 1 and 2 hours</option>
                 <option value="Between 2 and 3 hours">Between 2 and 3 hours</option>
@@ -437,5 +440,25 @@
         </div>
         </section>
     </form>
+    <script>
+        $('#surveyForm').validate({
+            rules: {
+                organization_name: {required: true},
+                platform_name: {required: true},
+                no_purpose_use_score: {required: true},
+                distracted_use_score: {required: true},
+                restlessness_without_sm_score: {required: true},
+                general_distraction_score: {required: true},
+                bothered_by_worries_score: {required: true},
+                concentration_difficulty_score: {required: true},
+                freq_comparison_to_successful_people_via_sm_score: {required: true},
+                feelings_about_comparison_score: {required: true},
+                validation_seeking_from_sm_score: {required: true},
+                freq_feeling_depressed_or_down_score: {required: true},
+                freq_fluctuation_of_interest_in_daily_activities_score: {required: true},
+                freq_sleep_issues_score: {required: true}
+            }
+        });
+    </script>
 </body>
 </html>
