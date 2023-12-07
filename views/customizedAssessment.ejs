@@ -135,11 +135,6 @@
 
 
 <script>
-    let userAge = parseInt(document.getElementById("ageTag").innerHTML)
-
-    let sGenerationalAssessment = userAge + "<br>"
-    document.getElementById("GenerationAssessment").innerHTML = sGenerationalAssessment
-
     let rec1Array = [];
     let rec2Array = [];
     let rec3Array = [];
@@ -148,58 +143,83 @@
     let worriesRec2 = "";
     let concentrateRec1 = "";
     let concentrateRec2 = "";
-    let distractionRec1 = ""
-    let distractionRec2 = ""
-    let depressionRec1 = ""
-    let depressionRec2 = ""
-    let apathyRec1 = ""
-    let apathysRec2 = ""
-    let sleepRec1 = ""
-    let sleepsRec2 = ""
+    let distractionRec1 = "";
+    let distractionRec2 = "";
+    let depressionRec1 = "";
+    let depressionRec2 = "";
+    let apathyRec1 = "";
+    let apathyRec2 = "";
+    let sleepRec1 = "";
+    let sleepRec2 = "";
+
+    let userAge = parseInt(document.getElementById("ageTag").innerHTML)
+    let sGenration = ""
 
     if (userAge >= 59){
-        userAge = "Baby Boomers"
+        sGenration = "Baby Boomers"
         document.getElementById("getHelpButton").action = ("/helpBoomers")
         document.getElementById("stat1").innerHTML = "&bull; Apathy"
         document.getElementById("stat2").innerHTML = "&bull; Sleep Issues"
         document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
 
-        makeArrays(apathyRec1, apathyRec2, sleepRec1, sleepRec2, distractionRec1, distractionRec2)
+        showGeneration(sGenration);
+        makeArrays(apathyRec1, apathyRec2, sleepRec1, sleepRec2, distractionRec1, distractionRec2);
+        assignTheThing();
 
     }
     else if (userAge >= 43){
-        userAge = "Gen X"
+        sGenration = "Gen X"
         document.getElementById("getHelpButton").action = ("/helpGenX")
         document.getElementById("stat1").innerHTML = "&bull; Being Highly Distracted"
         document.getElementById("stat2").innerHTML = "&bull; Worry"
         document.getElementById("stat3").innerHTML = "&bull; Sleep Issues"
 
-        makeArrays(distractionRec1, distractionRec2, worriesRec1, worriesRec2, sleepRec1, sleepRec2)
+        showGeneration(sGenration);
+        makeArrays(distractionRec1, distractionRec2, worriesRec1, worriesRec2, sleepRec1, sleepRec2);
+        assignTheThing();
 
     }
     else if (userAge >= 27){
-        userAge = "Millennials"
+        sGenration = "Millennials"
         document.getElementById("getHelpButton").action = ("/helpMillenials")
         document.getElementById("stat1").innerHTML = "&bull; Worry"
         document.getElementById("stat2").innerHTML = "&bull; Being Highly Distracted"
         document.getElementById("stat3").innerHTML = "&bull; Difficulty Conscentrating"
 
-        makeArrays(worriesRec1, worriesRec2, distractionRec1, distractionRec2, concentrateRec1, concentrateRec2)
+        showGeneration(sGenration);
+        makeArrays(worriesRec1, worriesRec2, distractionRec1, distractionRec2, concentrateRec1, concentrateRec2);
+        assignTheThing();
 
     }
     else{
-        userAge = "Gen Z"
+        sGenration = "Gen Z"
         document.getElementById("getHelpButton").action = ("/helpGenZ")
         document.getElementById("stat1").innerHTML = "&bull; Worry"
         document.getElementById("stat2").innerHTML = "&bull; Depression"
         document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
 
-        makeArrays(worriesRec1, worriesRec2, depressionRec1, depressionRec2, distractionRec1, distractionRec2)
+        showGeneration(sGenration);
+        makeArrays(worriesRec1, worriesRec2, depressionRec1, depressionRec2, distractionRec1, distractionRec2);
+        assignTheThing();
     }
+
 
     let loopArray = [rec1Array, rec2Array, rec3Array]
 
-    for (i = 0; i < loopArray.length; i++){
+    function makeArrays(stat1rec1, stat1rec2, stat2rec1, stat2rec2, stat3rec1, stat3rec2){
+        rec1Array = [document.getElementById("stat1").innerHTML, stat1rec1, stat1rec2];
+        rec2Array = [document.getElementById("stat2").innerHTML, stat2rec1, stat2rec2];
+        rec3Array = [document.getElementById("stat3").innerHTML, stat3rec1, stat3rec2];
+    }
+
+    function showGeneration(genSomething){
+        let sGenerationalAssessment = genSomething + "<br>";
+        document.getElementById("GenerationAssessment").innerHTML = sGenerationalAssessment;
+    }
+
+    function assignTheThing(){
+        console.log("assignTheThing()")
+        for (i = 0; i < loopArray.length; i++){
         document.getElementById("rec1").innerHTML = loopArray[0][0]
             document.getElementById("rec1A").innerHTML = loopArray[0][1]
             document.getElementById("rec1B").innerHTML = loopArray[0][2]
@@ -209,15 +229,8 @@
         document.getElementById("rec3").innerHTML = loopArray[2][0]
             document.getElementById("rec3A").innerHTML = loopArray[2][1]
             document.getElementById("rec3B").innerHTML = loopArray[2][2]
+        }
     }
-
-    function makeArrays(stat1rec1, stat1rec2, stat2rec1, stat2rec2, stat3rec1, stat3rec2){
-        rec1Array = [document.getElementById("stat1").innerHTML, stat1rec1, stat1rec2];
-        rec2Array = [document.getElementById("stat2").innerHTML, stat2rec1, stat2rec2];
-        rec3Array = [document.getElementById("stat3").innerHTML, stat3rec1, stat3rec2];
-    }
-
-
 </script>
 
 
