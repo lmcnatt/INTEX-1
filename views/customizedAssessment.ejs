@@ -11,7 +11,7 @@
         <link rel="icon" href="/resources/Screenshot 2023-12-05 at 8.56.01 PM.png" type="image/x-icon">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script defer src="/scripts/scripts.js"></script>
-        <title>Document</title>
+        <title>Result Information</title>
     </head>
     <body class="">
         <style>
@@ -94,20 +94,20 @@
                     <h1 id="HourlyAssessment" class="hidden" ><%=myInfo[0].avg_daily_sm_use%></h1>
                     <br>
         
-                    <h1>Your may suffer more from:</h1>
+                    <h1>You may suffer more from:</h1>
                     <h2 id="stat1" class="hidden">&bull; Depression</h2>
-                    <h2 id="stat2" class="hidden">&bull; Worriedness</h2>
-                    <h2 id="stat3" class="hidden">&bull; Distractions</h2>
-                    <h1>when compared with other of your generation.</h1>
+                    <h2 id="stat2" class="hidden">&bull; Worry</h2>
+                    <h2 id="stat3" class="hidden">&bull; Distraction</h2>
+                    <h1>when compared with others of your generation.</h1>
                     <br>
         
-                    <h1>Here are reccommendations to avoid or improve your health: </h1>
+                    <h1>Here are recommendations to improve your health: </h1>
                     <h3 id="recstat1" class="hidden">&bull; Depression</h3>
                     <h3 id="recstat2" class="hidden">&bull; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa odio labore ducimus quisquam atque recusandae quod itaque nihil eveniet dignissimos veniam excepturi, blanditiis perspiciatis nobis corrupti similique beatae culpa quia?</h3>
                     <h3 id="recstat3" class="hidden">&bull; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa odio labore ducimus quisquam atque recusandae quod itaque nihil eveniet dignissimos veniam excepturi, blanditiis perspiciatis nobis corrupti similique beatae culpa quia?</h3>
                 </div>
                 <form id="getHelpButton" action="/helpGenZ">
-                    <button>Find Out More</button>
+                    <button class="btn mx-auto btn btn-outline-success">Find Out More</button>
                 </form>
             </section>  
         </div>
@@ -143,20 +143,20 @@
             userAge = "Gen X"
             document.getElementById("getHelpButton").action = ("/helpGenX")
             document.getElementById("stat1").innerHTML = "&bull; Being Highly Distracted"
-            document.getElementById("stat2").innerHTML = "&bull; Worriedness"
+            document.getElementById("stat2").innerHTML = "&bull; Worry"
             document.getElementById("stat3").innerHTML = "&bull; Sleep Issues"
         }
         else if (userAge >= 27){
             userAge = "Millennials"
             document.getElementById("getHelpButton").action = ("/helpMillenials")
-            document.getElementById("stat1").innerHTML = "&bull; Worriedness"
+            document.getElementById("stat1").innerHTML = "&bull; Worry"
             document.getElementById("stat2").innerHTML = "&bull; Being Highly Distracted"
             document.getElementById("stat3").innerHTML = "&bull; Difficulty Conscentrating"
         }
         else{
             userAge = "Gen Z"
             document.getElementById("getHelpButton").action = ("/helpGenZ")
-            document.getElementById("stat1").innerHTML = "&bull; Worriedness"
+            document.getElementById("stat1").innerHTML = "&bull; Worry"
             document.getElementById("stat2").innerHTML = "&bull; Depression"
             document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
         }
