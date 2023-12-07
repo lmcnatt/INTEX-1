@@ -111,15 +111,6 @@
                 <h3 id="distracted" class="hidden">&bull; Being Highly Distracted</h3>
                     <h6 id="distractedA" class="hidden">Hey</h6>
                     <h6 id="distractedB" class="hidden">Hey</h6>
-                <h3 id="depression" class="hidden">&bull; Depression</h3>
-                    <h6 id="depressionA" class="hidden">Hey</h6>
-                    <h6 id="depressionB" class="hidden">Hey</h6>
-                <h3 id="apathy" class="hidden">&bull; Apathy</h3>
-                    <h6 id="apathyA" class="hidden">Hey</h6>
-                    <h6 id="apathyB" class="hidden">Hey</h6>
-                <h3 id="sleepIssues" class="hidden">&bull; Sleep Issues</h3>
-                    <h6 id="sleepIssuesA" class="hidden">Hey</h6>
-                    <h6 id="sleepIssuesB" class="hidden">Hey</h6>
             </div>
             <form id="getHelpButton" action="/helpGenZ">
                 <button class="btn mx-auto btn btn-outline-success">Find Out More</button>
@@ -146,12 +137,25 @@
 <script>
     let userAge = parseInt(document.getElementById("ageTag").innerHTML)
 
-    let worriesBool = ["worry", "worryA", "worryB", false];
-    let concentrateBool = ["diffConsc", "diffConscA", "diffConscB", false];
-    let distractionBool = ["distracted", "distractedA", "distractedB", false];
-    let depresssionBool = ["depression", "depressionA", "depressionB", false];
-    let apathyBool = ["apathy", "apathyA", "apathyB", false];
-    let sleepBool = ["sleepIssues", "sleepIssuesA", "sleepIssuesB", false];
+    let worriesRec1 = "";
+    let worriesRec2 = "";
+    let concentrateRec1 = "";
+    let concentrateRec2 = "";
+    let distractionRec1 = ""
+    let distractionRec2 = ""
+    let apathyRec1 = ""
+    let apathysRec2 = ""
+    let sleepRec1 = ""
+    let sleepsRec2 = ""
+
+
+
+    // let worriesBool = ["worry", "worryA", "worryB", false];
+    // let concentrateBool = ["diffConsc", "diffConscA", "diffConscB", false];
+    // let distractionBool = ["distracted", "distractedA", "distractedB", false];
+    // let depresssionBool = ["depression", "depressionA", "depressionB", false];
+    // let apathyBool = ["apathy", "apathyA", "apathyB", false];
+    // let sleepBool = ["sleepIssues", "sleepIssuesA", "sleepIssuesB", false];
 
     if (userAge >= 59){
         userAge = "Baby Boomers"
@@ -160,9 +164,9 @@
         document.getElementById("stat2").innerHTML = "&bull; Sleep Issues"
         document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
 
-        apathyBool[3] = true;
-        sleepBool[3] = true;
-        distractionBool[3] = true;
+        rec1Array = [document.getElementById("stat1").innerHTML, apathyRec1, apathysRec2];
+        rec2Array = [document.getElementById("stat2").innerHTML, ]
+        rec3Array = [document.getElementById("stat3").innerHTML, ]
 
     }
     else if (userAge >= 43){
@@ -208,7 +212,7 @@
         if (loopArray[i][3] == false){
             for (j = 0; j <= 2; j++) {
                 document.getElementById(loopArray[i][j]).classList.remove('hidden');
-                document.getElementById(loopArray[i][j]).classList.remove('truehidden');
+                document.getElementById(loopArray[i][j]).classList.add('truehidden');
             }
         } else {
             continue;
