@@ -1,170 +1,170 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/styles.css">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="icon" href="/resources/Screenshot 2023-12-05 at 8.56.01 PM.png" type="image/x-icon">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script defer src="/scripts/scripts.js"></script>
-        <title>Result Information</title>
-    </head>
-    <body class="">
-        <style>
-            .nav-item {
-            list-style: none;
-            }
-            
-            .covered {
-            position:relative; /* make a new "render context", so absolute positioning is relative to this parent container */
-    
-            padding:30px; /* only needed for this demo */
-            }
-            .covered-img {
-            background:url('/resources/44afc8_b3821d1f8dfc44c78ab589e5ee89fccf~mv2.webp');
-            opacity: .50;
-    
-            background-size:cover; /* cover will scale the image so that the smallest dimension = the widest dimension of the box */
-            background-position:center; /* vs the top-left that is default */
-            
-            position:absolute; /* take me out of the render context! let me define my own positioning */
-            top:0;bottom:0;left:0;right:0; /* this could also work with width:100%; height:100%;, but is simpler */
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" href="/resources/Screenshot 2023-12-05 at 8.56.01 PM.png" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script defer src="/scripts/scripts.js"></script>
+    <title>Result Information</title>
+</head>
+<body class="">
+    <style>
+        .nav-item {
+        list-style: none;
+        }
+        
+        .covered {
+        position:relative; /* make a new "render context", so absolute positioning is relative to this parent container */
 
-            .truehidden{
-                opacity: 0;
-            }
-    
-        </style>
-        <h2 class="p-3 bg-opacity-10 fs-6 fw-lighter text-center">Provo Social Media Usage and Mental Health Committee</h2>
-        <nav class="navbar sticky-top navbar-expand-lg navbar" style="background-color: #2596be;" data-bs-theme="dark">
-            <a class="navbar-brand" href="/">
-                <img src="/resources/Current_flag_of_Provo,_Utah.svg.png" width="65" height="35" alt="">
-            </a>
-            <a class="navbar-brand">Provo Community</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
+        padding:30px; /* only needed for this demo */
+        }
+        .covered-img {
+        background:url('/resources/44afc8_b3821d1f8dfc44c78ab589e5ee89fccf~mv2.webp');
+        opacity: .50;
 
-            <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto text-white">
-                    <!-- Home button -->
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home<span class="sr-only"></span></a>
-                    </li>
+        background-size:cover; /* cover will scale the image so that the smallest dimension = the widest dimension of the box */
+        background-position:center; /* vs the top-left that is default */
+        
+        position:absolute; /* take me out of the render context! let me define my own positioning */
+        top:0;bottom:0;left:0;right:0; /* this could also work with width:100%; height:100%;, but is simpler */
+        }
 
-                    <!-- Survey -->
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/survey">Survey<span class="sr-only"></span></a>
-                    </li>
+        .truehidden{
+            opacity: 0;
+        }
 
-                    <!-- Tableau Dashboard -->
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/dashboard">Stats<span class="sr-only"></span></a>
-                    </li>
+    </style>
+    <h2 class="p-3 bg-opacity-10 fs-6 fw-lighter text-center">Provo Social Media Usage and Mental Health Committee</h2>
+    <nav class="navbar sticky-top navbar-expand-lg navbar" style="background-color: #2596be;" data-bs-theme="dark">
+        <a class="navbar-brand" href="/">
+            <img src="/resources/Current_flag_of_Provo,_Utah.svg.png" width="65" height="35" alt="">
+        </a>
+        <a class="navbar-brand">Provo Community</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
 
-                    <!-- Admin Dashboard: survey results, etc -->
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/adminDashboard">Workers<span class="sr-only"></span></a>
-                    </li>
-                </ul>
-                <!-- Login -->
-                <li class="nav-item mx-auto me-2">
-                <a class="nav-link" href="/login">Login</a>
+        <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto text-white">
+                <!-- Home button -->
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home<span class="sr-only"></span></a>
                 </li>
-            </div>
-        </nav>
-        <br>
-        <br>
 
+                <!-- Survey -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="/survey">Survey<span class="sr-only"></span></a>
+                </li>
 
-        <div class="container-sm" style="background-color: white;">
-            <h1 class="text-center fw-bold display-1">
-                Your Personal Assessment
-            </h1>
-            <section>
-                <div class="container">
-                    <h1>You're from the following generation: </h1>
-                    <h1 id="GenerationAssessment" class="hidden" value=<%=myInfo[0].age%>></h1>
-                    <h1>Who uses social media</h1>    
-                    <h1 id="HourlyAssessment" class="hidden" ><%=myInfo[0].avg_daily_sm_use%></h1>
-                    <br>
-        
-                    <h1>You may suffer more from:</h1>
-                    <h2 id="stat1" class="hidden">&bull; Depression</h2>
-                    <h2 id="stat2" class="hidden">&bull; Worry</h2>
-                    <h2 id="stat3" class="hidden">&bull; Distraction</h2>
-                    <h1>when compared with others of your generation.</h1>
-                    <br>
-        
-                    <h1>Here are recommendations to improve your health: </h1>
-                    <h3 id="recstat1" class="hidden">&bull; Depression</h3>
-                    <h3 id="recstat2" class="hidden">&bull; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa odio labore ducimus quisquam atque recusandae quod itaque nihil eveniet dignissimos veniam excepturi, blanditiis perspiciatis nobis corrupti similique beatae culpa quia?</h3>
-                    <h3 id="recstat3" class="hidden">&bull; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa odio labore ducimus quisquam atque recusandae quod itaque nihil eveniet dignissimos veniam excepturi, blanditiis perspiciatis nobis corrupti similique beatae culpa quia?</h3>
-                </div>
-                <form id="getHelpButton" action="/helpGenZ">
-                    <button class="btn mx-auto btn btn-outline-success">Find Out More</button>
-                </form>
-            </section>  
-        </div>
+                <!-- Tableau Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="/dashboard">Stats<span class="sr-only"></span></a>
+                </li>
 
-
-        <p id="ageTag" class="truehidden"><%=myInfo[0].age%></p>
-
-        <footer class="py-3 my-4">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-              <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
-              <li class="nav-item"><a href="/survey" class="nav-link px-2 text-muted">Survey</a></li>
-              <li class="nav-item"><a href="/dashboard" class="nav-link px-2 text-muted">Stats</a></li>
-              <li class="nav-item"><a href="/login" class="nav-link px-2 text-muted">Login</a></li>
+                <!-- Admin Dashboard: survey results, etc -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="/adminDashboard">Workers<span class="sr-only"></span></a>
+                </li>
             </ul>
-            <p class="text-center text-muted">© 2023 SMU MH</p>
-          </footer>
-    </body>
-    </html>
+            <!-- Login -->
+            <li class="nav-item mx-auto me-2">
+            <a class="nav-link" href="/login">Login</a>
+            </li>
+        </div>
+    </nav>
+    <br>
+    <br>
 
 
-    <script>
-        let userAge = parseInt(document.getElementById("ageTag").innerHTML)
-
-        if (userAge >= 59){
-            userAge = "Baby Boomers"
-            document.getElementById("getHelpButton").action = ("/helpBoomers")
-            document.getElementById("stat1").innerHTML = "&bull; Apathy"
-            document.getElementById("stat2").innerHTML = "&bull; Sleep Issues"
-            document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
-
-        }
-        else if (userAge >= 43){
-            userAge = "Gen X"
-            document.getElementById("getHelpButton").action = ("/helpGenX")
-            document.getElementById("stat1").innerHTML = "&bull; Being Highly Distracted"
-            document.getElementById("stat2").innerHTML = "&bull; Worry"
-            document.getElementById("stat3").innerHTML = "&bull; Sleep Issues"
-        }
-        else if (userAge >= 27){
-            userAge = "Millennials"
-            document.getElementById("getHelpButton").action = ("/helpMillenials")
-            document.getElementById("stat1").innerHTML = "&bull; Worry"
-            document.getElementById("stat2").innerHTML = "&bull; Being Highly Distracted"
-            document.getElementById("stat3").innerHTML = "&bull; Difficulty Conscentrating"
-        }
-        else{
-            userAge = "Gen Z"
-            document.getElementById("getHelpButton").action = ("/helpGenZ")
-            document.getElementById("stat1").innerHTML = "&bull; Worry"
-            document.getElementById("stat2").innerHTML = "&bull; Depression"
-            document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
-        }
-
-        let sGenerationalAssessment = userAge + ",<br>"
-        document.getElementById("GenerationAssessment").innerHTML = sGenerationalAssessment
-    </script>
+    <div class="container-sm" style="background-color: white;">
+        <h1 class="text-center fw-bold display-1">
+            Your Personal Assessment
+        </h1>
+        <section>
+            <div class="container">
+                <h1>You're from the following generation: </h1>
+                <h1 id="GenerationAssessment" class="hidden" value=<%=myInfo[0].age%>></h1>
+                <h1>Who uses social media</h1>    
+                <h1 id="HourlyAssessment" class="hidden" ><%=myInfo[0].avg_daily_sm_use%></h1>
+                <br>
     
+                <h1>You may suffer more from:</h1>
+                <h2 id="stat1" class="hidden">&bull; Depression</h2>
+                <h2 id="stat2" class="hidden">&bull; Worry</h2>
+                <h2 id="stat3" class="hidden">&bull; Distraction</h2>
+                <h1>when compared with others of your generation.</h1>
+                <br>
     
+                <h1>Here are recommendations to improve your health: </h1>
+                <h3 id="recstat1" class="hidden">&bull; Depression</h3>
+                <h3 id="recstat2" class="hidden">&bull; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa odio labore ducimus quisquam atque recusandae quod itaque nihil eveniet dignissimos veniam excepturi, blanditiis perspiciatis nobis corrupti similique beatae culpa quia?</h3>
+                <h3 id="recstat3" class="hidden">&bull; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa odio labore ducimus quisquam atque recusandae quod itaque nihil eveniet dignissimos veniam excepturi, blanditiis perspiciatis nobis corrupti similique beatae culpa quia?</h3>
+            </div>
+            <form id="getHelpButton" action="/helpGenZ">
+                <button class="btn mx-auto btn btn-outline-success">Find Out More</button>
+            </form>
+        </section>  
+    </div>
+
+
+    <p id="ageTag" class="truehidden"><%=myInfo[0].age%></p>
+
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="/survey" class="nav-link px-2 text-muted">Survey</a></li>
+          <li class="nav-item"><a href="/dashboard" class="nav-link px-2 text-muted">Stats</a></li>
+          <li class="nav-item"><a href="/login" class="nav-link px-2 text-muted">Login</a></li>
+        </ul>
+        <p class="text-center text-muted">© 2023 SMU MH</p>
+      </footer>
+</body>
+</html>
+
+
+<script>
+    let userAge = parseInt(document.getElementById("ageTag").innerHTML)
+
+    if (userAge >= 59){
+        userAge = "Baby Boomers"
+        document.getElementById("getHelpButton").action = ("/helpBoomers")
+        document.getElementById("stat1").innerHTML = "&bull; Apathy"
+        document.getElementById("stat2").innerHTML = "&bull; Sleep Issues"
+        document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
+
+    }
+    else if (userAge >= 43){
+        userAge = "Gen X"
+        document.getElementById("getHelpButton").action = ("/helpGenX")
+        document.getElementById("stat1").innerHTML = "&bull; Being Highly Distracted"
+        document.getElementById("stat2").innerHTML = "&bull; Worry"
+        document.getElementById("stat3").innerHTML = "&bull; Sleep Issues"
+    }
+    else if (userAge >= 27){
+        userAge = "Millennials"
+        document.getElementById("getHelpButton").action = ("/helpMillenials")
+        document.getElementById("stat1").innerHTML = "&bull; Worry"
+        document.getElementById("stat2").innerHTML = "&bull; Being Highly Distracted"
+        document.getElementById("stat3").innerHTML = "&bull; Difficulty Conscentrating"
+    }
+    else{
+        userAge = "Gen Z"
+        document.getElementById("getHelpButton").action = ("/helpGenZ")
+        document.getElementById("stat1").innerHTML = "&bull; Worry"
+        document.getElementById("stat2").innerHTML = "&bull; Depression"
+        document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
+    }
+
+    let sGenerationalAssessment = userAge + ",<br>"
+    document.getElementById("GenerationAssessment").innerHTML = sGenerationalAssessment
+</script>
+
+
 </body>
 </html>
