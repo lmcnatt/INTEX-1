@@ -137,6 +137,9 @@
 <script>
     let userAge = parseInt(document.getElementById("ageTag").innerHTML)
 
+    let sGenerationalAssessment = userAge + "<br>"
+    document.getElementById("GenerationAssessment").innerHTML = sGenerationalAssessment
+
     let rec1Array = [];
     let rec2Array = [];
     let rec3Array = [];
@@ -207,9 +210,6 @@
             document.getElementById("rec3A").innerHTML = loopArray[2][1]
             document.getElementById("rec3B").innerHTML = loopArray[2][2]
     }
-
-    let sGenerationalAssessment = userAge + "<br>"
-    document.getElementById("GenerationAssessment").innerHTML = sGenerationalAssessment
 
     function makeArrays(stat1rec1, stat1rec2, stat2rec1, stat2rec2, stat3rec1, stat3rec2){
         rec1Array = [document.getElementById("stat1").innerHTML, stat1rec1, stat1rec2];
