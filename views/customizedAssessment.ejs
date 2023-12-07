@@ -98,7 +98,7 @@
                 <h2 id="stat1" class="hidden">&bull; Depression</h2>
                 <h2 id="stat2" class="hidden">&bull; Worry</h2>
                 <h2 id="stat3" class="hidden">&bull; Distraction</h2>
-                <h1>when compared with others of your generation.</h1>
+                <h1>when compared with others generations.</h1>
                 <br>
     
                 <h1>Here are recommendations to improve your health: </h1>
@@ -143,14 +143,14 @@
     let worriesRec2 = "";
     let concentrateRec1 = "";
     let concentrateRec2 = "";
-    let distractionRec1 = "";
+    let distractionRec1 = "\"\'...our distraction is usually driven by our desire to escape discomfort, including boredom, fear, and anxiety — or tasks in our work calendar that don’t sync with how we value our time. When you binge on The Office rather than doing your taxes, watching Michael, Pam, and Dwight is your (understandable) way of avoiding an activity you deem to be a tedious task. The secret to staying focused at times like these is not to abstain from The Office — you’ll just find another distraction — but to change your perspective on the task itself.<br>\"Ian Bogost studies fun for a living. A professor of interactive computing at the Georgia Institute of Technology, Bogost has written 10 books, including quirky titles like How to Talk About Videogames, The Geek’s Chihuahua, and, most recently, Play Anything. In the latter book, Bogost makes several bold claims that challenge how we think about fun and play. 'Fun,'' he writes, 'turns out to be fun even if it doesn’t involve much (or any) enjoyment.'\"<br> -Nir Eyal; \'How to Be Less Distracted\'; Psychology Today; January 8th, 2022; Reviewed by Kaja Perina";
     let distractionRec2 = "";
     let depressionRec1 = "";
     let depressionRec2 = "";
-    let apathyRec1 = "";
-    let apathyRec2 = "";
-    let sleepRec1 = "";
-    let sleepRec2 = "";
+    let apathyRec1 = "\"Determine where your apathy is coming from, and contest its underlying assumptions. Since apathy is fundamentally about attitude, begin to look at yourself and your history from a different perspective. And that’s one in which you offer yourself greater compassion, empathy, and understanding—and possibly forgiveness for any past insensitivities, transgressions, or shortcomings. It’s time to move beyond whatever negative messages you received about yourself in the past and realize that, as long as you don’t set your sights unrealistically high and are willing to apply yourself diligently to whatever is important to you, your success is virtually guaranteed.\"<br> -Leon F Seltzer PhD; \'The Curse of Apathy: Sources and Solutions\'; Psychology Today; April 27th, 2016; Reviewed by Hara Estroff Marano" ;
+    let apathyRec2 = " <br>\"\'When apathy is identified, nonpharmacological treatment should be tried first.  These include activity-based interventions aimed at mobilizing patients, improving quality of life, and alleviating feelings of social isolation. One simple change could be to reflect on your treatment from the perspective of GOALS rather than SYMPTOMS– for example, \'my goal is to get back on the golf course\' rather than \'my goal is to reduce my tremors.\'\”<br> -Suketu M. Khandhar, MD & Michel Medina, MD; \'Conquering Apathy\'; Working Parkinson Connections; October 19th, 2020" ;
+    let sleepRec1 = "\"While implementing positive sleep habits and consistent bedtime routines can make a big difference in someone's sleep quantity and quality, ending negative sleep-related habits and behaviors is just as critical. While the bad habits that interrupt our sleep are different for everyone, in most cases this process will involve cutting back on food and drinks that interfere with sleep, staying away from disruptive electronic devices, and identifying and minimizing any obstacles that are preventing an individual from getting the rest they need.\"<br> -Psychology Today Staff; \'How to Sleep Better\'; Psychology Today; December 7th, 2023";
+    let sleepRec2 = "<br>\"The term “sleep hygiene” refers to a series of healthy sleep habits that can improve your ability to fall asleep and stay asleep. These habits can help improve your sleep health.  When people struggle with insomnia, sleep hygiene is an important part of cognitive behavioral therapy (CBT), the most effective long-term treatment for people with chronic insomnia. CBT for insomnia can help you address the thoughts and behaviors that prevent you from sleeping well. It also includes techniques for stress reduction, relaxation and sleep schedule management.\"<br> -American Academy of Sleep Education; \'Healthy Sleep Habits\'; August 1st, 2020; Reviewed by Shelley Hershner, MD and Imran Shaikh, MD";
 
     let userAge = parseInt(document.getElementById("ageTag").innerHTML)
     let sGenration = ""
@@ -203,9 +203,6 @@
         assignTheThing();
     }
 
-
-    let loopArray = [rec1Array, rec2Array, rec3Array]
-
     function makeArrays(stat1rec1, stat1rec2, stat2rec1, stat2rec2, stat3rec1, stat3rec2){
         rec1Array = [document.getElementById("stat1").innerHTML, stat1rec1, stat1rec2];
         rec2Array = [document.getElementById("stat2").innerHTML, stat2rec1, stat2rec2];
@@ -218,18 +215,19 @@
     }
 
     function assignTheThing(){
-        console.log("assignTheThing()")
-        for (i = 0; i < loopArray.length; i++){
+        let loopArray = [rec1Array, rec2Array, rec3Array]
+
         document.getElementById("rec1").innerHTML = loopArray[0][0]
-            document.getElementById("rec1A").innerHTML = loopArray[0][1]
-            document.getElementById("rec1B").innerHTML = loopArray[0][2]
+        document.getElementById("rec1A").innerHTML = loopArray[0][1]
+        document.getElementById("rec1B").innerHTML = loopArray[0][2]
+
         document.getElementById("rec2").innerHTML = loopArray[1][0]
-            document.getElementById("rec2A").innerHTML = loopArray[1][1]
-            document.getElementById("rec2B").innerHTML = loopArray[1][2]
+        document.getElementById("rec2A").innerHTML = loopArray[1][1]
+        document.getElementById("rec2B").innerHTML = loopArray[1][2]
+
         document.getElementById("rec3").innerHTML = loopArray[2][0]
-            document.getElementById("rec3A").innerHTML = loopArray[2][1]
-            document.getElementById("rec3B").innerHTML = loopArray[2][2]
-        }
+        document.getElementById("rec3A").innerHTML = loopArray[2][1]
+        document.getElementById("rec3B").innerHTML = loopArray[2][2]
     }
 </script>
 
