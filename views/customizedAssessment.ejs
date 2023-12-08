@@ -114,9 +114,9 @@
                     <h6 id="rec3A" class="hidden">Hey</h6>
                     <h6 id="rec3B" class="hidden">Hey</h6>
             </div>
-            <form id="getHelpButton" action="/helpGenZ">
-                <button class="btn mx-auto btn btn-outline-success">Find Out More</button>
-            </form>
+            <a href="https://www.cdc.gov/mentalhealth/index.htm" class="d-grid gap-2 d-md-block justify-content-md-end">
+                <button type="submit" class="btn btn-outline-danger" data-bs-toggle="button">Find Out More</button>
+            </a>
         </section>  
     </div>
 
@@ -141,14 +141,14 @@
     let rec2Array = [];
     let rec3Array = [];
 
-    let worriesRec1 = "";
+    let worriesRec1 = "\"There are three extraordinarily effective way to moderate anxiety without the use of medications. All are simple lifestyle modifications. The first and most accessible is deep breathing, or so-called abdominal breathing. It can be done anytime, anywhere, and requires no special equipment of any kind. Taking deep breaths that fill the lungs and then exhaling slowly through pursed lips stimulates the parasympathetic nerve, directly countering the stress response and inducing a state of calm. Heart rate slows, blood pressure falls, muscles release tension.<br><br>\"Exposure therapy, in which patients are safely and gradually exposed to their fears so they no longer avoid them, is an essential part of most behavioral treatments for anxiety. Medication is often used to help patients control symptoms enough to focus on talk therapy.\"<br> -Psychology Today; \'What is Anxiety\'; December 7th, 2023";
     let worriesRec2 = "";
-    let concentrateRec1 = "";
-    let concentrateRec2 = "";
-    let distractionRec1 = "\"\'...our distraction is usually driven by our desire to escape discomfort, including boredom, fear, and anxiety — or tasks in our work calendar that don’t sync with how we value our time. When you binge on The Office rather than doing your taxes, watching Michael, Pam, and Dwight is your (understandable) way of avoiding an activity you deem to be a tedious task. The secret to staying focused at times like these is not to abstain from The Office — you’ll just find another distraction — but to change your perspective on the task itself.<br>\"Ian Bogost studies fun for a living. A professor of interactive computing at the Georgia Institute of Technology, Bogost has written 10 books, including quirky titles like How to Talk About Videogames, The Geek’s Chihuahua, and, most recently, Play Anything. In the latter book, Bogost makes several bold claims that challenge how we think about fun and play. 'Fun,'' he writes, 'turns out to be fun even if it doesn’t involve much (or any) enjoyment.'\"<br> -Nir Eyal; \'How to Be Less Distracted\'; Psychology Today; January 8th, 2022; Reviewed by Kaja Perina";
-    let distractionRec2 = "";
+    let concentrateRec1 = "\"Get plenty of sleep. If you read a book or article when very tired, you will forget most of what you have read. Sleep improves attention and concentration, and therefore the registration of information. And sleep is also required for memory consolidation.\"<br> -Neel Burton M.D; \'How to Improve Your Concentration and Memory\'; Psychology Today; January 14th, 2013; Reviewed by Kaja Perina";
+    let concentrateRec2 = "<br>\"Process information. If possible, summarize the material in your own words. Or reorganize it so that it is easier to learn. With more complex material, try to understand its meaning and significance. Shakespearean actors find it much easier to remember their lines if they can understand and feel them. If needs must, concentrate on the important things, or the bigger picture. In the words of Oscar Wilde, \‘One should absorb the colour of life, but one should never remember its details. Details are always vulgar.\’\"<br>-Neel Burton M.D; \'How to Improve Your Concentration and Memory\'; Psychology Today; January 14th, 2013; Reviewed by Kaja Perina";
+    let distractionRec1 = "\"\'...our distraction is usually driven by our desire to escape discomfort, including boredom, fear, and anxiety — or tasks in our work calendar that don’t sync with how we value our time. When you binge on The Office rather than doing your taxes, watching Michael, Pam, and Dwight is your (understandable) way of avoiding an activity you deem to be a tedious task. The secret to staying focused at times like these is not to abstain from The Office — you’ll just find another distraction — but to change your perspective on the task itself.<br><br>\"Ian Bogost studies fun for a living. A professor of interactive computing at the Georgia Institute of Technology, Bogost has written 10 books, including quirky titles like How to Talk About Videogames, The Geek’s Chihuahua, and, most recently, Play Anything. In the latter book, Bogost makes several bold claims that challenge how we think about fun and play. 'Fun,'' he writes, 'turns out to be fun even if it doesn’t involve much (or any) enjoyment.'\"<br> -Nir Eyal; \'How to Be Less Distracted\'; Psychology Today; January 8th, 2022; Reviewed by Kaja Perina";
+    let distractionRec2 = ''
     let depressionRec1 = "\'Control stress with activities such as meditation or tai chi. Eat healthy, exercise, and get enough sleep. Most adults need 7-9 hours of sleep per night. Avoid using alcohol and recreational drugs, which can worsen symptoms and make depression harder to treat.\'<br>";
-    let depressionRec2 = "";
+    let depressionRec2 = "<br>\"Recognize your depression triggers and talk to your doctor and/or mental health professional if you notice unusual changes in how you feel, think, or act. If needed, your doctor can safely adjust your medication. Write down how you feel day-to-day (moods, feelings, reactions) to spot patterns and understand your depression triggers.\" <br> -Substance Abuse and Mental Health Services Administration; \'Depression\'; April 24th, 2023";;
     let apathyRec1 = "\"Determine where your apathy is coming from, and contest its underlying assumptions. Since apathy is fundamentally about attitude, begin to look at yourself and your history from a different perspective. And that’s one in which you offer yourself greater compassion, empathy, and understanding—and possibly forgiveness for any past insensitivities, transgressions, or shortcomings. It’s time to move beyond whatever negative messages you received about yourself in the past and realize that, as long as you don’t set your sights unrealistically high and are willing to apply yourself diligently to whatever is important to you, your success is virtually guaranteed.\"<br> -Leon F Seltzer PhD; \'The Curse of Apathy: Sources and Solutions\'; Psychology Today; April 27th, 2016; Reviewed by Hara Estroff Marano" ;
     let apathyRec2 = " <br>\"\'When apathy is identified, nonpharmacological treatment should be tried first.  These include activity-based interventions aimed at mobilizing patients, improving quality of life, and alleviating feelings of social isolation. One simple change could be to reflect on your treatment from the perspective of GOALS rather than SYMPTOMS– for example, \'my goal is to get back on the golf course\' rather than \'my goal is to reduce my tremors.\'\”<br> -Suketu M. Khandhar, MD & Michel Medina, MD; \'Conquering Apathy\'; Working Parkinson Connections; October 19th, 2020" ;
     let sleepRec1 = "\"While implementing positive sleep habits and consistent bedtime routines can make a big difference in someone's sleep quantity and quality, ending negative sleep-related habits and behaviors is just as critical. While the bad habits that interrupt our sleep are different for everyone, in most cases this process will involve cutting back on food and drinks that interfere with sleep, staying away from disruptive electronic devices, and identifying and minimizing any obstacles that are preventing an individual from getting the rest they need.\"<br> -Psychology Today Staff; \'How to Sleep Better\'; Psychology Today; December 7th, 2023";
@@ -159,7 +159,7 @@
 
     if (userAge >= 59){
         sGenration = "Baby Boomers"
-        document.getElementById("getHelpButton").action = ("/helpBoomers")
+        // document.getElementById("getHelpButton").action = ("/helpBoomers")
         document.getElementById("stat1").innerHTML = "&bull; Apathy"
         document.getElementById("stat2").innerHTML = "&bull; Sleep Issues"
         document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
@@ -171,7 +171,7 @@
     }
     else if (userAge >= 43){
         sGenration = "Gen X"
-        document.getElementById("getHelpButton").action = ("/helpGenX")
+        // document.getElementById("getHelpButton").action = ("/helpGenX")
         document.getElementById("stat1").innerHTML = "&bull; Being Highly Distracted"
         document.getElementById("stat2").innerHTML = "&bull; Worry"
         document.getElementById("stat3").innerHTML = "&bull; Sleep Issues"
@@ -183,7 +183,7 @@
     }
     else if (userAge >= 27){
         sGenration = "Millennials"
-        document.getElementById("getHelpButton").action = ("/helpMillenials")
+        // document.getElementById("getHelpButton").action = ("/helpMillenials")
         document.getElementById("stat1").innerHTML = "&bull; Worry"
         document.getElementById("stat2").innerHTML = "&bull; Being Highly Distracted"
         document.getElementById("stat3").innerHTML = "&bull; Difficulty Conscentrating"
@@ -195,7 +195,7 @@
     }
     else{
         sGenration = "Gen Z"
-        document.getElementById("getHelpButton").action = ("/helpGenZ")
+        // document.getElementById("getHelpButton").action = ("/helpGenZ")
         document.getElementById("stat1").innerHTML = "&bull; Worry"
         document.getElementById("stat2").innerHTML = "&bull; Depression"
         document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
