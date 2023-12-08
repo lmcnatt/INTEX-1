@@ -1,3 +1,4 @@
+// Dependencies
 const express = require("express");
 const path = require("path");
 const session = require("express-session");
@@ -26,51 +27,61 @@ app.use(session({
     saveUninitialized: true
 }));
 
+// Uses express-session to keep users logged in. Put authenticate on any route that requires a user to login
 const authenticate = (req, res, next) => {
+    // During a session, if a user has logged in, they don't have to again because of the loggedIn session variable
     if (!req.session.loggedIn) {
         return res.redirect('/login'); // Redirect to login if not logged in
     }
     next(); // Continue to the next middleware or route handler
-  };
-  
+};
 
 /* 
 user routes 
 */
-/* 
-admin routes 
-*/
+
+// Get the home page. Set generation and smUsage session variables to none
 app.get("/", (req, res) => {
     req.session.Generation = "None";
     req.session.smUsage = "None";
     res.render("home");
 });
 
+// Get the dashboard page
+app.get("/dashboard", (req, res) => {
+    res.render("dashboard");
+});
+
+// Get the login page.
 app.get("/login", (req, res) => {
     let loginChecker = '';
 
-    //If the user has logged in previously in this session, send to Admin Dashboard
+    // If the user has logged in previously in this session, send to Admin Dashboard
     if (req.session.userID != null){
         res.redirect("adminDashboard")
     }
-    //If they haven't logged in in this session, send to login.
+    // If they haven't logged in in this session, send to login.
     else{
         res.render("login", { loginChecker });
     }
 });
 
+// Submit the login form
 app.post("/loginSubmit", (req, res) => {
     const loginUsername = req.body.login_username;
     const loginPassword = req.body.login_password;
+    // loginChecker helps to send an alert to the user if they failed to log in
     let loginChecker = '';
 
+    // Check if the username and password are in the database. If so, send to adminDashboard route and set the loggedIn session variable to true.
     knex("users").select("user_id",
                          "username",
                          "password").then(user => {
         let unlocked = false;
         for (i = 0; i < user.length; i++){
-            if(user[i].username == loginUsername && user[i].password == loginPassword){
+            if (user[i].username == loginUsername && user[i].password == loginPassword) {
                 unlocked = true;
+                // Set the userID session variable to the logged in user
                 req.session.userID = user[i].user_id;
             }
         }
@@ -83,119 +94,25 @@ app.post("/loginSubmit", (req, res) => {
             res.render("login", { loginChecker });
         }
     })
-    .catch((error) => {
-        console.error(error);
-        res.status(500).send("Internal Server Error");
-    });
-});
-
-app.get("/adminDashboard", authenticate, (req, res) => {
-    const filterID = req.query.filterID;
-
-    let query = knex("entries")
-        .select("entry_id",
-                "timestamp",
-                "age",
-                "gender",
-                "relationship",
-                "occupation",
-                "location").orderBy("entry_id");
-    
-    if (filterID && filterID !== 'all') {
-        query = query.where({'entry_id': parseInt(filterID)});
-    }
-
-    query.then(entries => {
-        res.render("adminDashboard", {myEntries: entries});
-    }).catch(err => {
+    .catch((err) => {
         console.error(err);
-        res.status(500).send("Internal Server Error");
+        res.status(500).send("Internal Server Error"); // Helpful error routing
     });
 });
 
-app.get("/entryDetails/:id", authenticate, (req, res) => {
-    knex('entries').select()
-        .innerJoin('social_media_data', 'entries.entry_id', 'social_media_data.entry_id')
-        .innerJoin('organizations', 'social_media_data.organization_id', 'organizations.organization_id')
-        .innerJoin('platforms', 'social_media_data.platform_id', 'platforms.platform_id')
-    .where({'entries.entry_id': parseInt(req.params.id)}).then(entries => {
-        res.render('entryDetails', {myEntries: entries});
-    }).catch(err => {
-        console.error(err);
-        res.status(500).send("Internal Server Error");
-    });
-});
-
-app.get("/createAcc", authenticate, (req, res) => {
-    let usernameExistsResult = '';
-    res.render("createAcc", { usernameExistsResult });
-});
-
-app.post("/createAcc", authenticate, async (req, res) => {
-
-    async function doesUsernameExist() {
-        return knex("users").select("username").where({username: req.body.login_username})
-    }
-    let usernameExistsData = await doesUsernameExist();
-
-    let usernameExistsResult = '';
-
-    // Username exist
-    if (usernameExistsData.length !== 0) {
-        usernameExistsResult = usernameExistsData[0].username;
-        console.log(usernameExistsResult);
-        res.render("createAcc", { usernameExistsResult });        
-    }
-    // Username doesn't exists
-    else {
-        console.log(usernameExistsData);
-        knex("users").insert({
-            username: req.body.login_username,
-            password: req.body.login_password,
-            first_name: req.body.login_firstname,
-            last_name: req.body.login_lastname})
-        .then(user => {
-            res.redirect("adminDashboard");
-        })
-        .catch(err => {
-            console.error(err);
-            res.status(500).send("Internal Server Error");
-        });
-    }
-});
-
-app.get("/modifyAcc", authenticate, (req, res) => {
-    knex("users").select()
-    .where({user_id: req.session.userID})
-    .then(user => {
-        res.render("modifyAcc", {myUsers: user});
-    });
-});
-
-app.post("/modifyAcc", (req, res) => {
-    knex("users").select().where({user_id: req.session.userID}).update({
-        username: req.body.login_username,
-        password: req.body.login_password,
-        first_name: req.body.login_firstname,
-        last_name: req.body.login_lastname
-    }).then(myProducts => {
-        res.redirect("/adminDashboard");
-    }).catch(err => {
-        console.error(err);
-        res.status(500).send("Internal Server Error");
-    });
-});
-
+// Get the survey page
 app.get("/survey", (req, res) => {
     res.render("survey");
 });
 
+// Submit the survey
 app.post("/submitSurvey", async (req, res) => {
     req.session.Generation = req.body.age;
     req.session.smUsage = req.body.avg_daily_sm_use;
 
+    // Insert survey into the entries table
     knex("entries").insert({
-        timestamp: new Date(),
+        timestamp: new Date(), 
         age: req.body.age,
         gender: req.body.gender,
         relationship: req.body.relationship,
@@ -220,17 +137,17 @@ app.post("/submitSurvey", async (req, res) => {
         res.status(500).send("Internal Server Error");
     });
 
+    // Get the most recent entry_id
     async function getEntryID() {
         return knex("entries").select("entry_id").orderBy("entry_id", "desc").first();
     }
 
     let entryID = await getEntryID();
+    // If only one organization or platform is selected, put them into arrays
     const organizations = Array.isArray(req.body.organization_name) ? req.body.organization_name : [req.body.organization_name];
     const platforms = Array.isArray(req.body.platform_name) ? req.body.platform_name : [req.body.platform_name];
 
-    console.log(organizations);
-    console.log(platforms);
-
+    // Loop over the number of organizations and platforms selected and insert that many records into the social_media_data linking table
     for (const organizationName of organizations) {
         for (const platformName of platforms) {
             const organizationID = await knex('organizations').select('organization_id').where({ organization_name: organizationName }).first();
@@ -243,13 +160,11 @@ app.post("/submitSurvey", async (req, res) => {
         }
     }
 
+    // Send the user to the customizedAssessment route
     res.redirect("/customizedAssessment");
 });
 
-app.get("/dashboard", (req, res) => {
-    res.render("dashboard");
-});
-
+// Get the customizedAssessment page that fills out based on the age and average daily use of the submitted form
 app.get("/customizedAssessment", (req,res) => {
     knex.select("entry_id", "age", "avg_daily_sm_use").from('entries').orderBy("entry_id", "desc")
     .then(entry => {
@@ -261,41 +176,134 @@ app.get("/customizedAssessment", (req,res) => {
     });
 });
 
-app.get("/helpGenZ", (req, res) => {
-    res.render("helpGenZ")
-})
+/* 
+admin routes 
+*/
 
-app.get("/helpMillenials", (req, res) => {
-    res.render("helpMillenials")
-})
+// Get the adminDashboard page
+app.get("/adminDashboard", authenticate, (req, res) => {
+    // Assign the ID Filter dropdown from adminDashboard.ejs to a variable
+    const filterID = req.query.filterID;
 
-app.get("/helpGenX", (req, res) => {
-    res.render("helpGenX")
-})
-
-app.get("/helpBoomers", (req, res) => {
-    res.render("helpBoomers")
-})
-
-//EVENTBRITE API 
-app.get('/events', async (req, res) => {
-    try {
-      const response = await axios.get('https://www.eventbriteapi.com/v3/events/search/', {
-        headers: {
-          'Authorization': 'Bearer BJ23RP7LXVHPFMENRG6Y'
-        },
-        params: {
-          'location.address': 'Provo',
-          'q': 'Mental Health',
-          'sort_by': 'date'
-        }
-      });
-      // Render the EJS template with the events data
-      res.render('events', { events: response.data.events });
-    } catch (error) {
-      console.error(error);
-      res.status(500).render('error', { message: 'An error occurred' });
+    // Get identifying details for each entry in the entry table and assign it to a variable
+    let query = knex("entries")
+        .select("entry_id",
+                "timestamp",
+                "age",
+                "gender",
+                "relationship",
+                "occupation",
+                "location").orderBy("entry_id");
+    
+    // If the ID Filter isn't set to all, only return the 1 filtered survey record
+    if (filterID && filterID !== 'all') {
+        query = query.where({'entry_id': parseInt(filterID)});
     }
-  });
+
+    query.then(entries => {
+        res.render("adminDashboard", {myEntries: entries});
+    }).catch(err => {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+    });
+});
+
+// Get the entryDetails page based on the entry_id of the row in the adminDashboard
+app.get("/entryDetails/:id", authenticate, (req, res) => {
+    knex('entries').select()
+        .innerJoin('social_media_data', 'entries.entry_id', 'social_media_data.entry_id')
+        .innerJoin('organizations', 'social_media_data.organization_id', 'organizations.organization_id')
+        .innerJoin('platforms', 'social_media_data.platform_id', 'platforms.platform_id')
+    .where({'entries.entry_id': parseInt(req.params.id)}).then(entries => {
+        res.render('entryDetails', {myEntries: entries});
+    }).catch(err => {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+    });
+});
+
+// Get the createAcc page
+app.get("/createAcc", authenticate, (req, res) => {
+    let usernameExistsResult = '';
+    res.render("createAcc", { usernameExistsResult });
+});
+
+// Creates an account
+app.post("/createAcc", authenticate, async (req, res) => {
+    // Checks if the username already exists in the database
+    // If it does, usernameExistsResult gets set to the entered username, but if not, it remains empty
+    async function doesUsernameExist() {
+        return knex("users").select("username").where({username: req.body.login_username})
+    }
+    let usernameExistsData = await doesUsernameExist();
+
+    let usernameExistsResult = '';
+
+    // Username exists. usernameExistsResult gets sent to the createAcc page to display alert message
+    if (usernameExistsData.length !== 0) {
+        usernameExistsResult = usernameExistsData[0].username;
+        res.render("createAcc", { usernameExistsResult });        
+    }
+    // Username doesn't exist. Insert it into the users table, then route back to the adminDashboard
+    else {
+        knex("users").insert({
+            username: req.body.login_username,
+            password: req.body.login_password,
+            first_name: req.body.login_firstname,
+            last_name: req.body.login_lastname})
+        .then(user => {
+            res.redirect("adminDashboard");
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).send("Internal Server Error");
+        });
+    }
+});
+
+// Get the modifyAcc page filled with the values the current logged in user via the userID session variable
+app.get("/modifyAcc", authenticate, (req, res) => {
+    knex("users").select()
+    .where({user_id: req.session.userID})
+    .then(user => {
+        res.render("modifyAcc", {myUsers: user});
+    });
+});
+
+// Updates the selected user account (from the userID session variable) with modified data
+app.post("/modifyAcc", authenticate, (req, res) => {
+    knex("users").select().where({user_id: req.session.userID}).update({
+        username: req.body.login_username,
+        password: req.body.login_password,
+        first_name: req.body.login_firstname,
+        last_name: req.body.login_lastname
+    }).then(myProducts => {
+        res.redirect("/adminDashboard");
+    }).catch(err => {
+        console.error(err);
+        res.status(500).send("Internal Server Error");
+    });
+});
+
+//EVENTBRITE API (Extra Add in if we had more time)
+// app.get('/events', async (req, res) => {
+//     try {
+//         const response = await axios.get('https://www.eventbriteapi.com/v3/events/search/', {
+//             headers: {
+//                 'Authorization': 'Bearer BJ23RP7LXVHPFMENRG6Y'
+//             },
+//             params: {
+//                 'location.address': 'Provo',
+//                 'q': 'Mental Health',
+//                 'sort_by': 'date'
+//             }
+//         });
+//         // Render the EJS template with the events data
+//         res.render('events', { events: response.data.events });
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).render('error', { message: 'An error occurred' });
+//     }
+// });
   
 app.listen(port, () => console.log("Website is running"));

@@ -13,26 +13,27 @@
     <script defer src="/scripts/scripts.js"></script>
     <title>Result Information</title>
 </head>
-<body class="">
+<body>
     <style>
         .nav-item {
         list-style: none;
         }
         
         .covered {
-        position:relative; /* make a new "render context", so absolute positioning is relative to this parent container */
-
-        padding:30px; /* only needed for this demo */
+        position:relative;
+        padding:30px;
         }
+
         .covered-img {
         background:url('/resources/44afc8_b3821d1f8dfc44c78ab589e5ee89fccf~mv2.webp');
         opacity: .50;
-
-        background-size:cover; /* cover will scale the image so that the smallest dimension = the widest dimension of the box */
-        background-position:center; /* vs the top-left that is default */
-        
-        position:absolute; /* take me out of the render context! let me define my own positioning */
-        top:0;bottom:0;left:0;right:0; /* this could also work with width:100%; height:100%;, but is simpler */
+        background-size:cover;
+        background-position:center;
+        position:absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         }
 
         .truehidden{
@@ -41,20 +42,21 @@
 
     </style>
     <h2 class="p-3 bg-opacity-10 fs-6 fw-lighter text-center">Provo Social Media Usage and Mental Health Committee</h2>
+    <!-- Navbar -->
     <nav class="navbar sticky-top navbar-expand-lg navbar" style="background-color: #2596be;" data-bs-theme="dark">
         <a class="navbar-brand" href="/">
             <img src="/resources/Current_flag_of_Provo,_Utah.svg.png" width="65" height="35" alt="">
         </a>
         <a class="navbar-brand">Provo Community</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto text-white">
                 <!-- Home button -->
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home<span class="sr-only"></span></a>
+                    <a class="nav-link active" aria-current="page" href="/">Home<span class="sr-only"></span></a>
                 </li>
 
                 <!-- Survey -->
@@ -74,19 +76,17 @@
             </ul>
             <!-- Login -->
             <li class="nav-item mx-auto me-2">
-            <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/login">Login</a>
             </li>
         </div>
     </nav>
     <br>
-    <br>
-
-
     <div class="container-sm" style="background-color: white;">
         <h1 class="text-center fw-bold display-1">
             Your Personal Assessment
         </h1>
         <section>
+            <!-- Values fill in based on the age and average daily hours on social media from the survey -->
             <div class="container">
                 <h1>You're from the following generation: </h1>
                 <h1 id="GenerationAssessment" class="hidden" value=<%=myInfo[0].age%>></h1>
@@ -103,16 +103,16 @@
     
                 <h1>Here are recommendations to improve your health: </h1>
                 <h3 id="rec1" class="hidden">&bull; Worry</h3>
-                    <h6 id="rec1A" class="hidden">Hey</h6>
-                    <h6 id="rec1B" class="hidden">Hey</h6>
+                <h6 id="rec1A" class="hidden">Hey</h6>
+                <h6 id="rec1B" class="hidden">Hey</h6>
                 <br>
                 <h3 id="rec2" class="hidden">&bull; Worry</h3>
-                    <h6 id="rec2A" class="hidden">Hey</h6>
-                    <h6 id="rec2B" class="hidden">Hey</h6>
+                <h6 id="rec2A" class="hidden">Hey</h6>
+                <h6 id="rec2B" class="hidden">Hey</h6>
                 <br>
                 <h3 id="rec3" class="hidden">&bull; Worry</h3>
-                    <h6 id="rec3A" class="hidden">Hey</h6>
-                    <h6 id="rec3B" class="hidden">Hey</h6>
+                <h6 id="rec3A" class="hidden">Hey</h6>
+                <h6 id="rec3B" class="hidden">Hey</h6>
             </div>
             <a href="https://www.cdc.gov/mentalhealth/index.htm" class="d-grid gap-2 d-md-block justify-content-md-end">
                 <button type="submit" class="btn btn-outline-danger" data-bs-toggle="button">Find Out More</button>
@@ -120,120 +120,111 @@
         </section>  
     </div>
 
-
     <p id="ageTag" class="truehidden"><%=myInfo[0].age%></p>
 
     <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
-          <li class="nav-item"><a href="/survey" class="nav-link px-2 text-muted">Survey</a></li>
-          <li class="nav-item"><a href="/dashboard" class="nav-link px-2 text-muted">Stats</a></li>
-          <li class="nav-item"><a href="/login" class="nav-link px-2 text-muted">Login</a></li>
+            <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="/survey" class="nav-link px-2 text-muted">Survey</a></li>
+            <li class="nav-item"><a href="/dashboard" class="nav-link px-2 text-muted">Stats</a></li>
+            <li class="nav-item"><a href="/login" class="nav-link px-2 text-muted">Login</a></li>
         </ul>
         <p class="text-center text-muted">© 2023 SMU MH</p>
-      </footer>
-</body>
-</html>
+    </footer>
+    
+    <script>
+        let rec1Array = [];
+        let rec2Array = [];
+        let rec3Array = [];
 
+        let worriesRec1 = "\"There are three extraordinarily effective way to moderate anxiety without the use of medications. All are simple lifestyle modifications. The first and most accessible is deep breathing, or so-called abdominal breathing. It can be done anytime, anywhere, and requires no special equipment of any kind. Taking deep breaths that fill the lungs and then exhaling slowly through pursed lips stimulates the parasympathetic nerve, directly countering the stress response and inducing a state of calm. Heart rate slows, blood pressure falls, muscles release tension.<br><br>\"Exposure therapy, in which patients are safely and gradually exposed to their fears so they no longer avoid them, is an essential part of most behavioral treatments for anxiety. Medication is often used to help patients control symptoms enough to focus on talk therapy.\"<br> -Psychology Today; \'What is Anxiety\'; December 7th, 2023";
+        let worriesRec2 = "";
+        let concentrateRec1 = "\"Get plenty of sleep. If you read a book or article when very tired, you will forget most of what you have read. Sleep improves attention and concentration, and therefore the registration of information. And sleep is also required for memory consolidation.\"<br> -Neel Burton M.D; \'How to Improve Your Concentration and Memory\'; Psychology Today; January 14th, 2013; Reviewed by Kaja Perina";
+        let concentrateRec2 = "<br>\"Process information. If possible, summarize the material in your own words. Or reorganize it so that it is easier to learn. With more complex material, try to understand its meaning and significance. Shakespearean actors find it much easier to remember their lines if they can understand and feel them. If needs must, concentrate on the important things, or the bigger picture. In the words of Oscar Wilde, \‘One should absorb the colour of life, but one should never remember its details. Details are always vulgar.\’\"<br>-Neel Burton M.D; \'How to Improve Your Concentration and Memory\'; Psychology Today; January 14th, 2013; Reviewed by Kaja Perina";
+        let distractionRec1 = "\"\'...our distraction is usually driven by our desire to escape discomfort, including boredom, fear, and anxiety — or tasks in our work calendar that don’t sync with how we value our time. When you binge on The Office rather than doing your taxes, watching Michael, Pam, and Dwight is your (understandable) way of avoiding an activity you deem to be a tedious task. The secret to staying focused at times like these is not to abstain from The Office — you’ll just find another distraction — but to change your perspective on the task itself.<br><br>\"Ian Bogost studies fun for a living. A professor of interactive computing at the Georgia Institute of Technology, Bogost has written 10 books, including quirky titles like How to Talk About Videogames, The Geek’s Chihuahua, and, most recently, Play Anything. In the latter book, Bogost makes several bold claims that challenge how we think about fun and play. 'Fun,'' he writes, 'turns out to be fun even if it doesn’t involve much (or any) enjoyment.'\"<br> -Nir Eyal; \'How to Be Less Distracted\'; Psychology Today; January 8th, 2022; Reviewed by Kaja Perina";
+        let distractionRec2 = '';
+        let depressionRec1 = "\'Control stress with activities such as meditation or tai chi. Eat healthy, exercise, and get enough sleep. Most adults need 7-9 hours of sleep per night. Avoid using alcohol and recreational drugs, which can worsen symptoms and make depression harder to treat.\'<br>";
+        let depressionRec2 = "<br>\"Recognize your depression triggers and talk to your doctor and/or mental health professional if you notice unusual changes in how you feel, think, or act. If needed, your doctor can safely adjust your medication. Write down how you feel day-to-day (moods, feelings, reactions) to spot patterns and understand your depression triggers.\" <br> -Substance Abuse and Mental Health Services Administration; \'Depression\'; April 24th, 2023";
+        let apathyRec1 = "\"Determine where your apathy is coming from, and contest its underlying assumptions. Since apathy is fundamentally about attitude, begin to look at yourself and your history from a different perspective. And that’s one in which you offer yourself greater compassion, empathy, and understanding—and possibly forgiveness for any past insensitivities, transgressions, or shortcomings. It’s time to move beyond whatever negative messages you received about yourself in the past and realize that, as long as you don’t set your sights unrealistically high and are willing to apply yourself diligently to whatever is important to you, your success is virtually guaranteed.\"<br> -Leon F Seltzer PhD; \'The Curse of Apathy: Sources and Solutions\'; Psychology Today; April 27th, 2016; Reviewed by Hara Estroff Marano";
+        let apathyRec2 = " <br>\"\'When apathy is identified, nonpharmacological treatment should be tried first.  These include activity-based interventions aimed at mobilizing patients, improving quality of life, and alleviating feelings of social isolation. One simple change could be to reflect on your treatment from the perspective of GOALS rather than SYMPTOMS– for example, \'my goal is to get back on the golf course\' rather than \'my goal is to reduce my tremors.\'\”<br> -Suketu M. Khandhar, MD & Michel Medina, MD; \'Conquering Apathy\'; Working Parkinson Connections; October 19th, 2020" ;
+        let sleepRec1 = "\"While implementing positive sleep habits and consistent bedtime routines can make a big difference in someone's sleep quantity and quality, ending negative sleep-related habits and behaviors is just as critical. While the bad habits that interrupt our sleep are different for everyone, in most cases this process will involve cutting back on food and drinks that interfere with sleep, staying away from disruptive electronic devices, and identifying and minimizing any obstacles that are preventing an individual from getting the rest they need.\"<br> -Psychology Today Staff; \'How to Sleep Better\'; Psychology Today; December 7th, 2023";
+        let sleepRec2 = "<br>\"The term “sleep hygiene” refers to a series of healthy sleep habits that can improve your ability to fall asleep and stay asleep. These habits can help improve your sleep health.  When people struggle with insomnia, sleep hygiene is an important part of cognitive behavioral therapy (CBT), the most effective long-term treatment for people with chronic insomnia. CBT for insomnia can help you address the thoughts and behaviors that prevent you from sleeping well. It also includes techniques for stress reduction, relaxation and sleep schedule management.\"<br> -American Academy of Sleep Education; \'Healthy Sleep Habits\'; August 1st, 2020; Reviewed by Shelley Hershner, MD and Imran Shaikh, MD";
 
-<script>
-    let rec1Array = [];
-    let rec2Array = [];
-    let rec3Array = [];
+        let userAge = parseInt(document.getElementById("ageTag").innerHTML);
+        let sGeneration = "";
 
-    let worriesRec1 = "\"There are three extraordinarily effective way to moderate anxiety without the use of medications. All are simple lifestyle modifications. The first and most accessible is deep breathing, or so-called abdominal breathing. It can be done anytime, anywhere, and requires no special equipment of any kind. Taking deep breaths that fill the lungs and then exhaling slowly through pursed lips stimulates the parasympathetic nerve, directly countering the stress response and inducing a state of calm. Heart rate slows, blood pressure falls, muscles release tension.<br><br>\"Exposure therapy, in which patients are safely and gradually exposed to their fears so they no longer avoid them, is an essential part of most behavioral treatments for anxiety. Medication is often used to help patients control symptoms enough to focus on talk therapy.\"<br> -Psychology Today; \'What is Anxiety\'; December 7th, 2023";
-    let worriesRec2 = "";
-    let concentrateRec1 = "\"Get plenty of sleep. If you read a book or article when very tired, you will forget most of what you have read. Sleep improves attention and concentration, and therefore the registration of information. And sleep is also required for memory consolidation.\"<br> -Neel Burton M.D; \'How to Improve Your Concentration and Memory\'; Psychology Today; January 14th, 2013; Reviewed by Kaja Perina";
-    let concentrateRec2 = "<br>\"Process information. If possible, summarize the material in your own words. Or reorganize it so that it is easier to learn. With more complex material, try to understand its meaning and significance. Shakespearean actors find it much easier to remember their lines if they can understand and feel them. If needs must, concentrate on the important things, or the bigger picture. In the words of Oscar Wilde, \‘One should absorb the colour of life, but one should never remember its details. Details are always vulgar.\’\"<br>-Neel Burton M.D; \'How to Improve Your Concentration and Memory\'; Psychology Today; January 14th, 2013; Reviewed by Kaja Perina";
-    let distractionRec1 = "\"\'...our distraction is usually driven by our desire to escape discomfort, including boredom, fear, and anxiety — or tasks in our work calendar that don’t sync with how we value our time. When you binge on The Office rather than doing your taxes, watching Michael, Pam, and Dwight is your (understandable) way of avoiding an activity you deem to be a tedious task. The secret to staying focused at times like these is not to abstain from The Office — you’ll just find another distraction — but to change your perspective on the task itself.<br><br>\"Ian Bogost studies fun for a living. A professor of interactive computing at the Georgia Institute of Technology, Bogost has written 10 books, including quirky titles like How to Talk About Videogames, The Geek’s Chihuahua, and, most recently, Play Anything. In the latter book, Bogost makes several bold claims that challenge how we think about fun and play. 'Fun,'' he writes, 'turns out to be fun even if it doesn’t involve much (or any) enjoyment.'\"<br> -Nir Eyal; \'How to Be Less Distracted\'; Psychology Today; January 8th, 2022; Reviewed by Kaja Perina";
-    let distractionRec2 = ''
-    let depressionRec1 = "\'Control stress with activities such as meditation or tai chi. Eat healthy, exercise, and get enough sleep. Most adults need 7-9 hours of sleep per night. Avoid using alcohol and recreational drugs, which can worsen symptoms and make depression harder to treat.\'<br>";
-    let depressionRec2 = "<br>\"Recognize your depression triggers and talk to your doctor and/or mental health professional if you notice unusual changes in how you feel, think, or act. If needed, your doctor can safely adjust your medication. Write down how you feel day-to-day (moods, feelings, reactions) to spot patterns and understand your depression triggers.\" <br> -Substance Abuse and Mental Health Services Administration; \'Depression\'; April 24th, 2023";;
-    let apathyRec1 = "\"Determine where your apathy is coming from, and contest its underlying assumptions. Since apathy is fundamentally about attitude, begin to look at yourself and your history from a different perspective. And that’s one in which you offer yourself greater compassion, empathy, and understanding—and possibly forgiveness for any past insensitivities, transgressions, or shortcomings. It’s time to move beyond whatever negative messages you received about yourself in the past and realize that, as long as you don’t set your sights unrealistically high and are willing to apply yourself diligently to whatever is important to you, your success is virtually guaranteed.\"<br> -Leon F Seltzer PhD; \'The Curse of Apathy: Sources and Solutions\'; Psychology Today; April 27th, 2016; Reviewed by Hara Estroff Marano" ;
-    let apathyRec2 = " <br>\"\'When apathy is identified, nonpharmacological treatment should be tried first.  These include activity-based interventions aimed at mobilizing patients, improving quality of life, and alleviating feelings of social isolation. One simple change could be to reflect on your treatment from the perspective of GOALS rather than SYMPTOMS– for example, \'my goal is to get back on the golf course\' rather than \'my goal is to reduce my tremors.\'\”<br> -Suketu M. Khandhar, MD & Michel Medina, MD; \'Conquering Apathy\'; Working Parkinson Connections; October 19th, 2020" ;
-    let sleepRec1 = "\"While implementing positive sleep habits and consistent bedtime routines can make a big difference in someone's sleep quantity and quality, ending negative sleep-related habits and behaviors is just as critical. While the bad habits that interrupt our sleep are different for everyone, in most cases this process will involve cutting back on food and drinks that interfere with sleep, staying away from disruptive electronic devices, and identifying and minimizing any obstacles that are preventing an individual from getting the rest they need.\"<br> -Psychology Today Staff; \'How to Sleep Better\'; Psychology Today; December 7th, 2023";
-    let sleepRec2 = "<br>\"The term “sleep hygiene” refers to a series of healthy sleep habits that can improve your ability to fall asleep and stay asleep. These habits can help improve your sleep health.  When people struggle with insomnia, sleep hygiene is an important part of cognitive behavioral therapy (CBT), the most effective long-term treatment for people with chronic insomnia. CBT for insomnia can help you address the thoughts and behaviors that prevent you from sleeping well. It also includes techniques for stress reduction, relaxation and sleep schedule management.\"<br> -American Academy of Sleep Education; \'Healthy Sleep Habits\'; August 1st, 2020; Reviewed by Shelley Hershner, MD and Imran Shaikh, MD";
+        if (userAge >= 59) {
+            sGeneration = "Baby Boomers";
+            // document.getElementById("getHelpButton").action = ("/helpBoomers");
+            document.getElementById("stat1").innerHTML = "&bull; Apathy";
+            document.getElementById("stat2").innerHTML = "&bull; Sleep Issues";
+            document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted";
 
-    let userAge = parseInt(document.getElementById("ageTag").innerHTML)
-    let sGenration = ""
+            showGeneration(sGeneration);
+            makeArrays(apathyRec1, apathyRec2, sleepRec1, sleepRec2, distractionRec1, distractionRec2);
+            assignTheThing();
+        }
+        else if (userAge >= 43) {
+            sGeneration = "Gen X";
+            // document.getElementById("getHelpButton").action = ("/helpGenX");
+            document.getElementById("stat1").innerHTML = "&bull; Being Highly Distracted";
+            document.getElementById("stat2").innerHTML = "&bull; Worry";
+            document.getElementById("stat3").innerHTML = "&bull; Sleep Issues";
 
-    if (userAge >= 59){
-        sGenration = "Baby Boomers"
-        // document.getElementById("getHelpButton").action = ("/helpBoomers")
-        document.getElementById("stat1").innerHTML = "&bull; Apathy"
-        document.getElementById("stat2").innerHTML = "&bull; Sleep Issues"
-        document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
+            showGeneration(sGeneration);
+            makeArrays(distractionRec1, distractionRec2, worriesRec1, worriesRec2, sleepRec1, sleepRec2);
+            assignTheThing();
+        }
+        else if (userAge >= 27) {
+            sGeneration = "Millennials";
+            // document.getElementById("getHelpButton").action = ("/helpMillenials");
+            document.getElementById("stat1").innerHTML = "&bull; Worry";
+            document.getElementById("stat2").innerHTML = "&bull; Being Highly Distracted";
+            document.getElementById("stat3").innerHTML = "&bull; Difficulty Conscentrating";
 
-        showGeneration(sGenration);
-        makeArrays(apathyRec1, apathyRec2, sleepRec1, sleepRec2, distractionRec1, distractionRec2);
-        assignTheThing();
+            showGeneration(sGeneration);
+            makeArrays(worriesRec1, worriesRec2, distractionRec1, distractionRec2, concentrateRec1, concentrateRec2);
+            assignTheThing();
+        }
+        else {
+            sGeneration = "Gen Z";
+            // document.getElementById("getHelpButton").action = ("/helpGenZ");
+            document.getElementById("stat1").innerHTML = "&bull; Worry";
+            document.getElementById("stat2").innerHTML = "&bull; Depression";
+            document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted";
 
-    }
-    else if (userAge >= 43){
-        sGenration = "Gen X"
-        // document.getElementById("getHelpButton").action = ("/helpGenX")
-        document.getElementById("stat1").innerHTML = "&bull; Being Highly Distracted"
-        document.getElementById("stat2").innerHTML = "&bull; Worry"
-        document.getElementById("stat3").innerHTML = "&bull; Sleep Issues"
+            showGeneration(sGeneration);
+            makeArrays(worriesRec1, worriesRec2, depressionRec1, depressionRec2, distractionRec1, distractionRec2);
+            assignTheThing();
+        }
 
-        showGeneration(sGenration);
-        makeArrays(distractionRec1, distractionRec2, worriesRec1, worriesRec2, sleepRec1, sleepRec2);
-        assignTheThing();
+        function makeArrays(stat1rec1, stat1rec2, stat2rec1, stat2rec2, stat3rec1, stat3rec2) {
+            rec1Array = [document.getElementById("stat1").innerHTML, stat1rec1, stat1rec2];
+            rec2Array = [document.getElementById("stat2").innerHTML, stat2rec1, stat2rec2];
+            rec3Array = [document.getElementById("stat3").innerHTML, stat3rec1, stat3rec2];
+        }
 
-    }
-    else if (userAge >= 27){
-        sGenration = "Millennials"
-        // document.getElementById("getHelpButton").action = ("/helpMillenials")
-        document.getElementById("stat1").innerHTML = "&bull; Worry"
-        document.getElementById("stat2").innerHTML = "&bull; Being Highly Distracted"
-        document.getElementById("stat3").innerHTML = "&bull; Difficulty Conscentrating"
+        function showGeneration(genSomething) {
+            let sGenerationalAssessment = genSomething + "<br>";
+            document.getElementById("GenerationAssessment").innerHTML = sGenerationalAssessment;
+        }
 
-        showGeneration(sGenration);
-        makeArrays(worriesRec1, worriesRec2, distractionRec1, distractionRec2, concentrateRec1, concentrateRec2);
-        assignTheThing();
+        function assignTheThing() {
+            let loopArray = [rec1Array, rec2Array, rec3Array];
 
-    }
-    else{
-        sGenration = "Gen Z"
-        // document.getElementById("getHelpButton").action = ("/helpGenZ")
-        document.getElementById("stat1").innerHTML = "&bull; Worry"
-        document.getElementById("stat2").innerHTML = "&bull; Depression"
-        document.getElementById("stat3").innerHTML = "&bull; Being Highly Distracted"
+            document.getElementById("rec1").innerHTML = loopArray[0][0];
+            document.getElementById("rec1A").innerHTML = loopArray[0][1];
+            document.getElementById("rec1B").innerHTML = loopArray[0][2];
 
-        showGeneration(sGenration);
-        makeArrays(worriesRec1, worriesRec2, depressionRec1, depressionRec2, distractionRec1, distractionRec2);
-        assignTheThing();
-    }
+            document.getElementById("rec2").innerHTML = loopArray[1][0];
+            document.getElementById("rec2A").innerHTML = loopArray[1][1];
+            document.getElementById("rec2B").innerHTML = loopArray[1][2];
 
-    function makeArrays(stat1rec1, stat1rec2, stat2rec1, stat2rec2, stat3rec1, stat3rec2){
-        rec1Array = [document.getElementById("stat1").innerHTML, stat1rec1, stat1rec2];
-        rec2Array = [document.getElementById("stat2").innerHTML, stat2rec1, stat2rec2];
-        rec3Array = [document.getElementById("stat3").innerHTML, stat3rec1, stat3rec2];
-    }
-
-    function showGeneration(genSomething){
-        let sGenerationalAssessment = genSomething + "<br>";
-        document.getElementById("GenerationAssessment").innerHTML = sGenerationalAssessment;
-    }
-
-    function assignTheThing(){
-        let loopArray = [rec1Array, rec2Array, rec3Array]
-
-        document.getElementById("rec1").innerHTML = loopArray[0][0]
-        document.getElementById("rec1A").innerHTML = loopArray[0][1]
-        document.getElementById("rec1B").innerHTML = loopArray[0][2]
-
-        document.getElementById("rec2").innerHTML = loopArray[1][0]
-        document.getElementById("rec2A").innerHTML = loopArray[1][1]
-        document.getElementById("rec2B").innerHTML = loopArray[1][2]
-
-        document.getElementById("rec3").innerHTML = loopArray[2][0]
-        document.getElementById("rec3A").innerHTML = loopArray[2][1]
-        document.getElementById("rec3B").innerHTML = loopArray[2][2]
-    }
-</script>
-
-
+            document.getElementById("rec3").innerHTML = loopArray[2][0];
+            document.getElementById("rec3A").innerHTML = loopArray[2][1];
+            document.getElementById("rec3B").innerHTML = loopArray[2][2];
+        }
+    </script>
 </body>
 </html>
 

@@ -19,20 +19,21 @@
         }
     </style>
     <h2 class="p-3 bg-opacity-10 fs-6 fw-lighter text-center">Provo Social Media Usage and Mental Health Committee</h2>
+    <!-- Navbar -->
     <nav class="navbar sticky-top navbar-expand-lg navbar" style="background-color: #2596be;" data-bs-theme="dark">
         <a class="navbar-brand" href="/">
             <img src="/resources/Current_flag_of_Provo,_Utah.svg.png" width="65" height="35" alt="">
         </a>
         <a class="navbar-brand">Provo Community</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto text-white">
                 <!-- Home button -->
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home <span class="sr-only"></span></a>
+                    <a class="nav-link active" aria-current="page" href="/">Home <span class="sr-only"></span></a>
                 </li>
 
                 <!-- Survey -->
@@ -52,25 +53,59 @@
             </ul>
             <!-- Login -->
             <li class="nav-item mx-auto me-2">
-            <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/login">Login</a>
             </li>
         </div>
     </nav>
     <h1 class="p-3 bg-opacity-10 fs-2 fw-lighter text-center">Social Media vs Mental Health <br> Statistics</h1>
 
     <div class="container-fluid">
-        <div class='tableauPlaceholder' id='viz1701978674903' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;Intex1-Tableau&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Intex1-Tableau&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;Intex1-Tableau&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1701978674903');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1577px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-    
+        <!-- Tableau Embeded Link -->
+        <div class='tableauPlaceholder' id='viz1701978674903' style='position: relative'>
+            <noscript>
+                <a href='#'>
+                    <img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;Intex1-Tableau&#47;Dashboard1&#47;1_rss.png' style='border: none' />
+                </a>
+            </noscript>
+            <object class='tableauViz'  style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                <param name='embed_code_version' value='3' /> <param name='site_root' value='' />
+                <param name='name' value='Intex1-Tableau&#47;Dashboard1' />
+                <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;Intex1-Tableau&#47;Dashboard1&#47;1.png' />
+                <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' /><param name='language' value='en-US' />
+                <param name='filter' value='publish=yes' />
+            </object>
+        </div>
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1701978674903');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            if ( divElement.offsetWidth > 800 ) {
+                vizElement.style.width='100%';
+                vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+            } else if ( divElement.offsetWidth > 500 ) {
+                vizElement.style.width='100%';
+                vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+            } else {
+                vizElement.style.width='100%';
+                vizElement.style.height='1577px';
+            }
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
     </div>
 
     <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
-          <li class="nav-item"><a href="/survey" class="nav-link px-2 text-muted">Survey</a></li>
-          <li class="nav-item"><a href="/dashboard" class="nav-link px-2 text-muted">Stats</a></li>
-          <li class="nav-item"><a href="/login" class="nav-link px-2 text-muted">Login</a></li>
+            <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="/survey" class="nav-link px-2 text-muted">Survey</a></li>
+            <li class="nav-item"><a href="/dashboard" class="nav-link px-2 text-muted">Stats</a></li>
+            <li class="nav-item"><a href="/login" class="nav-link px-2 text-muted">Login</a></li>
         </ul>
         <p class="text-center text-muted">© 2023 SMU MH</p>
-      </footer>
+    </footer>
 </body>
 </html>

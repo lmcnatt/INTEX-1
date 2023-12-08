@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="icon" href="/resources/Screenshot 2023-12-05 at 8.56.01 PM.png" type="image/x-icon">
@@ -18,6 +17,7 @@
         }
     </style>
     <h2 class="p-3 bg-opacity-10 fs-6 fw-lighter text-center">Provo Social Media Usage and Mental Health Committee</h2>
+    <!-- Navbar -->
     <nav class="navbar sticky-top navbar-expand-lg navbar" style="background-color: #2596be;" data-bs-theme="dark">
         <a class="navbar-brand" href="/">
             <img src="/resources/Current_flag_of_Provo,_Utah.svg.png" width="65" height="35" alt="">
@@ -29,7 +29,7 @@
 
         <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto text-white">
-                <!-- Home button -->
+                <!-- Home -->
                 <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Home <span class="sr-only"></span></a>
                 </li>
@@ -57,9 +57,11 @@
     </nav>
     <div>
         <br>
+        <!-- Create Account Button -->
         <div class="btn mx-auto">
             <a href="/createAcc" class="btn btn-outline-secondary" role="button" data-bs-toggle="button">Create Account</a>
         </div>
+        <!-- Modify Account Button -->
         <div class="btn mx-auto">
             <a href="/modifyAcc" class="btn btn-outline-secondary" role="button" data-bs-toggle="button">Edit Account</a>
         </div>
@@ -69,6 +71,7 @@
             <h1 class="text-center fw-bold display-2">Entries</h1>
         </div>
         <br>
+        <!-- Dropdown for Entry ID filter -->
         <div class="container">
             <form action="/adminDashboard" method="get">
                 <label for="filterID"> Select ID</label>
@@ -82,6 +85,7 @@
             </form>
         </div>
 
+        <!-- Entries Details -->
         <div class="container table-responsive">
             <table class="table">
                 <thead>
@@ -118,12 +122,12 @@
     </div>
     <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
-          <li class="nav-item"><a href="/survey" class="nav-link px-2 text-muted">Survey</a></li>
-          <li class="nav-item"><a href="/dashboard" class="nav-link px-2 text-muted">Stats</a></li>
-          <li class="nav-item"><a href="/login" class="nav-link px-2 text-muted">Login</a></li>
+            <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="/survey" class="nav-link px-2 text-muted">Survey</a></li>
+            <li class="nav-item"><a href="/dashboard" class="nav-link px-2 text-muted">Stats</a></li>
+            <li class="nav-item"><a href="/login" class="nav-link px-2 text-muted">Login</a></li>
         </ul>
         <p class="text-center text-muted">© 2023 SMU MH</p>
-      </footer>
+    </footer>
 </body>
 </html>

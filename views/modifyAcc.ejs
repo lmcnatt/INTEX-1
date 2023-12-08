@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="icon" href="/resources/Screenshot 2023-12-05 at 8.56.01 PM.png" type="image/x-icon">
-
     <link rel="script" href="/scripts/scripts.jsy">
     <title>Edit Account</title>
 </head>
@@ -20,20 +18,21 @@
         }
     </style>
     <h2 class="p-3 bg-opacity-10 fs-6 fw-lighter text-center">Provo Social Media Usage and Mental Health Committee</h2>
+    <!-- Navbar -->
     <nav class="navbar sticky-top navbar-expand-lg navbar" style="background-color: #2596be;" data-bs-theme="dark">
         <a class="navbar-brand" href="/">
             <img src="/resources/Current_flag_of_Provo,_Utah.svg.png" width="65" height="35" alt="">
         </a>
         <a class="navbar-brand">Provo Community</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto text-white">
                 <!-- Home button -->
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home <span class="sr-only"></span></a>
+                    <a class="nav-link active" aria-current="page" href="/">Home <span class="sr-only"></span></a>
                 </li>
 
                 <!-- Survey -->
@@ -53,7 +52,7 @@
             </ul>
             <!-- Login -->
             <li class="nav-item mx-auto me-2">
-            <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/login">Login</a>
             </li>
         </div>
     </nav>
@@ -63,20 +62,20 @@
                 <h1>Edit Your Account</h1>
                 <br>
                 <form action="/modifyAcc" method="POST">
-                    <label for="FirstName">First Name</label>
+                    <label for="login_firstname">First Name</label>
                     <input type="text" id="login_firstname" name="login_firstname" value="<%= myUsers[0].first_name%>" required>
                     <br><br>
-                    <label for="LastName">Last Name</label>
+                    <label for="login_lastname">Last Name</label>
                     <input type="text" id="login_lastname" name="login_lastname" value="<%= myUsers[0].last_name%>" required>
                     <br><br>
-                    <label for="username">Username</label>
+                    <label for="login_username">Username</label>
                     <input type="text" id="login_username" name="login_username" value="<%= myUsers[0].username%>" required>
                     <br><br>
-                    <label for="password">Password</label>
+                    <label for="login_password">Password</label>
                     <input type="password" id="login_password" name="login_password" value="<%= myUsers[0].password%>" required>
                     <br>
                     <br>
-                    <input type="checkbox" id="show_pass" onclick="ShowPassword()">
+                    <input type="checkbox" id="show_pass" name="show_pass" onclick="ShowPassword()">
                     <label for="show_pass">Show Password</label>
                     <br><br>
                     <button class="btn mx-auto btn btn-outline-secondary" type="submit">Save</button>
@@ -85,6 +84,7 @@
         </div>
     </div>
     <script>
+        // If box is checked, set the password to be of type text
         function ShowPassword() {
             var x = document.getElementById("login_password");
             if (x.type === "password") {
