@@ -277,7 +277,7 @@ app.post("/modifyAcc", authenticate, (req, res) => {
         password: req.body.login_password,
         first_name: req.body.login_firstname,
         last_name: req.body.login_lastname
-    }).then(myProducts => {
+    }).then(myUsers => {
         res.redirect("/adminDashboard");
     }).catch(err => {
         console.error(err);
