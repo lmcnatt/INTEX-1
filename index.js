@@ -57,8 +57,8 @@ app.get("/login", (req, res) => {
     let loginChecker = '';
 
     // If the user has logged in previously in this session, send to Admin Dashboard
-    if (req.session.userID != null){
-        res.redirect("adminDashboard")
+    if (req.session.userID != null) {
+        res.redirect("adminDashboard");
     }
     // If they haven't logged in in this session, send to login.
     else{
