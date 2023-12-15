@@ -6,4 +6,4 @@ Website Link: https://provo.socialmediahealth.is404.net/
 
 Admin Credentials:
   Username: admin
-  Password: IntexFall202
+  Password: IntexFall2023
